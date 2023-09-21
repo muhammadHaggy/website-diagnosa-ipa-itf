@@ -1,10 +1,14 @@
+import { Grid } from "@mui/material";
+import GmIndex from "./sections/GmIndex";
+import { useState } from "react";
+
 function Scoring() {
+  const [gmIndex, setGmIndex] = useState(false)
+
   return (
-    <>
-      <h1>
-        Scoring halo
-      </h1>
-    </>
+    <Grid container direction={'column'} alignContent={'center'} py={'5rem'}>
+      <GmIndex gmIndex={gmIndex} setGmIndex={setGmIndex} />
+    </Grid>
   )
 }
 
