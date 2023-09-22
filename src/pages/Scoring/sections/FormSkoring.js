@@ -2,18 +2,50 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
 import MKBox from "components/MKBox";
-import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 
 import bgImage from "assets/images/scoring/scoring.jpg";
-import PertanyaanSkoring from "./PertanyaanSkoring";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import Pasien from "./Pasien";
 
 function FormSkoring() {
-  const [tbParu, setTbParu] = useState(false)
-  const [organSolid, setOrganSolid] = useState(false)
   const [galaktomanan, setGalaktomanan] = useState(false)
+  const [step, setStep] = useState(0)
+
+  const judul = useMemo(() => {
+    if (step == 0) {
+      return "Kriteria Klinis"
+    }
+  }, [step])
+  
+  // Pasien
+  const [neutropenia, setNeutropenia] = useState(false)
+  const [hematologi, setHematologi] = useState(false)
+  const [organSolid, setOrganSolid] = useState(false)
   const [kortikosteroid, setKortikosteroid] = useState(false)
+  const [perawatan, setPerawatan] = useState(false)
+  const [paruKronik, setParuKronik] = useState(false)
+  const [sirosis, setSirosis] = useState(false)
+  const [melitus, setMelitus] = useState(false)
+
+  const pasien = {
+    neutropenia, setNeutropenia,
+    hematologi, setHematologi,
+    organSolid, setOrganSolid,
+    kortikosteroid, setKortikosteroid,
+    perawatan, setPerawatan,
+    paruKronik, setParuKronik,
+    sirosis, setSirosis,
+    melitus, setMelitus
+  }
+
+  function lanjut() {
+    if (step == 2) {
+      // tembak API
+    } else {
+      setStep(step + 1)
+    }
+  }
 
   return (
     <Container>
@@ -52,53 +84,15 @@ function FormSkoring() {
                   width="100%"
                   height="100%"
                 >
-                  <MKBox py={6} pl={6} my="auto">
+                  <MKBox py={6} px={6} my="auto">
                     <MKTypography variant="h3">
-                      Pertanyaan Skoring
+                      {judul}
                     </MKTypography>
                   </MKBox>
                 </MKBox>
               </Grid>
               <Grid item xs={12} lg={7}>
-                <MKBox component="form" p={2}>
-                  <MKBox px={3} py={2}>
-                    <MKBox direction="column">
-                      <MKTypography variant="body1">
-                        Apakah pasien menderita TB paru?
-                      </MKTypography>
-                      <PertanyaanSkoring value={tbParu} setValue={setTbParu} />
-                    </MKBox>
-                  </MKBox>
-                  <MKBox px={3} py={2}>
-                    <MKBox direction="column">
-                      <MKTypography variant="body1">
-                        Apakah pasien menderita keganasan organ solid?
-                      </MKTypography>
-                      <PertanyaanSkoring value={organSolid} setValue={setOrganSolid} />
-                    </MKBox>
-                  </MKBox>
-                  <MKBox px={3} py={2}>
-                    <MKBox direction="column">
-                      <MKTypography variant="body1">
-                        Apakah pasien memiliki Galaktomanan positif?
-                      </MKTypography>
-                      <PertanyaanSkoring value={galaktomanan} setValue={setGalaktomanan} />
-                    </MKBox>
-                  </MKBox>
-                  <MKBox px={3} py={2}>
-                    <MKBox direction="column">
-                      <MKTypography variant="body1">
-                        Apakah pasien menerima obat kortikosteroid sistemik?
-                      </MKTypography>
-                      <PertanyaanSkoring value={kortikosteroid} setValue={setKortikosteroid} />
-                    </MKBox>
-                  </MKBox>
-                  <Grid item display={'flex'} justifyContent={'end'}>
-                    <MKButton variant="gradient" color="info">
-                      Lanjut
-                    </MKButton>
-                  </Grid>
-                </MKBox>
+                <Pasien {...pasien} lanjut={lanjut} />
               </Grid>
             </Grid>
           </MKBox>
