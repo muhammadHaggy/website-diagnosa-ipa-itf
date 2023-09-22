@@ -4,6 +4,7 @@ import PertanyaanSkoring from "./PertanyaanSkoring";
 import Grid from "@mui/material/Grid";
 import MKButton from "components/MKButton";
 import { useMemo } from "react";
+import { Link } from "react-router-dom";
 
 
 function Lab({
@@ -54,7 +55,7 @@ function Lab({
           <MKButton variant="gradient" color="info" onClick={kembali}>
             Kembali
           </MKButton>
-          <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut}>
+          <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut} component={Link} to="/result">
             Lihat Hasil
           </MKButton>
         </Grid>
