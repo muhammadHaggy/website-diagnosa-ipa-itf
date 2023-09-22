@@ -33,12 +33,13 @@ import routes from "routes";
 
 // Images
 import bgImage from "assets/images/city-profile.jpg";
+import { createdRoutes } from "routes";
 
 function Author() {
   return (
     <>
       <DefaultNavbar
-        routes={routes}
+        routes={createdRoutes}
         // action={{
         //   type: "external",
         //   route: "https://www.creative-tim.com/product/material-kit-react",
