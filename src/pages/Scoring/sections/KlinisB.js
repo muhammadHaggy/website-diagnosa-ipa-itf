@@ -3,12 +3,19 @@ import MKTypography from "components/MKTypography";
 import PertanyaanSkoring from "./PertanyaanSkoring";
 import Grid from "@mui/material/Grid";
 import MKButton from "components/MKButton";
+import { useMemo } from "react";
 
 
 function KlinisB({
   infiltrat, setInfiltrat,
   lanjut, kembali
 }) {
+  const valid = useMemo(() => {
+    return (
+      infiltrat != null
+    )
+  }, [infiltrat])
+  
   return (
     <>
       <MKBox component="form" p={2}>
@@ -27,7 +34,7 @@ function KlinisB({
           <MKButton variant="gradient" color="info" onClick={kembali}>
             Kembali
           </MKButton>
-          <MKButton variant="gradient" color="info" onClick={lanjut}>
+          <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut}>
             Lanjut
           </MKButton>
         </Grid>

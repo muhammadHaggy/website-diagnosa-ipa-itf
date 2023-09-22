@@ -25,14 +25,14 @@ function FormSkoring() {
   }, [step])
 
   // Pasien
-  const [neutropenia, setNeutropenia] = useState(false)
-  const [hematologi, setHematologi] = useState(false)
-  const [organSolid, setOrganSolid] = useState(false)
-  const [kortikosteroid, setKortikosteroid] = useState(false)
-  const [perawatan, setPerawatan] = useState(false)
-  const [paruKronik, setParuKronik] = useState(false)
-  const [sirosis, setSirosis] = useState(false)
-  const [melitus, setMelitus] = useState(false)
+  const [neutropenia, setNeutropenia] = useState(null)
+  const [hematologi, setHematologi] = useState(null)
+  const [organSolid, setOrganSolid] = useState(null)
+  const [kortikosteroid, setKortikosteroid] = useState(null)
+  const [perawatan, setPerawatan] = useState(null)
+  const [paruKronik, setParuKronik] = useState(null)
+  const [sirosis, setSirosis] = useState(null)
+  const [melitus, setMelitus] = useState(null)
 
   const pasien = {
     neutropenia, setNeutropenia,
@@ -46,11 +46,11 @@ function FormSkoring() {
   }
 
   // Klinis A
-  const [demam, setDemam] = useState(false)
-  const [nyeri, setNyeri] = useState(false)
-  const [sesak, setSesak] = useState(false)
-  const [batuk, setBatuk] = useState(false)
-  const [gagalNapas, setGagalNapas] = useState(false)
+  const [demam, setDemam] = useState(null)
+  const [nyeri, setNyeri] = useState(null)
+  const [sesak, setSesak] = useState(null)
+  const [batuk, setBatuk] = useState(null)
+  const [gagalNapas, setGagalNapas] = useState(null)
 
   const klinisA = {
     demam, setDemam,
@@ -61,12 +61,12 @@ function FormSkoring() {
   }
 
   // Klinis B
-  const [infiltrat, setInfiltrat] = useState(false)
+  const [infiltrat, setInfiltrat] = useState(null)
 
   // Lab Jamur
-  const [mikroskopik, setMikroskopik] = useState(false)
-  const [kultur, setKultur] = useState(false)
-  const [galaktomanan, setGalaktomanan] = useState(false)
+  const [mikroskopik, setMikroskopik] = useState(null)
+  const [kultur, setKultur] = useState(null)
+  const [galaktomanan, setGalaktomanan] = useState(null)
 
   const lab = {
     mikroskopik, setMikroskopik,

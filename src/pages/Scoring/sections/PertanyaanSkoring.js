@@ -9,7 +9,7 @@ function PertanyaanSkoring({ value, setValue }) {
         <FormControlLabel
           control={
             <Radio
-              checked={value}
+              checked={value && value!= null}
               onChange={() => setValue(true)}
               value={true}
               name="Ya"
@@ -21,7 +21,7 @@ function PertanyaanSkoring({ value, setValue }) {
         <FormControlLabel
           control={
             <Radio
-              checked={!value}
+              checked={!value && value != null}
               onChange={() => setValue(false)}
               value={false}
               name="Tidak"

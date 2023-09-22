@@ -3,6 +3,7 @@ import MKTypography from "components/MKTypography";
 import PertanyaanSkoring from "./PertanyaanSkoring";
 import Grid from "@mui/material/Grid";
 import MKButton from "components/MKButton";
+import { useMemo } from "react";
 
 
 function Lab({
@@ -11,6 +12,14 @@ function Lab({
   galaktomanan, setGalaktomanan,
   lanjut, kembali
 }) {
+  const valid = useMemo(() => {
+    return (
+      mikroskopik != null &&
+      kultur != null &&
+      galaktomanan != null
+    )
+  }, [mikroskopik, kultur, galaktomanan])
+  
   return (
     <>
       <MKBox component="form" p={2}>
@@ -45,7 +54,7 @@ function Lab({
           <MKButton variant="gradient" color="info" onClick={kembali}>
             Kembali
           </MKButton>
-          <MKButton variant="gradient" color="info" onClick={lanjut}>
+          <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut}>
             Lihat Hasil
           </MKButton>
         </Grid>

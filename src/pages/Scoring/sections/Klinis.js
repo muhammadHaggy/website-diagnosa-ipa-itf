@@ -3,6 +3,7 @@ import MKTypography from "components/MKTypography";
 import PertanyaanSkoring from "./PertanyaanSkoring";
 import Grid from "@mui/material/Grid";
 import MKButton from "components/MKButton";
+import { useMemo } from "react";
 
 
 function Klinis({
@@ -13,6 +14,16 @@ function Klinis({
   gagalNapas, setGagalNapas,
   lanjut, kembali
 }) {
+  const valid = useMemo(() => {
+    return (
+      demam != null &&
+      nyeri != null &&
+      sesak != null &&
+      batuk != null &&
+      gagalNapas != null
+    )
+  }, [demam, nyeri, sesak, batuk, gagalNapas])
+  
   return (
     <>
       <MKBox component="form" p={2}>
@@ -63,7 +74,7 @@ function Klinis({
           <MKButton variant="gradient" color="info" onClick={kembali}>
             Kembali
           </MKButton>
-          <MKButton variant="gradient" color="info" onClick={lanjut}>
+          <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut}>
             Lanjut
           </MKButton>
         </Grid>

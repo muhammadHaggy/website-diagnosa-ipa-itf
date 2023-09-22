@@ -3,6 +3,7 @@ import MKTypography from "components/MKTypography";
 import PertanyaanSkoring from "./PertanyaanSkoring";
 import Grid from "@mui/material/Grid";
 import MKButton from "components/MKButton";
+import { useMemo } from "react";
 
 
 function Pasien({
@@ -16,6 +17,19 @@ function Pasien({
   melitus, setMelitus,
   lanjut, kembali, step
 }) {
+  const valid = useMemo(() => {
+    return (
+      neutropenia != null &&
+      hematologi != null &&
+      organSolid != null &&
+      kortikosteroid != null &&
+      perawatan != null &&
+      paruKronik != null &&
+      sirosis != null &&
+      melitus != null
+    )
+  }, [neutropenia, hematologi, organSolid, kortikosteroid, perawatan, paruKronik, sirosis, melitus])
+  
   return (
     <>
       <MKBox component="form" p={2}>
@@ -98,7 +112,7 @@ function Pasien({
           </Grid>
           :
           <Grid item display={'flex'} justifyContent={'end'}>
-            <MKButton variant="gradient" color="info" onClick={lanjut}>
+            <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut}>
               Lanjut
             </MKButton>
           </Grid>
