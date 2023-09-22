@@ -7,6 +7,7 @@ import MKTypography from "components/MKTypography";
 import bgImage from "assets/images/scoring/scoring.jpg";
 import { useMemo, useState } from "react";
 import Pasien from "./Pasien";
+import Klinis from "./Klinis";
 
 function FormSkoring() {
   const [galaktomanan, setGalaktomanan] = useState(false)
@@ -14,6 +15,8 @@ function FormSkoring() {
 
   const judul = useMemo(() => {
     if (step == 0) {
+      return "Kriteria Pasien"
+    } else if (step == 1 || step == 2) {
       return "Kriteria Klinis"
     }
   }, [step])
@@ -39,12 +42,27 @@ function FormSkoring() {
     melitus, setMelitus
   }
 
+  // Klinis A
+  const [demam, setDemam] = useState(false)
+  const [nyeri, setNyeri] = useState(false)
+  const [sesak, setSesak] = useState(false)
+  const [batuk, setBatuk] = useState(false)
+  const [gagalNapas, setGagalNapas] = useState(false)
+
+  const klinisA = {
+    demam, setDemam,
+    nyeri, setNyeri,
+    sesak, setSesak,
+    batuk, setBatuk,
+    gagalNapas, setGagalNapas
+  }
+
   function lanjut() {
     if (step == 2) {
       // tembak API
     } else {
       setStep(step + 1)
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }
 
@@ -53,7 +71,7 @@ function FormSkoring() {
       return
     } else {
       setStep(step - 1)
-      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }
 
@@ -102,7 +120,12 @@ function FormSkoring() {
                 </MKBox>
               </Grid>
               <Grid item xs={12} lg={7}>
-                <Pasien {...pasien} lanjut={lanjut} kembali={kembali} step={step} />
+                {step == 0 &&
+                  <Pasien {...pasien} lanjut={lanjut} kembali={kembali} step={step} />
+                }
+                {step == 1 &&
+                  <Klinis {...klinisA} lanjut={lanjut} kembali={kembali} />
+                }
               </Grid>
             </Grid>
           </MKBox>
