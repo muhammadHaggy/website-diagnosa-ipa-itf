@@ -12,9 +12,9 @@ function Scoring() {
           routes={displayedRoutes}
           action={{
             type: "internal",
-            route: "/scoring",
-            label: "Menuju Form Diagnosa",
-            color: "info",
+            route: "/",
+            label: "Keluar Form Diagnosa",
+            color: "error",
           }}
           transparent
           dark
