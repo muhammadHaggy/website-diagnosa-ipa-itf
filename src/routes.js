@@ -47,7 +47,7 @@ import AboutUs from "layouts/pages/landing-pages/about-us";
 import ContactUs from "layouts/pages/landing-pages/contact-us";
 import Author from "layouts/pages/landing-pages/author";
 import SignIn from "layouts/pages/authentication/sign-in";
-
+import LandingPage from "layouts/pages/landing-pages";
 // Sections
 import PageHeaders from "layouts/sections/page-sections/page-headers";
 import Features from "layouts/sections/page-sections/featuers";
@@ -71,10 +71,9 @@ import ScoringPage from "layouts/pages/scoring";
 
 export const createdRoutes = [
   {
-    name: "test",
-    icon: <Icon>slideshow</Icon>,
-    route: "/test",
-    component: <AboutUs />,
+    name: "Landing Page",
+    route: "/",
+    component: <LandingPage />,
   },
 ];
 
