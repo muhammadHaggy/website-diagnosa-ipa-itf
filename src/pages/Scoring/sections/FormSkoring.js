@@ -9,9 +9,9 @@ import { useMemo, useState } from "react";
 import Pasien from "./Pasien";
 import Klinis from "./Klinis";
 import KlinisB from "./KlinisB";
+import Lab from "./Lab";
 
 function FormSkoring() {
-  const [galaktomanan, setGalaktomanan] = useState(false)
   const [step, setStep] = useState(0)
 
   const judul = useMemo(() => {
@@ -19,6 +19,8 @@ function FormSkoring() {
       return "Kriteria Pasien"
     } else if (step == 1 || step == 2) {
       return "Kriteria Klinis"
+    } else {
+      return "Kriteria Lab. Jamur (Mikologi)"
     }
   }, [step])
 
@@ -61,8 +63,19 @@ function FormSkoring() {
   // Klinis B
   const [infiltrat, setInfiltrat] = useState(false)
 
+  // Lab Jamur
+  const [mikroskopik, setMikroskopik] = useState(false)
+  const [kultur, setKultur] = useState(false)
+  const [galaktomanan, setGalaktomanan] = useState(false)
+
+  const lab = {
+    mikroskopik, setMikroskopik,
+    kultur, setKultur,
+    galaktomanan, setGalaktomanan
+  }
+
   function lanjut() {
-    if (step == 2) {
+    if (step == 3) {
       // tembak API
     } else {
       setStep(step + 1)
@@ -132,6 +145,9 @@ function FormSkoring() {
                 }
                 {step == 2 &&
                   <KlinisB infiltrat={infiltrat} setInfiltrat={setInfiltrat} lanjut={lanjut} kembali={kembali} />
+                }
+                {step == 3 &&
+                  <Lab {...lab} lanjut={lanjut} kembali={kembali} />
                 }
               </Grid>
             </Grid>
