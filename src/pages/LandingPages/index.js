@@ -43,7 +43,6 @@ import SickIcon from "components/CustomIcon/SickIcon";
 function LandingPage() {
   return (
     <>
-      
       <MKBox
         minHeight="75vh"
         width="100%"
@@ -88,15 +87,14 @@ function LandingPage() {
         justifyContent="center"
         textAlign="center"
         alignItems="center"
-        sx={{
-        height: 1600,
-          p: 10,
-          mx: { xs: 2, lg: 6 },
-          mt: -10,
-          mb: 4,
-          backgroundColor: ({ palette: { white }, functions: { rgba } }) => rgba(white.main, 0.8),
-          backdropFilter: "saturate(200%) blur(30px)",
-          boxShadow: ({ boxShadows: { xxl } }) => xxl,
+        sx={{ 
+            pt: { xs: 5, md: 10 },
+            mt: { xs: -15 },
+            pb: { xs: 150, md: 50 },
+            backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
+              rgba(white.main, 0.8),
+            backdropFilter: "saturate(200%) blur(30px)",
+            boxShadow: ({ boxShadows: { xxl } }) => xxl,
         }}
       >
         
@@ -105,12 +103,11 @@ function LandingPage() {
           <Grid 
           container 
           spacing={3}
-          paddingX={5}
           justifyContent="center"
           columnSpacing={5}
           paddingBottom={3}
           >
-            <Grid item xs={12} lg={6} >
+            <Grid item xs={12} sm={10} md={10} lg={6} xl={6} >
             <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px",  height: "100%"}}>
                 <FilledInfoCard
                 color="info"
@@ -120,10 +117,9 @@ function LandingPage() {
             </div>
             </Grid>
 
-            <Grid item xs={12} lg={6}>
+            <Grid item xs={12} sm={10} md={10} lg={6} xl={6}>
             <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px",  height: "100%" }}>
                 <FilledInfoCard
-                
                 color="info"
                 icon={<PandemicIcon />}
                 description="Infeksi jamur ini semula kurang dianggap penting, sampai akhirnya pada akhir 2022 WHO menyatakan infeksi jamur sebagai masalah kesehatan global yang harus diwaspadai."
@@ -134,13 +130,12 @@ function LandingPage() {
           <Grid 
           container 
           spacing={3}
-          paddingX={5}
           justifyContent="center"
           columnSpacing={5}
           paddingBottom={3}
           
           >
-            <Grid item xs={12} lg={6} >
+            <Grid item xs={12} sm={10} md={10} lg={6} xl={6} >
             <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px",  height: "100%"}}>
                 <FilledInfoCard
                 color="info"
@@ -149,7 +144,7 @@ function LandingPage() {
             </div>
             </Grid>
 
-            <Grid item xs={12} lg={6} >
+            <Grid item xs={12} sm={10} md={10} lg={6} xl={6} >
             <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px",  height: "100%" }}>
                 <FilledInfoCard
                 
@@ -161,18 +156,17 @@ function LandingPage() {
             </Grid>
           </Grid>
           <Grid container 
-          spacing={3}
           justifyContent="center"
-          columnSpacing={5}
+          paddingX={{xs:3, md:6}}
           paddingTop={10}>
             <MKButton color="info" size="large" fullWidth circular >Lanjut ke Form Diagnosis</MKButton>
           </Grid>
           
         </Container>
         <Container>
-            <Grid container item xs={12} lg={7} mx="auto" spacing={3}
+            <Grid container item xs={12} lg={7} mx="auto"
           justifyContent="center"
-          columnSpacing={5}
+          paddingX={{xs:3, md:6}}
           paddingTop={20}
           paddingBottom={5}>
             <MKTypography
@@ -184,6 +178,9 @@ function LandingPage() {
                 [breakpoints.down("md")]: {
                   fontSize: size["3xl"],
                 },
+                [breakpoints.down("xs")]: {
+                    fontSize: size["xs"],
+                  },
               })}
             >
               Prosedur Diagnosis Aspergilosis Paru Invasif{" "}
