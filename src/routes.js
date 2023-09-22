@@ -67,6 +67,7 @@ import Dropdowns from "layouts/sections/elements/dropdowns";
 import ProgressBars from "layouts/sections/elements/progress-bars";
 import Toggles from "layouts/sections/elements/toggles";
 import Typography from "layouts/sections/elements/typography";
+import Result from "layouts/pages/result";
 import ScoringPage from "layouts/pages/scoring";
 
 export const createdRoutes = [
@@ -74,6 +75,11 @@ export const createdRoutes = [
     name: "Landing Page",
     route: "/",
     component: <LandingPage />,
+  },
+  {
+    name: "result",
+    route: "/result",
+    component: <Result />,
   },
 ];
 
