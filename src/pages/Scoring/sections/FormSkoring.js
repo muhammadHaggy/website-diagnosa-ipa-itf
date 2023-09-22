@@ -47,6 +47,14 @@ function FormSkoring() {
     }
   }
 
+  function kembali() {
+    if (step == 0) {
+      return
+    } else {
+      setStep(step - 1)
+    }
+  }
+
   return (
     <Container>
       <Grid minHeight={'100vh'} pt={15} pb={8} display={'flex'} direction={'column'} justifyContent={'center'}>
@@ -92,7 +100,7 @@ function FormSkoring() {
                 </MKBox>
               </Grid>
               <Grid item xs={12} lg={7}>
-                <Pasien {...pasien} lanjut={lanjut} />
+                <Pasien {...pasien} lanjut={lanjut} kembali={kembali} step={step} />
               </Grid>
             </Grid>
           </MKBox>

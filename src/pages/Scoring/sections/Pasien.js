@@ -14,7 +14,7 @@ function Pasien({
   paruKronik, setParuKronik,
   sirosis, setSirosis,
   melitus, setMelitus,
-  lanjut
+  lanjut, kembali, step
 }) {
   return (
     <>
@@ -83,11 +83,23 @@ function Pasien({
             <PertanyaanSkoring value={melitus} setValue={setMelitus} />
           </MKBox>
         </MKBox>
-        <Grid item display={'flex'} justifyContent={'end'}>
-          <MKButton variant="gradient" color="info" onClick={lanjut}>
-            Lanjut
-          </MKButton>
-        </Grid>
+
+        {step > 0 ?
+          <Grid item display={'flex'} justifyContent={'space-between'}>
+            <MKButton variant="gradient" color="info" onClick={kembali}>
+              Kembali
+            </MKButton>
+            <MKButton variant="gradient" color="info" onClick={lanjut}>
+              Lanjut
+            </MKButton>
+          </Grid>
+          :
+          <Grid item display={'flex'} justifyContent={'end'}>
+            <MKButton variant="gradient" color="info" onClick={lanjut}>
+              Lanjut
+            </MKButton>
+          </Grid>
+        }
       </MKBox>
     </>
   )
