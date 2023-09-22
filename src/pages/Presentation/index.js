@@ -45,18 +45,19 @@ import footerRoutes from "footer.routes";
 
 // Images
 import bgImage from "assets/images/bg-presentation.jpg";
+import { createdRoutes } from "routes";
 
 function Presentation() {
   return (
     <>
       <DefaultNavbar
-        routes={routes}
-        action={{
-          type: "external",
-          route: "https://www.creative-tim.com/product/material-kit-react",
-          label: "free download",
-          color: "info",
-        }}
+        routes={createdRoutes}
+        // action={{
+        //   type: "external",
+        //   route: "https://www.creative-tim.com/product/material-kit-react",
+        //   label: "free download",
+        //   color: "info",
+        // }}
         sticky
       />
       <MKBox

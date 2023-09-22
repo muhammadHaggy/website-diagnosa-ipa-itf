@@ -32,19 +32,20 @@ import footerRoutes from "footer.routes";
 
 // Image
 import bgImage from "assets/images/illustrations/illustration-reset.jpg";
+import { createdRoutes } from "routes";
 
 function ContactUs() {
   return (
     <>
       <MKBox position="fixed" top="0.5rem" width="100%">
         <DefaultNavbar
-          routes={routes}
-          action={{
-            type: "external",
-            route: "https://www.creative-tim.com/product/material-kit-react",
-            label: "free download",
-            color: "info",
-          }}
+          routes={createdRoutes}
+          // action={{
+          //   type: "external",
+          //   route: "https://www.creative-tim.com/product/material-kit-react",
+          //   label: "free download",
+          //   color: "info",
+          // }}
         />
       </MKBox>
       <Grid container spacing={3} alignItems="center">

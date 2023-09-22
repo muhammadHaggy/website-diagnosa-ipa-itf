@@ -69,6 +69,15 @@ import Toggles from "layouts/sections/elements/toggles";
 import Typography from "layouts/sections/elements/typography";
 import ScoringPage from "layouts/pages/scoring";
 
+export const createdRoutes = [
+  {
+    name: "test",
+    icon: <Icon>slideshow</Icon>,
+    route: "/test",
+    component: <AboutUs />,
+  },
+];
+
 const routes = [
   {
     name: "scoring",
@@ -275,6 +284,7 @@ const routes = [
     icon: <GitHubIcon />,
     href: "https://www.github.com/creativetimofficial/material-kit-react",
   },
+  ...createdRoutes,
 ];
 
 export default routes;
