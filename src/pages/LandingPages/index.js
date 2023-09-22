@@ -171,8 +171,13 @@ function LandingPage() {
           paddingX={{xs:3, md:6}}
           paddingTop={10}>
             <MKButton sx={{ 
-            backgroundColor: "#035560", color: "#FFFFFF"
-        }} size="large" fullWidth circular >Lanjut ke Form Diagnosis</MKButton>
+            backgroundColor: "#035560", color: "#FFFFFF",'&:hover': {
+              backgroundColor: "#035560", // Change this to the desired hover color
+            }, '&:active': {
+              color: "#000000", // Change this to the desired active color
+            },
+        
+        }} color="secondary" size="large" fullWidth circular >Lanjut ke Form Diagnosis</MKButton>
           </Grid>
           
         </Container>
