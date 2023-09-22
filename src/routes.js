@@ -67,8 +67,14 @@ import Dropdowns from "layouts/sections/elements/dropdowns";
 import ProgressBars from "layouts/sections/elements/progress-bars";
 import Toggles from "layouts/sections/elements/toggles";
 import Typography from "layouts/sections/elements/typography";
+import Result from "layouts/pages/result";
 
 const routes = [
+  {
+    name: "result",
+    route: "/result",
+    component: <Result />,
+  },
   {
     name: "pages",
     icon: <Icon>dashboard</Icon>,
