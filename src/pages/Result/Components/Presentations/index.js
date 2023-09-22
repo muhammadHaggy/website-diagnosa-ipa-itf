@@ -32,6 +32,8 @@ import Typography from '@mui/material/Typography';
 // Images
 import bgFront from "assets/images/rotating-card-bg-front.jpeg";
 import bgBack from "assets/images/rotating-card-bg-back.jpeg";
+import Low from "./Recommendation/low";
+import High from "./Recommendation/low";
 
 function Presentation() {
     return (
@@ -54,30 +56,8 @@ function Presentation() {
                 </Typography> */}
                 <Grid container item xs={11} spacing={3} alignItems="center" sx={{ mx: "auto" }}>
                     <Grid item xs={12} lg={4} sx={{ mx: "auto" }}>
-                        <RotatingCard>
-                            <RotatingCardFront
-                                image={bgFront}
-                                icon="touch_app"
-                                title={
-                                    <>
-                                        Recommendation/
-                                        <br />
-                                        Treatment
-                                    </>
-                                }
-                                description="Hover this page and see our best recommendation by experts by clicking on."
-                            />
-                            <RotatingCardBack
-                                image={bgBack}
-                                title="Discover More"
-                                description="Approriate systemic antifungal administration (voriconazole i.v)."
-                                action={{
-                                    type: "internal",
-                                    route: "/sections/page-sections/page-headers",
-                                    label: "click for more",
-                                }}
-                            />
-                        </RotatingCard>
+                        <Low/>
+                        {/* <High/> */}
                     </Grid>
                     <Grid item xs={12} lg={7} sx={{ ml: "auto" }}>
                         <Grid container spacing={3}>
