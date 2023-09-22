@@ -38,13 +38,13 @@ import LungIcon from "components/CustomIcon/LungIcon";
 import PatientIcon from "components/CustomIcon/PatientIcon";
 import PandemicIcon from "components/CustomIcon/PandemicIcon";
 import SickIcon from "components/CustomIcon/SickIcon";
-import { createdRoutes } from "routes";
+import { displayedRoutes } from "routes";
 
 function LandingPage() {
   return (
     <>
     <DefaultNavbar
-        routes={createdRoutes}
+        routes={displayedRoutes}
         // action={{
         //   type: "external",
         //   route: "https://www.creative-tim.com/product/material-kit-react",

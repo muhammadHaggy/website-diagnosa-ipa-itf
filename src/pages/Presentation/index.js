@@ -45,13 +45,13 @@ import footerRoutes from "footer.routes";
 
 // Images
 import bgImage from "assets/images/bg-presentation.jpg";
-import { createdRoutes } from "routes";
+import { displayedRoutes } from "routes";
 
 function Presentation() {
   return (
     <>
       <DefaultNavbar
-        routes={createdRoutes}
+        routes={displayedRoutes}
         // action={{
         //   type: "external",
         //   route: "https://www.creative-tim.com/product/material-kit-react",

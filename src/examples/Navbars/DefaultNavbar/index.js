@@ -42,7 +42,7 @@ import DefaultNavbarMobile from "examples/Navbars/DefaultNavbar/DefaultNavbarMob
 
 // Material Kit 2 React base styles
 import breakpoints from "assets/theme/base/breakpoints";
-import { createdRoutes } from "routes";
+import { displayedRoutes } from "routes";
 
 function DefaultNavbar({ brand, routes, transparent, light, action, sticky, relative, center }) {
   const [dropdown, setDropdown] = useState("");
@@ -541,7 +541,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
           borderRadius="xl"
           px={transparent ? 2 : 0}
         >
-          {mobileView && <DefaultNavbarMobile routes={createdRoutes} open={mobileNavbar} />}
+          {mobileView && <DefaultNavbarMobile routes={displayedRoutes} open={mobileNavbar} />}
         </MKBox>
       </MKBox>
       {dropdownMenu}

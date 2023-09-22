@@ -31,14 +31,14 @@ import Breadcrumbs from "examples/Breadcrumbs";
 
 // Routes
 import routes from "routes";
-import { createdRoutes } from "routes";
+import { displayedRoutes } from "routes";
 
 function BaseLayout({ breadcrumb, title, children }) {
   return (
     <MKBox display="flex" flexDirection="column" bgColor="white" minHeight="100vh">
       <MKBox bgColor="white" shadow="sm" py={0.25}>
         <DefaultNavbar
-          routes={createdRoutes}
+          routes={displayedRoutes}
           // action={{
           //   type: "external",
           //   route: "https://www.creative-tim.com/product/material-kit-react",

@@ -70,11 +70,16 @@ import Typography from "layouts/sections/elements/typography";
 import Result from "layouts/pages/result";
 import ScoringPage from "layouts/pages/scoring";
 
-export const createdRoutes = [
+export const displayedRoutes = [
   {
     name: "Landing Page",
     route: "/",
     component: <LandingPage />,
+  },
+  {
+    name: "scoring",
+    route: "/scoring",
+    component: <ScoringPage />,
   },
   {
     name: "result",
@@ -84,11 +89,6 @@ export const createdRoutes = [
 ];
 
 const routes = [
-  {
-    name: "scoring",
-    route: "/scoring",
-    component: <ScoringPage />,
-  },
   {
     name: "pages",
     icon: <Icon>dashboard</Icon>,
@@ -289,7 +289,7 @@ const routes = [
     icon: <GitHubIcon />,
     href: "https://www.github.com/creativetimofficial/material-kit-react",
   },
-  ...createdRoutes,
+  ...displayedRoutes,
 ];
 
 export default routes;
