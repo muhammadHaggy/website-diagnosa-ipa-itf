@@ -8,6 +8,7 @@ import bgImage from "assets/images/scoring/scoring.jpg";
 import { useMemo, useState } from "react";
 import Pasien from "./Pasien";
 import Klinis from "./Klinis";
+import KlinisB from "./KlinisB";
 
 function FormSkoring() {
   const [galaktomanan, setGalaktomanan] = useState(false)
@@ -56,6 +57,9 @@ function FormSkoring() {
     batuk, setBatuk,
     gagalNapas, setGagalNapas
   }
+
+  // Klinis B
+  const [infiltrat, setInfiltrat] = useState(false)
 
   function lanjut() {
     if (step == 2) {
@@ -125,6 +129,9 @@ function FormSkoring() {
                 }
                 {step == 1 &&
                   <Klinis {...klinisA} lanjut={lanjut} kembali={kembali} />
+                }
+                {step == 2 &&
+                  <KlinisB infiltrat={infiltrat} lanjut={lanjut} kembali={kembali} />
                 }
               </Grid>
             </Grid>
