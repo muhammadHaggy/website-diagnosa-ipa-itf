@@ -34,6 +34,9 @@ import bgFront from "assets/images/rotating-card-bg-front.jpeg";
 import bgBack from "assets/images/rotating-card-bg-back.jpeg";
 import Low from "./Recommendation/low";
 import High from "./Recommendation/low";
+import Build from "react-countup";
+import BuiltBy from "../Build";
+import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 
 function Presentation() {
     return (
@@ -55,9 +58,58 @@ function Presentation() {
                     Result
                 </Typography> */}
                 <Grid container item xs={11} spacing={3} alignItems="center" sx={{ mx: "auto" }}>
-                    <Grid item xs={12} lg={4} sx={{ mx: "auto" }}>
+                <Container sx={{ mt: 6 }}>
+                    {/* <FilledInfoCard */}
+          <BuiltBy />
+        </Container>
+        <Container>
+          <Grid container spacing={3}>
+            <Grid item xs={12} lg={4}>
+              <FilledInfoCard
+                variant="gradient"
+                color="info"
+                icon="flag"
+                title="IPA Probability"
+                description="36.8%"
+                action={{
+                  type: "external",
+                  route: "https://www.creative-tim.com/learning-lab/react/overview/material-kit/",
+                  label: "Let's start",
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} lg={4}>
+              <FilledInfoCard
+                color="info"
+                icon="precision_manufacturing"
+                title="Patient's total score"
+                description="4"
+                action={{
+                  type: "external",
+                  route: "https://www.creative-tim.com/learning-lab/react/overview/datepicker/",
+                  label: "Read more",
+                }}
+              />
+            </Grid>
+            <Grid item xs={12} lg={4}>
+              <FilledInfoCard
+                color="info"
+                icon="apps"
+                title="Risk Classification"
+                description="High-risk group"
+                action={{
+                  type: "external",
+                  route: "https://www.creative-tim.com/learning-lab/react/alerts/material-kit/",
+                  label: "Read more",
+                }}
+              />
+            </Grid>
+          </Grid>
+        </Container>
+
+                    {/* <Grid item xs={12} lg={4} sx={{ mx: "auto" }}>
                         <Low/>
-                        {/* <High/> */}
+                        <High/>
                     </Grid>
                     <Grid item xs={12} lg={7} sx={{ ml: "auto" }}>
                         <Grid container spacing={3}>
@@ -99,7 +151,7 @@ function Presentation() {
                                 </Card>
                             </Grid>
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </Container>
         </MKBox>
