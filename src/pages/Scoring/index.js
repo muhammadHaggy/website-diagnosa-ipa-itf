@@ -2,14 +2,14 @@ import MKBox from "components/MKBox";
 import FormSkoring from "./sections/FormSkoring";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import routes from "routes";
-import { createdRoutes } from "routes";
+import { displayedRoutes } from "routes";
 
 function Scoring() {
   return (
     <>
       <MKBox bgColor="white">
         <DefaultNavbar
-          routes={createdRoutes}
+          routes={displayedRoutes}
           action={{
             type: "external",
             route: "https://www.creative-tim.com/product/material-kit-react",
