@@ -70,8 +70,8 @@ import Typography from "layouts/sections/elements/typography";
 
 export const createdRoutes = [
   {
-    name: "landing-page",
-    route: "/landingpage",
+    name: "Landing Page",
+    route: "/",
     component: <LandingPage />,
   },
 ];

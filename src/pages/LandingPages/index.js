@@ -38,11 +38,22 @@ import LungIcon from "components/CustomIcon/LungIcon";
 import PatientIcon from "components/CustomIcon/PatientIcon";
 import PandemicIcon from "components/CustomIcon/PandemicIcon";
 import SickIcon from "components/CustomIcon/SickIcon";
-
+import { createdRoutes } from "routes";
 
 function LandingPage() {
   return (
     <>
+    <DefaultNavbar
+        routes={createdRoutes}
+        // action={{
+        //   type: "external",
+        //   route: "https://www.creative-tim.com/product/material-kit-react",
+        //   label: "free download",
+        //   color: "default",
+        // }}
+        transparent
+        light
+      />
       <MKBox
         minHeight="75vh"
         width="100%"
@@ -159,7 +170,9 @@ function LandingPage() {
           justifyContent="center"
           paddingX={{xs:3, md:6}}
           paddingTop={10}>
-            <MKButton color="info" size="large" fullWidth circular >Lanjut ke Form Diagnosis</MKButton>
+            <MKButton sx={{ 
+            backgroundColor: "#035560", color: "#FFFFFF"
+        }} size="large" fullWidth circular >Lanjut ke Form Diagnosis</MKButton>
           </Grid>
           
         </Container>
