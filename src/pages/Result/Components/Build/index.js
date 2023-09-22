@@ -48,7 +48,7 @@ function BuiltBy() {
           <MKTypography variant="h4" color="white" fontWeight="bold">
             Recommendation/Treatment
           </MKTypography>
-          <MKTypography variant="h1" color="white" mb={1}>
+          <MKTypography variant="h2" color="white" mb={1}>
             Approriate systemic antifungal administration (voriconazole i.v)
           </MKTypography>
           <MKTypography variant="body1" color="white" opacity={0.8} mb={2}>
