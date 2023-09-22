@@ -70,10 +70,10 @@ import Typography from "layouts/sections/elements/typography";
 
 export const createdRoutes = [
   {
-    name: "presentation",
+    name: "test",
     icon: <Icon>slideshow</Icon>,
     route: "/test",
-    component: <Presentation />,
+    component: <AboutUs />,
   },
 ];
 
