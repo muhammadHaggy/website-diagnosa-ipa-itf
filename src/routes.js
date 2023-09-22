@@ -47,7 +47,7 @@ import AboutUs from "layouts/pages/landing-pages/about-us";
 import ContactUs from "layouts/pages/landing-pages/contact-us";
 import Author from "layouts/pages/landing-pages/author";
 import SignIn from "layouts/pages/authentication/sign-in";
-
+import LandingPage from "layouts/pages/landing-pages";
 // Sections
 import PageHeaders from "layouts/sections/page-sections/page-headers";
 import Features from "layouts/sections/page-sections/featuers";
@@ -68,12 +68,26 @@ import ProgressBars from "layouts/sections/elements/progress-bars";
 import Toggles from "layouts/sections/elements/toggles";
 import Typography from "layouts/sections/elements/typography";
 import Result from "layouts/pages/result";
+import ScoringPage from "layouts/pages/scoring";
 
-const routes = [
+export const createdRoutes = [
+  {
+    name: "Landing Page",
+    route: "/",
+    component: <LandingPage />,
+  },
   {
     name: "result",
     route: "/result",
     component: <Result />,
+  },
+];
+
+const routes = [
+  {
+    name: "scoring",
+    route: "/scoring",
+    component: <ScoringPage />,
   },
   {
     name: "pages",
@@ -275,6 +289,7 @@ const routes = [
     icon: <GitHubIcon />,
     href: "https://www.github.com/creativetimofficial/material-kit-react",
   },
+  ...createdRoutes,
 ];
 
 export default routes;
