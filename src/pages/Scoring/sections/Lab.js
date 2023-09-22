@@ -4,7 +4,6 @@ import PertanyaanSkoring from "./PertanyaanSkoring";
 import Grid from "@mui/material/Grid";
 import MKButton from "components/MKButton";
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
 
 
 function Lab({
