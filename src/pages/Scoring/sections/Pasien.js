@@ -19,6 +19,9 @@ function Pasien({
   return (
     <>
       <MKBox component="form" p={2}>
+        <MKTypography variant="h3">
+          Apakah terdapat salah satu kondisi di bawah ini pada pasien?
+        </MKTypography>
         <MKBox px={3} py={2}>
           <MKBox direction="column">
             <MKTypography variant="body1">

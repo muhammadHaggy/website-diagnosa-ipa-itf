@@ -17,7 +17,7 @@ function FormSkoring() {
       return "Kriteria Klinis"
     }
   }, [step])
-  
+
   // Pasien
   const [neutropenia, setNeutropenia] = useState(false)
   const [hematologi, setHematologi] = useState(false)
@@ -44,6 +44,7 @@ function FormSkoring() {
       // tembak API
     } else {
       setStep(step + 1)
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
   }
 
@@ -52,6 +53,7 @@ function FormSkoring() {
       return
     } else {
       setStep(step - 1)
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
   }
 
