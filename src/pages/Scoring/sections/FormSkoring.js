@@ -131,7 +131,7 @@ function FormSkoring() {
                   <Klinis {...klinisA} lanjut={lanjut} kembali={kembali} />
                 }
                 {step == 2 &&
-                  <KlinisB infiltrat={infiltrat} lanjut={lanjut} kembali={kembali} />
+                  <KlinisB infiltrat={infiltrat} setInfiltrat={setInfiltrat} lanjut={lanjut} kembali={kembali} />
                 }
               </Grid>
             </Grid>

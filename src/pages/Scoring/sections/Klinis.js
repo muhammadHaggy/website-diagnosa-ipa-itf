@@ -16,7 +16,7 @@ function Klinis({
   return (
     <>
       <MKBox component="form" p={2}>
-        <MKTypography variant="h3">
+        <MKTypography variant="h4">
           A. Apakah terdapat salah satu gejala di bawah ini pada pasien?
         </MKTypography>
         <MKBox px={3} py={2}>

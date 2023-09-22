@@ -12,7 +12,7 @@ function KlinisB({
   return (
     <>
       <MKBox component="form" p={2}>
-        <MKTypography variant="h3">
+        <MKTypography variant="h4">
           B. Apakah terdapat kelainan baru pada pemeriksaan radiologi pada pasien
         </MKTypography>
         <MKBox px={3} py={2}>
