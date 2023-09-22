@@ -68,6 +68,15 @@ import ProgressBars from "layouts/sections/elements/progress-bars";
 import Toggles from "layouts/sections/elements/toggles";
 import Typography from "layouts/sections/elements/typography";
 
+export const createdRoutes = [
+  {
+    name: "test",
+    icon: <Icon>slideshow</Icon>,
+    route: "/test",
+    component: <AboutUs />,
+  },
+];
+
 const routes = [
   {
     name: "pages",
@@ -269,6 +278,7 @@ const routes = [
     icon: <GitHubIcon />,
     href: "https://www.github.com/creativetimofficial/material-kit-react",
   },
+  ...createdRoutes,
 ];
 
 export default routes;

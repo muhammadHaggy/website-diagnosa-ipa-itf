@@ -44,6 +44,7 @@ import routes from "routes";
 
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
+import { createdRoutes } from "routes";
 
 function SignInBasic() {
   const [rememberMe, setRememberMe] = useState(false);
@@ -53,13 +54,13 @@ function SignInBasic() {
   return (
     <>
       <DefaultNavbar
-        routes={routes}
-        action={{
-          type: "external",
-          route: "https://www.creative-tim.com/product/material-kit-react",
-          label: "free download",
-          color: "info",
-        }}
+        routes={createdRoutes}
+        // action={{
+        //   type: "external",
+        //   route: "https://www.creative-tim.com/product/material-kit-react",
+        //   label: "free download",
+        //   color: "info",
+        // }}
         transparent
         light
       />
