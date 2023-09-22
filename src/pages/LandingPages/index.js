@@ -45,12 +45,12 @@ function LandingPage() {
     <>
     <DefaultNavbar
         routes={displayedRoutes}
-        // action={{
-        //   type: "external",
-        //   route: "https://www.creative-tim.com/product/material-kit-react",
-        //   label: "free download",
-        //   color: "default",
-        // }}
+        action={{
+          type: "internal",
+          route: "/scoring",
+          label: "Menuju Form Diagnosa",
+          color: "info",
+        }}
         transparent
         light
       />

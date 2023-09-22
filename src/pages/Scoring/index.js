@@ -11,9 +11,9 @@ function Scoring() {
         <DefaultNavbar
           routes={displayedRoutes}
           action={{
-            type: "external",
-            route: "https://www.creative-tim.com/product/material-kit-react",
-            label: "free download",
+            type: "internal",
+            route: "/scoring",
+            label: "Menuju Form Diagnosa",
             color: "info",
           }}
           transparent
