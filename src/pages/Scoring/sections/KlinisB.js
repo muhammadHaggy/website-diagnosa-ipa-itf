@@ -31,7 +31,7 @@ function KlinisB({
           </MKBox>
         </MKBox>
         <Grid item display={'flex'} justifyContent={'space-between'}>
-          <MKButton variant="gradient" color="info" onClick={kembali}>
+          <MKButton variant="gradient" color="dark" onClick={kembali}>
             Kembali
           </MKButton>
           <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut}>

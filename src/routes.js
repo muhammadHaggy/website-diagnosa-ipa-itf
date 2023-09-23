@@ -71,6 +71,10 @@ import Result from "layouts/pages/result";
 import ScoringPage from "layouts/pages/scoring";
 
 export const displayedRoutes = [
+  
+];
+
+const routes = [
   {
     name: "Landing Page",
     route: "/",
@@ -86,9 +90,6 @@ export const displayedRoutes = [
     route: "/result",
     component: <Result />,
   },
-];
-
-const routes = [
   {
     name: "pages",
     icon: <Icon>dashboard</Icon>,

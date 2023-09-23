@@ -4,15 +4,14 @@ import Grid from "@mui/material/Grid";
 import MKBadge from "components/MKBadge";
 
 import MKBox from "components/MKBox";
-import MKButton from "components/MKButton";
-import MKTypography from "components/MKTypography";
-import Information from "pages/Result/Components/Presentations/index";
-
+import { useLocation } from 'react-router-dom';
+import Presentation from "pages/Result/Components/Presentations/index";
 
 
 
 function InformationScoring() {
-  
+  const location = useLocation();
+  const myProp = location.state;
 
   return (
     <Container>
@@ -32,7 +31,7 @@ function InformationScoring() {
                <MKBadge badgeContent="Result" variant="contained" color="info" container /> */}
                {/* <MKBadge */}
                 {/* </Typography> */}
-              <Information />
+              <Presentation props={myProp} />
             </Grid>
           </MKBox>
         </Grid>

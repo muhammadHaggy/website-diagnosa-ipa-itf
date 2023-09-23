@@ -11,6 +11,14 @@ import Klinis from "./Klinis";
 import KlinisB from "./KlinisB";
 import Lab from "./Lab";
 
+import * as React from 'react';
+import Modal from '@mui/material/Modal';
+import Slide from "@mui/material/Slide";
+import Divider from "@mui/material/Divider";
+import MKButton from "components/MKButton";
+import { Link, useNavigate } from "react-router-dom";
+
+
 function FormSkoring() {
   const [step, setStep] = useState(0)
 
@@ -18,7 +26,7 @@ function FormSkoring() {
     if (step == 0) {
       return "Kriteria Pasien"
     } else if (step == 1 || step == 2) {
-      return "Kriteria Klinis"
+      return "Kriteria Klinis (Gejala & Radiologi)"
     } else {
       return "Kriteria Lab. Jamur (Mikologi)"
     }
@@ -67,7 +75,30 @@ function FormSkoring() {
   const [mikroskopik, setMikroskopik] = useState(null)
   const [kultur, setKultur] = useState(null)
   const [galaktomanan, setGalaktomanan] = useState(null)
+  // const fillAllwithTrue = () => {
+  //   setStep(3)
+  //   setNeutropenia(false)
+  //   setHematologi(false)
+  //   setOrganSolid(false)
+  //   setKortikosteroid(true)
+  //   setPerawatan(false)
+  //   setParuKronik(false)
+  //   setSirosis(false)
+  //   setMelitus(false)
+  //   setDemam(false)
+  //   setNyeri(false)
+  //   setSesak(false)
+  //   setBatuk(false)
+  //   setGagalNapas(false)
+  //   setInfiltrat(false)
+  //   setMikroskopik(false)
+  //   setKultur(false)
+  //   setGalaktomanan(false)
+  // }
 
+  // React.useEffect(() => {
+  //   fillAllwithTrue()
+  // }, [])
   const lab = {
     mikroskopik, setMikroskopik,
     kultur, setKultur,
@@ -75,12 +106,8 @@ function FormSkoring() {
   }
 
   function lanjut() {
-    if (step == 3) {
-      // tembak API
-    } else {
-      setStep(step + 1)
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
+    setStep(step + 1)
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }
 
   function kembali() {
@@ -91,6 +118,48 @@ function FormSkoring() {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }
+
+  const terdiagnosa = useMemo(() => {
+    return (
+      (neutropenia || hematologi || organSolid || kortikosteroid || perawatan || paruKronik || sirosis || melitus)
+      && (demam || nyeri || sesak || batuk || gagalNapas || infiltrat)
+    )
+  }, [neutropenia, hematologi, organSolid, kortikosteroid, perawatan, paruKronik, sirosis, melitus, demam, nyeri, sesak, batuk, gagalNapas, infiltrat])
+
+  const isProbable = useMemo(() => {
+    return (terdiagnosa && (mikroskopik || kultur || galaktomanan))
+  })
+
+  const [open, setOpen] = React.useState(false)
+  const navigate = useNavigate()
+  async function lihatHasil() {
+    if (!terdiagnosa) {
+      setOpen(!open)
+    } else {
+      try {
+        const res = await fetch('http://34.68.83.48/api/add/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'is_pulmonary_TB': paruKronik,
+            'has_solid_organ_malignancy': organSolid,
+            'is_galactomannan_positive': galaktomanan,
+            'is_receiving_systemic_corticosteroids': kortikosteroid,
+            'is_probable': isProbable
+          })
+        })
+        if (res.ok) {
+          const data = await res.json()
+          navigate('/result', { state: data })
+        }
+      } catch (e) {
+        console.log(e)
+      }
+    }
+  }
+
 
   return (
     <Container>
@@ -147,13 +216,48 @@ function FormSkoring() {
                   <KlinisB infiltrat={infiltrat} setInfiltrat={setInfiltrat} lanjut={lanjut} kembali={kembali} />
                 }
                 {step == 3 &&
-                  <Lab {...lab} lanjut={lanjut} kembali={kembali} />
+                  <Lab {...lab} lihatHasil={lihatHasil} kembali={kembali} />
                 }
               </Grid>
             </Grid>
           </MKBox>
         </Grid>
       </Grid>
+
+      {/* MODAL */}
+      <MKBox component="section" py={6}>
+        <Container>
+          <Modal open={open} onClose={lihatHasil} sx={{ display: "grid", placeItems: "center" }}>
+            <Slide direction="down" in={open} timeout={500}>
+              <MKBox
+                position="relative"
+                display="flex"
+                maxWidth="500px"
+                flexDirection="column"
+                borderRadius="xl"
+                bgColor="white"
+                shadow="xl"
+              >
+                <MKBox display="flex" alignItems="center" justifyContent="space-between" p={2}>
+                  <MKTypography variant="h5" textAlign={'center'}>Pasien Tidak Memenuhi Kriteria Diagnosa</MKTypography>
+                </MKBox>
+                <Divider sx={{ my: 0 }} />
+                <MKBox p={2}>
+                  <MKTypography variant="body2" color="secondary" fontWeight="regular">
+                    Silakan lanjutkan monitoring pasien.
+                  </MKTypography>
+                </MKBox>
+                <Divider sx={{ my: 0 }} />
+                <MKBox display="flex" justifyContent="center" p={1.5}>
+                  <MKButton variant="gradient" color="info" component={Link} to="/">
+                    Kembali ke beranda
+                  </MKButton>
+                </MKBox>
+              </MKBox>
+            </Slide>
+          </Modal>
+        </Container>
+      </MKBox>
     </Container>
   );
 }
