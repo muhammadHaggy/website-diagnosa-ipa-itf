@@ -119,7 +119,7 @@ function LandingPage() {
             paddingBottom={3}
           >
             <Grid item xs={12} sm={10} md={10} lg={6} xl={6} >
-              <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
+              <div style={{backgroundColor:"#F8F9FA", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
                 <FilledInfoCard
                   color="info"
                   icon={<SickIcon />}
@@ -129,7 +129,7 @@ function LandingPage() {
             </Grid>
 
             <Grid item xs={12} sm={10} md={10} lg={6} xl={6}>
-              <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
+              <div style={{backgroundColor:"#F8F9FA", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
                 <FilledInfoCard
                   color="info"
                   icon={<PandemicIcon />}
@@ -147,7 +147,7 @@ function LandingPage() {
 
           >
             <Grid item xs={12} sm={10} md={10} lg={6} xl={6} >
-              <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
+              <div style={{backgroundColor:"#F8F9FA", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
                 <FilledInfoCard
                   color="info"
                   icon={<PatientIcon />}
@@ -156,7 +156,7 @@ function LandingPage() {
             </Grid>
 
             <Grid item xs={12} sm={10} md={10} lg={6} xl={6} >
-              <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
+              <div style={{backgroundColor:"#F8F9FA", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
                 <FilledInfoCard
 
                   color="info"
@@ -170,12 +170,14 @@ function LandingPage() {
             justifyContent="center"
             paddingX={{ xs: 3, md: 6 }}
             paddingTop={10}>
-            <MKButton sx={{
-              backgroundColor: "#035560", color: "#FFFFFF"
-            }} size="large" fullWidth circular
-            to="/scoring"
-            component={Link}
-            >Lanjut ke Form Diagnosis</MKButton>
+            <MKButton sx={{ 
+            backgroundColor: "#035560", color: "#FFFFFF",'&:hover': {
+              backgroundColor: "#035560",
+            }, '&:active': {
+              color: "#000000", 
+            },
+
+        }} color="secondary" size="large" fullWidth circular >Lanjut ke Form Diagnosis</MKButton>
           </Grid>
 
         </Container>
@@ -206,16 +208,15 @@ function LandingPage() {
           <Grid container item lg={12} mx="auto" spacing={1} height={100}
             justifyContent="center">
             <Grid item lg={4} >
-              <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
+              <div style={{backgroundColor:"#F8F9FA", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
                 <FilledInfoCard
-                  color="#1A73E8"
                   title="KRITERIA PASIEN"
                   description=
                   "Salah satu kriteria berikut: neutropenia, keganasan hematologi, penggunaan kortikosteroid sistemik dan/obat imunosupresan, perawatan lama di ICU, penyakit paru kronik (termasuk TB paru, PPOK, kanker paru), sirosis hati, diabetes melitus" />
               </div>
             </Grid>
             <Grid item lg={4} >
-              <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
+              <div style={{backgroundColor:"#F8F9FA",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
                 <FilledInfoCard
                   title="KRITERIA KLINIS"
                   description=
@@ -223,9 +224,9 @@ function LandingPage() {
               </div>
             </Grid>
             <Grid item lg={4} >
-              <div style={{ boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
+              <div style={{backgroundColor:"#F8F9FA",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
                 <FilledInfoCard
-                  color="info"
+                  color="error"
                   title="KRITERIA MIKOLOGI"
                   description=
                   "Pemeriksaan mikroskopik dan kultur jamur dari sekret paru (BAL, aspirat ETT, bilasan ronkus), atau deteksi antigen galaktomanan positif atau PCR dari sekret paru dan atau serum" />
