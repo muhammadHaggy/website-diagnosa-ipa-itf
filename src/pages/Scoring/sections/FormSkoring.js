@@ -197,14 +197,11 @@ function FormSkoring() {
                 <Divider sx={{ my: 0 }} />
                 <MKBox p={2}>
                   <MKTypography variant="body2" color="secondary" fontWeight="regular">
-                    (Saran Dokter di sini)
+                    Silakan lanjutkan monitoring pasien.
                   </MKTypography>
                 </MKBox>
                 <Divider sx={{ my: 0 }} />
-                <MKBox display="flex" justifyContent="space-between" p={1.5}>
-                  <MKButton variant="gradient" color="dark" onClick={lihatHasil}>
-                    Tutup
-                  </MKButton>
+                <MKBox display="flex" justifyContent="center" p={1.5}>
                   <MKButton variant="gradient" color="info" component={Link} to="/">
                     Kembali ke beranda
                   </MKButton>
