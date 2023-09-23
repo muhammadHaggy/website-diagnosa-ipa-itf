@@ -22,7 +22,7 @@ import Icon from "@mui/material/Icon";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 
-function BuiltBy() {
+function BuiltBy( chat ) {
   const bgImage =
     "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desktop.jpg";
 
@@ -44,12 +44,13 @@ function BuiltBy() {
       }}
     >
       <Container>
-        <Grid container item xs={12} lg={6} sx={{ ml: { xs: 0, lg: 6 } }}>
+        <Grid container item xs={12} lg={5} sx={{ ml: { xs: 0, lg: 6 } }}>
           <MKTypography variant="h4" color="white" fontWeight="bold">
             Recommendation/Treatment
           </MKTypography>
-          <MKTypography variant="h2" color="white" mb={1}>
-            Approriate systemic antifungal administration (voriconazole i.v)
+          <MKTypography variant="h2" color="white" mb={1} >
+          {/* {chat.chat}  */}
+          Approriate systemic antifungal administration (voriconazole i.v)
           </MKTypography>
           <MKTypography variant="body1" color="white" opacity={0.8} mb={2}>
             
@@ -62,6 +63,7 @@ function BuiltBy() {
             variant="body2"
             color="white"
             fontWeight="regular"
+            // px={4}
             sx={{
               display: "flex",
               alignItems: "center",
