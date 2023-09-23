@@ -103,6 +103,10 @@ function FormSkoring() {
     )
   }, [neutropenia, hematologi, organSolid, kortikosteroid, perawatan, paruKronik, sirosis, melitus, demam, nyeri, sesak, batuk, gagalNapas, infiltrat])
 
+  const isProbable = useMemo(() => {
+    return (terdiagnosa && (mikroskopik || kultur || galaktomanan))
+  })
+
   const [open, setOpen] = React.useState(false)
   const navigate = useNavigate()
   function lihatHasil() {
