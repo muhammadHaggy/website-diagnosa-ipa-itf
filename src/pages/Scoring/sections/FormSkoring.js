@@ -137,7 +137,10 @@ function FormSkoring() {
       setOpen(!open)
     } else {
       try {
-        const res = await fetch('http://34.68.83.48/api/add/', {
+        const proxyUrl = 'https://api.allorigins.win/raw?url=';
+        const targetUrl = 'http://34.68.83.48/api/add/';
+        
+        const res = await fetch(proxyUrl + encodeURIComponent(targetUrl), {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -150,6 +153,7 @@ function FormSkoring() {
             'is_probable': isProbable
           })
         })
+        
         if (res.ok) {
           const data = await res.json()
           navigate('/result', { state: data })
@@ -158,7 +162,7 @@ function FormSkoring() {
         console.log(e)
       }
     }
-  }
+  }  
 
 
   return (
