@@ -7,22 +7,11 @@ import MKBox from "components/MKBox";
 import { useLocation } from 'react-router-dom';
 import Presentation from "pages/Result/Components/Presentations/index";
 
-const exampleData = {
-  id: 1,
-  ipa_prob: "36.8%",
-  total_score: 4,
-  is_probable: true,
-  form_data: {
-    // Anda dapat menambahkan lebih banyak properti di sini sesuai kebutuhan Anda
-    // Misalnya, jika Anda memiliki properti lain seperti 'name', 'age', dll.
-  },
-};
-
 
 
 function InformationScoring() {
   const location = useLocation();
-  const myProp = location.state?.data;
+  const myProp = location.state;
 
   return (
     <Container>

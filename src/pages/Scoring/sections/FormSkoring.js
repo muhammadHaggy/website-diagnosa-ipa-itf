@@ -129,7 +129,7 @@ function FormSkoring() {
         })
         if (res.ok) {
           const data = await res.json()
-          navigate('/result', { data: { ...data } })
+          navigate('/result', { state: data })
         }
       } catch (e) {
         console.log(e)
