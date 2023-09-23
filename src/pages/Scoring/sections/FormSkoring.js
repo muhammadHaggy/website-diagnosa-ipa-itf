@@ -109,11 +109,31 @@ function FormSkoring() {
 
   const [open, setOpen] = React.useState(false)
   const navigate = useNavigate()
-  function lihatHasil() {
+  async function lihatHasil() {
     if (!terdiagnosa) {
       setOpen(!open)
     } else {
-      navigate("/result")
+      try {
+        const res = await fetch('http://34.68.83.48/api/add/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            'is_pulmonary_TB': paruKronik,
+            'has_solid_organ_malignancy': organSolid,
+            'is_galactomannan_positive': galaktomanan,
+            'is_receiving_systemic_corticosteroids': kortikosteroid,
+            'is_probable': isProbable
+          })
+        })
+        if (res.ok) {
+          const data = await res.json()
+          navigate('/result', { data: { ...data } })
+        }
+      } catch (e) {
+        console.log(e)
+      }
     }
   }
 
