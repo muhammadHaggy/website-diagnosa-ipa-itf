@@ -4,14 +4,13 @@ import PertanyaanSkoring from "./PertanyaanSkoring";
 import Grid from "@mui/material/Grid";
 import MKButton from "components/MKButton";
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
 
 
 function Lab({
   mikroskopik, setMikroskopik,
   kultur, setKultur,
   galaktomanan, setGalaktomanan,
-  lanjut, kembali
+  lihatHasil, kembali
 }) {
   const valid = useMemo(() => {
     return (
@@ -52,10 +51,10 @@ function Lab({
           </MKBox>
         </MKBox>
         <Grid item display={'flex'} justifyContent={'space-between'}>
-          <MKButton variant="gradient" color="info" onClick={kembali}>
+          <MKButton variant="gradient" color="dark" onClick={kembali}>
             Kembali
           </MKButton>
-          <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut} component={Link} to="/result">
+          <MKButton disabled={!valid} variant="gradient" color="info" onClick={lihatHasil}>
             Lihat Hasil
           </MKButton>
         </Grid>
