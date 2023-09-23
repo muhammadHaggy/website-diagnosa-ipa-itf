@@ -42,6 +42,7 @@ import DefaultNavbarMobile from "examples/Navbars/DefaultNavbar/DefaultNavbarMob
 
 // Material Kit 2 React base styles
 import breakpoints from "assets/theme/base/breakpoints";
+import { displayedRoutes } from "routes";
 
 function DefaultNavbar({ brand, routes, transparent, light, action, sticky, relative, center }) {
   const [dropdown, setDropdown] = useState("");
@@ -540,7 +541,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
           borderRadius="xl"
           px={transparent ? 2 : 0}
         >
-          {mobileView && <DefaultNavbarMobile routes={routes} open={mobileNavbar} />}
+          {mobileView && <DefaultNavbarMobile routes={displayedRoutes} open={mobileNavbar} />}
         </MKBox>
       </MKBox>
       {dropdownMenu}
@@ -551,7 +552,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
 
 // Setting default values for the props of DefaultNavbar
 DefaultNavbar.defaultProps = {
-  brand: "Material Kit 2",
+  brand: "Diagnosa API",
   transparent: false,
   light: false,
   action: false,

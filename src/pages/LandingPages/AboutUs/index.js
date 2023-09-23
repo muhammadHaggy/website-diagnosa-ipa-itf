@@ -39,18 +39,19 @@ import footerRoutes from "footer.routes";
 
 // Images
 import bgImage from "assets/images/bg-about-us.jpg";
+import { displayedRoutes } from "routes";
 
 function AboutUs() {
   return (
     <>
       <DefaultNavbar
-        routes={routes}
-        action={{
-          type: "external",
-          route: "https://www.creative-tim.com/product/material-kit-react",
-          label: "free download",
-          color: "default",
-        }}
+        routes={displayedRoutes}
+        // action={{
+        //   type: "external",
+        //   route: "https://www.creative-tim.com/product/material-kit-react",
+        //   label: "free download",
+        //   color: "default",
+        // }}
         transparent
         light
       />

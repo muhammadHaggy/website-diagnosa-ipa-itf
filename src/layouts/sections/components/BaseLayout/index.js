@@ -31,19 +31,20 @@ import Breadcrumbs from "examples/Breadcrumbs";
 
 // Routes
 import routes from "routes";
+import { displayedRoutes } from "routes";
 
 function BaseLayout({ breadcrumb, title, children }) {
   return (
     <MKBox display="flex" flexDirection="column" bgColor="white" minHeight="100vh">
       <MKBox bgColor="white" shadow="sm" py={0.25}>
         <DefaultNavbar
-          routes={routes}
-          action={{
-            type: "external",
-            route: "https://www.creative-tim.com/product/material-kit-react",
-            label: "free download",
-            color: "info",
-          }}
+          routes={displayedRoutes}
+          // action={{
+          //   type: "external",
+          //   route: "https://www.creative-tim.com/product/material-kit-react",
+          //   label: "free download",
+          //   color: "info",
+          // }}
           transparent
           relative
         />
