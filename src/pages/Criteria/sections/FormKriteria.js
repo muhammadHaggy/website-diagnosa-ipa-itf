@@ -12,11 +12,11 @@ import KlinisB from "./KlinisB";
 import Lab from "./Lab";
 
 import * as React from 'react';
-import Modal from '@mui/material/Modal';
-import Slide from "@mui/material/Slide";
-import Divider from "@mui/material/Divider";
-import MKButton from "components/MKButton";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
 
 
 function FormKriteria() {
@@ -75,6 +75,7 @@ function FormKriteria() {
   const [mikroskopik, setMikroskopik] = useState(null)
   const [kultur, setKultur] = useState(null)
   const [galaktomanan, setGalaktomanan] = useState(null)
+
   // const fillAllwithTrue = () => {
   //   setStep(3)
   //   setNeutropenia(false)
@@ -90,15 +91,16 @@ function FormKriteria() {
   //   setSesak(false)
   //   setBatuk(false)
   //   setGagalNapas(false)
-  //   setInfiltrat(false)
+  //   setInfiltrat(true)
   //   setMikroskopik(false)
   //   setKultur(false)
-  //   setGalaktomanan(false)
+  //   setGalaktomanan(true)
   // }
 
   // React.useEffect(() => {
   //   fillAllwithTrue()
   // }, [])
+
   const lab = {
     mikroskopik, setMikroskopik,
     kultur, setKultur,
@@ -119,39 +121,115 @@ function FormKriteria() {
     }
   }
 
+  const kriteriaPasien = useMemo(() => {
+    return (neutropenia || hematologi || organSolid || kortikosteroid || perawatan || paruKronik || sirosis || melitus)
+  }, [neutropenia, hematologi, organSolid, kortikosteroid, perawatan, paruKronik, sirosis, melitus])
+
+  const kriteriaKlinis = useMemo(() => {
+    return (demam || nyeri || sesak || batuk || gagalNapas || infiltrat)
+  }, [demam, nyeri, sesak, batuk, gagalNapas, infiltrat])
+
+  const kriteriaLab = useMemo(() => {
+    return (mikroskopik || kultur || galaktomanan)
+  }, [mikroskopik, kultur, galaktomanan])
+
   const terdiagnosa = useMemo(() => {
-    return (
-      (neutropenia || hematologi || organSolid || kortikosteroid || perawatan || paruKronik || sirosis || melitus)
-      && (demam || nyeri || sesak || batuk || gagalNapas || infiltrat)
-    )
-  }, [neutropenia, hematologi, organSolid, kortikosteroid, perawatan, paruKronik, sirosis, melitus, demam, nyeri, sesak, batuk, gagalNapas, infiltrat])
+    return (kriteriaPasien && kriteriaKlinis)
+  }, [kriteriaPasien, kriteriaKlinis])
 
   const isProbable = useMemo(() => {
     return (terdiagnosa && (mikroskopik || kultur || galaktomanan))
-  })
+  }, [terdiagnosa, mikroskopik, kultur, galaktomanan])
 
   const kriteria = useMemo(() => {
     if (terdiagnosa && !isProbable) {
-      return 0
+      return "0"
     }
 
     if (isProbable) {
-      return 1
+      return "1"
     }
 
-    return 2
+    return "2"
   }, [terdiagnosa, isProbable])
 
   const navigate = useNavigate()
-  async function lihatHasil() {
-    navigate('/result/criteria', { state: kriteria })
+
+  const checked = useMemo(() => {
+    const check = {}
+
+    if (neutropenia) check.neutropenia = true
+    if (hematologi) check.hematologi = true
+    if (organSolid) check.organSolid = true
+    if (kortikosteroid) check.kortikosteroid = true
+    if (perawatan) check.perawatan = true
+    if (paruKronik) check.paruKronik = true
+    if (sirosis) check.sirosis = true
+    if (melitus) check.melitus = true
+    
+    if (demam) check.demam = true
+    if (nyeri) check.nyeri = true
+    if (sesak) check.sesak = true
+    if (batuk) check.batuk = true
+    if (gagalNapas) check.gagalNapas = true
+    if (infiltrat) check.infiltrat = true
+    
+    if (mikroskopik) check.mikroskopik = true
+    if (kultur) check.kultur = true
+    if (galaktomanan) check.galaktomanan = true
+
+    return check
+  })
+  const data = {
+    kriteria: kriteria,
+    kriteriaPasien: kriteriaPasien,
+    kriteriaKlinis: kriteriaKlinis,
+    kriteriaLab: kriteriaLab,
+    checked: checked
   }
+
+  // const {
+  //   neutropenia,
+  //   hematologi,
+  //   organSolid,
+  //   kortikosteroid,
+  //   perawatan,
+  //   paruKronik,
+  //   sirosis,
+  //   melitus,
+    
+  //   demam,
+  //   nyeri,
+  //   sesak,
+  //   batuk,
+  //   gagalNapas,
+  //   infiltrat,
+    
+  //   mikroskopik,
+  //   kultur,
+  //   galaktomanan
+  // } = data.checked
+  
+  async function lihatHasil() {
+    navigate('/result/criteria', { state: data })
+  }
+
+  const steps = ['Kriteria Pasien', 'Kriteria Klinis A', 'Kriteria Klinis B', 'Kriteria Lab'];
 
 
   return (
     <Container>
       <Grid minHeight={'100vh'} pt={15} pb={8} display={'flex'} direction={'column'} justifyContent={'center'}>
-        <Grid container item>
+        <Grid container item display={'flex'} justifyContent={'center'}>
+          <Grid item xs={12} lg={7} py={8}>
+            <Stepper activeStep={step} alternativeLabel>
+              {steps.map((label, index) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </Grid>
           <MKBox
             width="100%"
             bgColor="white"

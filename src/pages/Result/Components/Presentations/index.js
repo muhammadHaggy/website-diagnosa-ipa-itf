@@ -21,21 +21,9 @@ import Grid from "@mui/material/Grid";
 import MKBox from "components/MKBox";
 
 // Material Kit 2 React examples
-import RotatingCard from "examples/Cards/RotatingCard";
-import RotatingCardFront from "examples/Cards/RotatingCard/RotatingCardFront";
-import RotatingCardBack from "examples/Cards/RotatingCard/RotatingCardBack";
-import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 
 // Images
-import bgFront from "assets/images/rotating-card-bg-front.jpeg";
-import bgBack from "assets/images/rotating-card-bg-back.jpeg";
-import Low from "./Recommendation/low";
-import High from "./Recommendation/low";
-import Build from "react-countup";
-import BuiltBy from "../Build";
+import BuiltBy from "../Build/Bscoring";
 import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 
 const exampleData = {
