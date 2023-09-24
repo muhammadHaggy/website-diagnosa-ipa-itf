@@ -96,7 +96,7 @@ function FormKriteria() {
   // React.useEffect(() => {
   //   fillAllwithTrue()
   // }, [])
-  
+
   const lab = {
     mikroskopik, setMikroskopik,
     kultur, setKultur,
@@ -117,12 +117,17 @@ function FormKriteria() {
     }
   }
 
+  const kriteriaPasien = useMemo(() => {
+    return (neutropenia || hematologi || organSolid || kortikosteroid || perawatan || paruKronik || sirosis || melitus)
+  }, [neutropenia, hematologi, organSolid, kortikosteroid, perawatan, paruKronik, sirosis, melitus])
+
+  const kriteriaKlinis = useMemo(() => {
+    return (demam || nyeri || sesak || batuk || gagalNapas || infiltrat)
+  }, [demam, nyeri, sesak, batuk, gagalNapas, infiltrat])
+
   const terdiagnosa = useMemo(() => {
-    return (
-      (neutropenia || hematologi || organSolid || kortikosteroid || perawatan || paruKronik || sirosis || melitus)
-      && (demam || nyeri || sesak || batuk || gagalNapas || infiltrat)
-    )
-  }, [neutropenia, hematologi, organSolid, kortikosteroid, perawatan, paruKronik, sirosis, melitus, demam, nyeri, sesak, batuk, gagalNapas, infiltrat])
+    return (kriteriaPasien && kriteriaKlinis)
+  }, [kriteriaPasien, kriteriaKlinis])
 
   const isProbable = useMemo(() => {
     return (terdiagnosa && (mikroskopik || kultur || galaktomanan))
@@ -141,8 +146,11 @@ function FormKriteria() {
   }, [terdiagnosa, isProbable])
 
   const navigate = useNavigate()
+  const data = {
+    kriteria: kriteria
+
+  }
   async function lihatHasil() {
-    console.log(kriteria)
     navigate('/result/criteria', { state: kriteria })
   }
 
