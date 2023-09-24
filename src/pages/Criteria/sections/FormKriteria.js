@@ -13,7 +13,10 @@ import Lab from "./Lab";
 
 import * as React from 'react';
 import { useNavigate } from "react-router-dom";
-import { check } from "prettier";
+
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
 
 
 function FormKriteria() {
@@ -211,11 +214,22 @@ function FormKriteria() {
     navigate('/result/criteria', { state: data })
   }
 
+  const steps = ['Kriteria Pasien', 'Kriteria Klinis A', 'Kriteria Klinis B', 'Kriteria Lab'];
+
 
   return (
     <Container>
       <Grid minHeight={'100vh'} pt={15} pb={8} display={'flex'} direction={'column'} justifyContent={'center'}>
-        <Grid container item>
+        <Grid container item display={'flex'} justifyContent={'center'}>
+          <Grid item xs={12} lg={7} py={8}>
+            <Stepper activeStep={step} alternativeLabel>
+              {steps.map((label, index) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </Grid>
           <MKBox
             width="100%"
             bgColor="white"
