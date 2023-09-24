@@ -1,5 +1,5 @@
 import MKBox from "components/MKBox";
-import FormKriteria from "./sections/FormSkoring";
+import FormKriteria from "./sections/FormKriteria";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import { displayedRoutes } from "routes";
 
