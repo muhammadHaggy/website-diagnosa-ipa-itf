@@ -126,13 +126,17 @@ function FormKriteria() {
     return (demam || nyeri || sesak || batuk || gagalNapas || infiltrat)
   }, [demam, nyeri, sesak, batuk, gagalNapas, infiltrat])
 
+  const kriteriaLab = useMemo(() => {
+    return (mikroskopik || kultur || galaktomanan)
+  }, [mikroskopik, kultur, galaktomanan])
+
   const terdiagnosa = useMemo(() => {
     return (kriteriaPasien && kriteriaKlinis)
   }, [kriteriaPasien, kriteriaKlinis])
 
   const isProbable = useMemo(() => {
     return (terdiagnosa && (mikroskopik || kultur || galaktomanan))
-  })
+  }, [terdiagnosa, mikroskopik, kultur, galaktomanan])
 
   const kriteria = useMemo(() => {
     if (terdiagnosa && !isProbable) {
@@ -177,6 +181,7 @@ function FormKriteria() {
     kriteria: kriteria,
     kriteriaPasien: kriteriaPasien,
     kriteriaKlinis: kriteriaKlinis,
+    kriteriaLab: kriteriaLab,
     checked: checked
   }
 
