@@ -10,9 +10,14 @@ import Bcriteria from "../Build/Bcriteria";
 
 
 
-function InformationCriteria() {
-  return (
 
+function InformationCriteria() {
+  const location = useLocation();
+  const myProp = location.kriteria;
+  console.log(myProp)
+
+  return (
+    
     <Container>
       <Grid minHeight={'100vh'} pt={15} pb={8} display={'flex'} direction={'column'} justifyContent={'center'}>
         <Grid container item>
