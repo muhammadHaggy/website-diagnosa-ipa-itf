@@ -61,10 +61,10 @@ function Presentation(prop) {
   // console.log(prop)
 
   return (
-    <MKBox component="section" py={6} my={6}>
+    <MKBox component="section" py={6} my={6} mt={1}>
       <Container>
         <Grid container item xs={11} spacing={3} alignItems="center" sx={{ mx: "auto" }}>
-          <Container sx={{ mt: 6 }}>
+          <Container sx={{ mt: 0 }}>
             {/* <FilledInfoCard */}
             <BuiltBy chat= {recommendationchat}/>
           </Container>
@@ -93,7 +93,7 @@ function Presentation(prop) {
                   color="info"
                   icon="donut_large"
                   title="IPA Probability"
-                  description={ipa_prob + '%'}
+                  description={`${ipa_prob}%`}
                   // action={{
                   //   type: "external",
                   //   route: "https://www.creative-tim.com/learning-lab/react/overview/material-kit/",
