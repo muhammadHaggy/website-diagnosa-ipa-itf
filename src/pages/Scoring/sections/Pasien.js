@@ -7,29 +7,21 @@ import { useMemo } from "react";
 
 
 function Pasien({
-  neutropenia, setNeutropenia,
-  hematologi, setHematologi,
   organSolid, setOrganSolid,
   kortikosteroid, setKortikosteroid,
-  perawatan, setPerawatan,
   paruKronik, setParuKronik,
-  sirosis, setSirosis,
-  melitus, setMelitus,
-  lanjut, kembali, step
+  galaktomanan, setGalaktomanan,
+  lanjut
 }) {
   const valid = useMemo(() => {
     return (
-      neutropenia != null &&
-      hematologi != null &&
       organSolid != null &&
       kortikosteroid != null &&
-      perawatan != null &&
       paruKronik != null &&
-      sirosis != null &&
-      melitus != null
+      galaktomanan != null
     )
-  }, [neutropenia, hematologi, organSolid, kortikosteroid, perawatan, paruKronik, sirosis, melitus])
-  
+  }, [organSolid, kortikosteroid, paruKronik, galaktomanan])
+
   return (
     <>
       <MKBox component="form" p={2}>
@@ -39,17 +31,9 @@ function Pasien({
         <MKBox px={3} py={2}>
           <MKBox direction="column">
             <MKTypography variant="body1">
-              Neutropenia
+              TB paru
             </MKTypography>
-            <PertanyaanSkoring value={neutropenia} setValue={setNeutropenia} />
-          </MKBox>
-        </MKBox>
-        <MKBox px={3} py={2}>
-          <MKBox direction="column">
-            <MKTypography variant="body1">
-              Keganasan hematologi
-            </MKTypography>
-            <PertanyaanSkoring value={hematologi} setValue={setHematologi} />
+            <PertanyaanSkoring value={paruKronik} setValue={setParuKronik} />
           </MKBox>
         </MKBox>
         <MKBox px={3} py={2}>
@@ -63,60 +47,25 @@ function Pasien({
         <MKBox px={3} py={2}>
           <MKBox direction="column">
             <MKTypography variant="body1">
-              Penggunaan kortikosteroid sistemik dan/obat imunosupresan
+              Galaktomanan positif
+            </MKTypography>
+            <PertanyaanSkoring value={galaktomanan} setValue={setGalaktomanan} />
+          </MKBox>
+        </MKBox>
+        <MKBox px={3} py={2}>
+          <MKBox direction="column">
+            <MKTypography variant="body1">
+              Menerima obat kortikosteroid sistemik
             </MKTypography>
             <PertanyaanSkoring value={kortikosteroid} setValue={setKortikosteroid} />
           </MKBox>
         </MKBox>
-        <MKBox px={3} py={2}>
-          <MKBox direction="column">
-            <MKTypography variant="body1">
-              Perawatan lama di ICU {`(≥ 14 hari)`}
-            </MKTypography>
-            <PertanyaanSkoring value={perawatan} setValue={setPerawatan} />
-          </MKBox>
-        </MKBox>
-        <MKBox px={3} py={2}>
-          <MKBox direction="column">
-            <MKTypography variant="body1">
-              Penyakit paru kronik {`(Termasuk TB paru, PPOK, kanker paru)`}
-            </MKTypography>
-            <PertanyaanSkoring value={paruKronik} setValue={setParuKronik} />
-          </MKBox>
-        </MKBox>
-        <MKBox px={3} py={2}>
-          <MKBox direction="column">
-            <MKTypography variant="body1">
-              Sirosis hati
-            </MKTypography>
-            <PertanyaanSkoring value={sirosis} setValue={setSirosis} />
-          </MKBox>
-        </MKBox>
-        <MKBox px={3} py={2}>
-          <MKBox direction="column">
-            <MKTypography variant="body1">
-              Diabetes melitus
-            </MKTypography>
-            <PertanyaanSkoring value={melitus} setValue={setMelitus} />
-          </MKBox>
-        </MKBox>
 
-        {step > 0 ?
-          <Grid item display={'flex'} justifyContent={'space-between'}>
-            <MKButton variant="gradient" color="info" onClick={kembali}>
-              Kembali
-            </MKButton>
-            <MKButton variant="gradient" color="info" onClick={lanjut}>
-              Lanjut
-            </MKButton>
-          </Grid>
-          :
-          <Grid item display={'flex'} justifyContent={'end'}>
-            <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut}>
-              Lanjut
-            </MKButton>
-          </Grid>
-        }
+        <Grid item display={'flex'} justifyContent={'end'}>
+          <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut}>
+            Lihat Hasil
+          </MKButton>
+        </Grid>
       </MKBox>
     </>
   )
