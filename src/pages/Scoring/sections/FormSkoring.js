@@ -13,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 
 
 function FormSkoring() {
-  const [step, setStep] = useState(0)
 
   const [paruKronik, setParuKronik] = useState(null)
   const [organSolid, setOrganSolid] = useState(null)
@@ -27,43 +26,28 @@ function FormSkoring() {
     galaktomanan, setGalaktomanan
   }
 
-  function kembali() {
-    if (step == 0) {
-      return
-    } else {
-      setStep(step - 1)
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-  }
-
-
-  const [open, setOpen] = React.useState(false)
   const navigate = useNavigate()
   async function lihatHasil() {
-    if (!terdiagnosa) {
-      setOpen(!open)
-    } else {
-      try {
-        const res = await fetch('https://api.mikostop.com/api/add/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            'is_pulmonary_TB': paruKronik,
-            'has_solid_organ_malignancy': organSolid,
-            'is_galactomannan_positive': galaktomanan,
-            'is_receiving_systemic_corticosteroids': kortikosteroid,
-            'is_probable': isProbable
-          })
+    try {
+      const res = await fetch('https://api.mikostop.com/api/add/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          'is_pulmonary_TB': paruKronik,
+          'has_solid_organ_malignancy': organSolid,
+          'is_galactomannan_positive': galaktomanan,
+          'is_receiving_systemic_corticosteroids': kortikosteroid,
+          'is_probable': isProbable
         })
-        if (res.ok) {
-          const data = await res.json()
-          navigate('/result/scoring', { state: data })
-        }
-      } catch (e) {
-        console.log(e)
+      })
+      if (res.ok) {
+        const data = await res.json()
+        navigate('/result/scoring', { state: data })
       }
+    } catch (e) {
+      console.log(e)
     }
   }
 
