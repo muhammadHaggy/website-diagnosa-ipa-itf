@@ -22,7 +22,7 @@ import MKBox from "components/MKBox";
 
 // Material Kit 2 React examples
 import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
-import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
+
 import { Link } from "react-router-dom";
 
 
@@ -33,6 +33,7 @@ import post4 from "assets/images/examples/blog2.jpg";
 import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
 import BackgroundBlogCard from "examples/Cards/BlogCards/BackgroundBlogCard";
 import MKTypography from "components/MKTypography";
+import CenteredBlogCard from "../Card/CenteredBlogCard";
 
 function Bcriteria(prop) {
     // console.log(prop.prop)
@@ -41,7 +42,7 @@ function Bcriteria(prop) {
         0: "Terdiagnosis Possible (Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
         1: "Terdiagnosis Probable (Sangat Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
         2: "Kondisi Pasien saat ini belum mengarah pada diagnosis API"
-      };
+    };
 
     const stateDescription = stateDescriptions[state] || "Deskripsi tidak tersedia";
 
@@ -54,52 +55,7 @@ function Bcriteria(prop) {
                             <Grid container item xs={12} lg={6}>
                             </Grid>
                             <Container>
-                                <Grid container item xs={12} lg={6}>
-                                    <MKTypography variant="h3" mb={3}>
-                                        Check our latest blogposts
-                                    </MKTypography>
-                                </Grid>
-                                <Grid container spacing={3}>
-                                    <Grid item xs={12} sm={6} lg={4}>
-                                        <TransparentBlogCard
-                                            image={post1}
-                                            title="Rover raised $65 million"
-                                            description="Finding temporary housing for your dog should be as easy as renting an Airbnb. That’s the idea behind Rover ..."
-                                            action={{
-                                                type: "internal",
-                                                route: "/pages/blogs/author",
-                                                color: "info",
-                                                label: "read more",
-                                            }}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} lg={4}>
-                                        <TransparentBlogCard
-                                            image={post2}
-                                            title="MateLabs machine learning"
-                                            description="If you’ve ever wanted to train a machine learning model and integrate it with IFTTT, you now can with ..."
-                                            action={{
-                                                type: "internal",
-                                                route: "/pages/blogs/author",
-                                                color: "info",
-                                                label: "read more",
-                                            }}
-                                        />
-                                    </Grid>
-                                    <Grid item xs={12} sm={6} lg={4}>
-                                        <TransparentBlogCard
-                                            image={post3}
-                                            title="MateLabs machine learning"
-                                            description="If you’ve ever wanted to train a machine learning model and integrate it with IFTTT, you now can with ..."
-                                            action={{
-                                                type: "internal",
-                                                route: "/pages/blogs/author",
-                                                color: "info",
-                                                label: "read more",
-                                            }}
-                                        />
-                                    </Grid>
-                                </Grid>
+                                xxx
                             </Container>
                         </Grid>
                     </Grid>
@@ -113,6 +69,7 @@ function Bcriteria(prop) {
                                 route: "/scoring",
                                 color: "info",
                                 label: "Lanjut ke Form Skoring",
+                                state: state
                             }}
                         >  <Link
                             to={{
@@ -121,7 +78,9 @@ function Bcriteria(prop) {
                             }}
                         >
                                 Lanjut ke Form Skoring
-                            </Link></CenteredBlogCard>
+                            </Link>
+                            halo
+                        </CenteredBlogCard>
 
                     </Grid>
                 </Grid>
