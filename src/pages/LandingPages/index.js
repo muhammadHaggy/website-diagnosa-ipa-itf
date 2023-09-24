@@ -54,7 +54,7 @@ function LandingPage() {
         routes={displayedRoutes}
         action={{
           type: "internal",
-          route: "/scoring",
+          route: "/criteria",
           label: "Menuju Form Diagnosa",
           color: "info",
         }}

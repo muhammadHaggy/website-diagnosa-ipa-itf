@@ -1,10 +1,9 @@
 import MKBox from "components/MKBox";
-import FormSkoring from "./sections/FormSkoring";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
-import routes from "routes";
 import { displayedRoutes } from "routes";
+import InformationScoring from "../Components/InformationsScoring";
 
-function Scoring() {
+function ResultCriteria() {
   return (
     <>
       <MKBox bgColor="white">
@@ -12,20 +11,17 @@ function Scoring() {
           routes={displayedRoutes}
           action={{
             type: "internal",
-            route: "/",
-            label: "Keluar Form Diagnosa",
-            color: "error",
+            route: "/scoring",
+            label: "Menuju Form Diagnosa",
+            color: "info",
           }}
           transparent
           dark
         />
-        <p>
-          Form tahap 2
-        </p>
-        {/* <FormSkoring /> */}
+        <InformationScoring />
       </MKBox>
     </>
   );
 }
 
-export default Scoring;
+export default ResultCriteria;
