@@ -71,6 +71,7 @@ import Result from "layouts/pages/result";
 import ScoringPage from "layouts/pages/scoring";
 import CriteriaPage from "layouts/pages/criteria";
 import ResultScoring from "pages/Result/Page/ResultSkoring";
+import ResultCriteria from "pages/Result/Page/ResultCriteria"
 
 export const displayedRoutes = [
   
@@ -89,7 +90,7 @@ const routes = [
   },
   {
     name: "resultScoring",
-    route: "/result/criteria",
+    route: "/result/scoring",
     component: <ResultScoring />,
   },
   {
