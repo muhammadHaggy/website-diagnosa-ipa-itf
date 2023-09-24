@@ -113,7 +113,7 @@ function FormSkoring() {
                 </MKBox>
               </Grid>
               <Grid item xs={12} lg={7}>
-                <Pasien {...pasien} lanjut={lihatHasil} kembali={kembali} step={step} />
+                <Pasien {...pasien} lanjut={lihatHasil} />
               </Grid>
             </Grid>
           </MKBox>
