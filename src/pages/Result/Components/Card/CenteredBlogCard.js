@@ -34,7 +34,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 function CenteredBlogCard({ image, title, description, action }) {
   const navigate = useNavigate()
 
-  console.log(action.state)
+  // console.log(action.state)
   return (
     <Card>
       <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>
@@ -85,9 +85,20 @@ function CenteredBlogCard({ image, title, description, action }) {
             {action.label}
           </MKButton>
         ) : (
-          <MKButton variant="gradient"
-            size="small" onClick={() => navigate('/scoring', { state: action.state })} >
-            Lanjut ke Form Skoring
+          <MKButton
+            variant="gradient"
+            size="small"
+            sx={{
+              backgroundColor: "#035560", color: "#FFFFFF", '&:hover': {
+                backgroundColor: "#035560",
+              }, '&:active': {
+                color: "#000000",
+              },
+
+            }}
+            onClick={() => navigate(action.route, { state: action.state })} // Menggunakan action.route
+          >
+            {action.label} {/* Menggunakan action.label */}
           </MKButton>
 
         )}

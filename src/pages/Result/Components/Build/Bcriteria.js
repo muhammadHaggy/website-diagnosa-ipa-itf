@@ -34,17 +34,74 @@ import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
 import BackgroundBlogCard from "examples/Cards/BlogCards/BackgroundBlogCard";
 import MKTypography from "components/MKTypography";
 import CenteredBlogCard from "../Card/CenteredBlogCard";
+// import Container from "@mui/material/Container";
+// import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+// import Link from "react-router-dom/Link";
 
 function Bcriteria(prop) {
-    // console.log(prop.prop)
+    console.log(prop.prop)
     const state = prop.prop;
     const stateDescriptions = {
-        0: "Terdiagnosis Possible (Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
-        1: "Terdiagnosis Probable (Sangat Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
-        2: "Kondisi Pasien saat ini belum mengarah pada diagnosis API"
+        '0': "Terdiagnosis Possible (Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
+        '1': "Terdiagnosis Probable (Sangat Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
+        '2': "Kondisi Pasien saat ini belum mengarah pada diagnosis API"
     };
 
-    const stateDescription = stateDescriptions[state] || "Deskripsi tidak tersedia";
+    const stateDescription = stateDescriptions[state.kriteria] || "Deskripsi tidak tersedia";
+
+    const {
+        neutropenia,
+        hematologi,
+        organSolid,
+        kortikosteroid,
+        perawatan,
+        paruKronik,
+        sirosis,
+        melitus,
+        
+        demam,
+        nyeri,
+        sesak,
+        batuk,
+        gagalNapas,
+        infiltrat,
+        
+        mikroskopik,
+        kultur,
+        galaktomanan
+      } = state.checked
+
+    const answers = {
+        neutropenia: neutropenia,
+        hematologi: hematologi,
+        organSolid: organSolid,
+        kortikosteroid: kortikosteroid,
+        perawatan: perawatan,
+        paruKronik: paruKronik,
+        sirosis: sirosis,
+        melitus: melitus,
+        
+        demam:demam,
+        nyeri:nyeri,
+        sesak:sesak,
+        batuk:batuk,
+        gagalNapas:gagalNapas,
+        infiltrat:infiltrat,
+        
+        mikroskopik:mikroskopik,
+        kultur:kultur,
+        galaktomanan:galaktomanan
+    };
+
+    const review = Object.keys(answers).map((question) => {
+        const answer = answers[question];
+        const questionText = question.replace(/^\w/, (c) => c.toUpperCase());
+
+        return `${questionText}: ${answer ? "Ya" : "Tidak"}`;
+    });
 
     return (
         <MKBox component="section" py={12}>
@@ -55,7 +112,16 @@ function Bcriteria(prop) {
                             <Grid container item xs={12} lg={6}>
                             </Grid>
                             <Container>
-                                xxx
+                                <Card variant="outlined" sx={{ mt: 4, p: 2 }}>
+                                    <CardContent>
+                                        <Typography variant="h5" component="div">
+                                            Review
+                                        </Typography>
+                                        {review.map((item, index) => (
+                                            <Typography key={index}>{item}</Typography>
+                                        ))}
+                                    </CardContent>
+                                </Card>
                             </Container>
                         </Grid>
                     </Grid>
@@ -66,11 +132,11 @@ function Bcriteria(prop) {
                             description={stateDescription}
                             action={{
                                 type: "internal",
-                                route: "/scoring",
+                                route: state.kriteria === '2' ? "/" : "/scoring", // Ubah route sesuai dengan kriteria
                                 color: "info",
-                                label: "Lanjut ke Form Skoring",
-                                state: state
-                            }}
+                                label: state.kriteria === '2' ? "Kembali ke landing page" : "Lanjut ke Form Skoring", // Ubah label sesuai dengan kriteria
+                                state: state,
+                              }}
                         >  <Link
                             to={{
                                 pathname: "/scoring",
