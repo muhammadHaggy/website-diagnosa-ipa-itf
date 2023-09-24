@@ -88,6 +88,14 @@ function CenteredBlogCard({ image, title, description, action }) {
           <MKButton
             variant="gradient"
             size="small"
+            sx={{
+              backgroundColor: "#035560", color: "#FFFFFF", '&:hover': {
+                backgroundColor: "#035560",
+              }, '&:active': {
+                color: "#000000",
+              },
+
+            }}
             onClick={() => navigate(action.route, { state: action.state })} // Menggunakan action.route
           >
             {action.label} {/* Menggunakan action.label */}
