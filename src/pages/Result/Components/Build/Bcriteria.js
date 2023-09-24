@@ -23,7 +23,7 @@ import MKBox from "components/MKBox";
 // Material Kit 2 React examples
 import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
 import CenteredBlogCard from "examples/Cards/BlogCards/CenteredBlogCard";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 import post1 from "assets/images/examples/testimonial-6-2.jpg";
@@ -33,10 +33,12 @@ import post4 from "assets/images/examples/blog2.jpg";
 import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
 import BackgroundBlogCard from "examples/Cards/BlogCards/BackgroundBlogCard";
 import MKTypography from "components/MKTypography";
+import MKButton from "components/MKButton";
 
 function Bcriteria(prop) {
     // console.log(prop.prop)
     const state = prop.prop;
+    const navigate = useNavigate()
 
     return (
         <MKBox component="section" py={12}>
@@ -97,7 +99,7 @@ function Bcriteria(prop) {
                         </Grid>
                     </Grid>
                     <Grid item xs={12} lg={4} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
-                        <CenteredBlogCard
+                        {/* <CenteredBlogCard
                             image="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
                             title="Criteria Result"
                             description={`${state}`}
@@ -107,14 +109,19 @@ function Bcriteria(prop) {
                                 color: "info",
                                 label: "Lanjut ke Form Skoring",
                             }}
-                        >  <Link
+                        >  */}
+                        <MKButton onClick={() => navigate('/scoring', { state: state })}>
+                            Lanjut ke Form Skoring
+                        </MKButton>
+                        {/* <Link
                             to={{
                                 pathname: "/scoring",
                                 state: { myData: state } // Mengirim data sebagai state
                             }}
                         >
                                 Lanjut ke Form Skoring
-                            </Link></CenteredBlogCard>
+                            </Link> */}
+                            {/* </CenteredBlogCard> */}
 
                     </Grid>
                 </Grid>
