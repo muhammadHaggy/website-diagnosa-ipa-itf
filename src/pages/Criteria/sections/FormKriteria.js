@@ -71,6 +71,7 @@ function FormKriteria() {
   const [mikroskopik, setMikroskopik] = useState(null)
   const [kultur, setKultur] = useState(null)
   const [galaktomanan, setGalaktomanan] = useState(null)
+
   // const fillAllwithTrue = () => {
   //   setStep(3)
   //   setNeutropenia(false)
@@ -86,15 +87,16 @@ function FormKriteria() {
   //   setSesak(false)
   //   setBatuk(false)
   //   setGagalNapas(false)
-  //   setInfiltrat(false)
+  //   setInfiltrat(true)
   //   setMikroskopik(false)
   //   setKultur(false)
-  //   setGalaktomanan(false)
+  //   setGalaktomanan(true)
   // }
 
   // React.useEffect(() => {
   //   fillAllwithTrue()
   // }, [])
+  
   const lab = {
     mikroskopik, setMikroskopik,
     kultur, setKultur,
@@ -128,18 +130,19 @@ function FormKriteria() {
 
   const kriteria = useMemo(() => {
     if (terdiagnosa && !isProbable) {
-      return 0
+      return "0"
     }
 
     if (isProbable) {
-      return 1
+      return "1"
     }
 
-    return 2
+    return "2"
   }, [terdiagnosa, isProbable])
 
   const navigate = useNavigate()
   async function lihatHasil() {
+    console.log(kriteria)
     navigate('/result/criteria', { state: kriteria })
   }
 

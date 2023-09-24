@@ -9,10 +9,15 @@ import { useState } from "react";
 import Card from "./Card";
 
 import * as React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 function FormSkoring() {
+
+  const location = useLocation();
+  const isProbable = location.myData;
+
+  console.log("PROBABALE " + isProbable)
 
   const [paruKronik, setParuKronik] = useState(null)
   const [organSolid, setOrganSolid] = useState(null)
