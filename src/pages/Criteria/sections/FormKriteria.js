@@ -13,6 +13,7 @@ import Lab from "./Lab";
 
 import * as React from 'react';
 import { useNavigate } from "react-router-dom";
+import { check } from "prettier";
 
 
 function FormKriteria() {
@@ -146,12 +147,64 @@ function FormKriteria() {
   }, [terdiagnosa, isProbable])
 
   const navigate = useNavigate()
-  const data = {
-    kriteria: kriteria
 
+  const checked = useMemo(() => {
+    const check = {}
+
+    if (neutropenia) check.neutropenia = true
+    if (hematologi) check.hematologi = true
+    if (organSolid) check.organSolid = true
+    if (kortikosteroid) check.kortikosteroid = true
+    if (perawatan) check.perawatan = true
+    if (paruKronik) check.paruKronik = true
+    if (sirosis) check.sirosis = true
+    if (melitus) check.melitus = true
+    
+    if (demam) check.demam = true
+    if (nyeri) check.nyeri = true
+    if (sesak) check.sesak = true
+    if (batuk) check.batuk = true
+    if (gagalNapas) check.gagalNapas = true
+    if (infiltrat) check.infiltrat = true
+    
+    if (mikroskopik) check.mikroskopik = true
+    if (kultur) check.kultur = true
+    if (galaktomanan) check.galaktomanan = true
+
+    return check
+  })
+  console.log(checked)
+  const data = {
+    kriteria: kriteria,
+    kriteriaPasien: kriteriaPasien,
+    kriteriaKlinis: kriteriaKlinis,
+    checked: checked
   }
+
+  // const {
+  //   neutropenia,
+  //   hematologi,
+  //   organSolid,
+  //   kortikosteroid,
+  //   perawatan,
+  //   paruKronik,
+  //   sirosis,
+  //   melitus,
+    
+  //   demam,
+  //   nyeri,
+  //   sesak,
+  //   batuk,
+  //   gagalNapas,
+  //   infiltrat,
+    
+  //   mikroskopik,
+  //   kultur,
+  //   galaktomanan
+  // } = data.checked
+  
   async function lihatHasil() {
-    navigate('/result/criteria', { state: kriteria })
+    navigate('/result/criteria', { state: data })
   }
 
 
