@@ -170,14 +170,12 @@ function LandingPage() {
             justifyContent="center"
             paddingX={{ xs: 3, md: 6 }}
             paddingTop={10}>
-           <MKButton sx={{ 
-            backgroundColor: "#035560", color: "#FFFFFF",'&:hover': {
-              backgroundColor: "#035560",
-            }, '&:active': {
-              color: "#000000", 
-            },
-
-        }} color="secondary" size="large" fullWidth circular >Lanjut ke Form Diagnosis</MKButton>
+            <MKButton sx={{
+              backgroundColor: "#035560", color: "#FFFFFF"
+            }} size="large" fullWidth circular
+            to="/scoring"
+            component={Link}
+            >Lanjut ke Form Diagnosis</MKButton>
           </Grid>
 
         </Container>
