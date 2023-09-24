@@ -55,7 +55,7 @@ function BuiltBy( chat ) {
           <MKTypography variant="body1" color="white" opacity={0.8} mb={2}>
             
           </MKTypography>
-          <MKTypography
+          {/* <MKTypography
             component="a"
             href="https://www.creative-tim.com/learning-lab/react/overview/material-kit/"
             target="_blank"
@@ -80,7 +80,7 @@ function BuiltBy( chat ) {
             }}
           >
             Read docs <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
-          </MKTypography>
+          </MKTypography> */}
         </Grid>
       </Container>
     </MKBox>
