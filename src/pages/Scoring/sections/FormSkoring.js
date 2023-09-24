@@ -15,7 +15,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 function FormSkoring() {
 
   const location = useLocation();
-  const isProbable = location.state;
+  const criteria = location.state;
+
+  const isProbable = React.useMemo(() => {
+    if (criteria === "1") {
+      return true
+    }
+    return false
+  }, [criteria])
 
   const [paruKronik, setParuKronik] = useState(null)
   const [organSolid, setOrganSolid] = useState(null)
