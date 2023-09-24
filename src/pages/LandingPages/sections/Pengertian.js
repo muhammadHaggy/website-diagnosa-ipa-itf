@@ -31,11 +31,11 @@ function Pengertian() {
   return (
     <MKBox component="section" py={3} sx={{ marginTop: -20  }} >
       <Container>
-          <Grid container item xs={12} lg={12} md={12} mx="auto"
+          <Grid container item  mx="auto"
             justifyContent="center"
             gap={{xs:4, md:12}}
             paddingBottom={5}>
-            <Grid item xs={12} lg={4} md={4} mx="auto" >
+            <Grid item xs={12} lg={12} md={12} mx="auto" >
               <MKTypography
               variant="h3"
               justifyContent="center"
@@ -50,11 +50,11 @@ function Pengertian() {
                 },
               })}
             >
-              Seputar Aspergilosis Invasif (Al){" "}
+              Seputar Aspergilosis Paru Invasif (API){" "}
             </MKTypography>
             <Divider orientation="horizontal" sx={{ display: { xs: "none", md: "block" }, ml: 0 }} />
             <MKTypography
-              variant="body2"
+              variant="body1"
               justifyContent="center"
               textAlign="center"
               sx={({ breakpoints, typography: { size } }) => ({
@@ -66,13 +66,13 @@ function Pengertian() {
                 },
               })}
             >
-              Al adalah infeksi jamur invasif yang meningkat jumlah kasusnya, terutama pada pasien sakit kritis.
-Diperkirakan terdapat lebih dari 1,8 juta kasus mikosis invasif di seluruh dunia, dengan 250.000 kasus Al.
-Tingkat morbiditas dan mortalitas Al mencapai 30-80%.
-Kasus Al sering berhubungan dengan organ paru, dikenal sebagai Aspergilosis Paru Invasif (API).
+              API adalah infeksi jamur invasif yang meningkat jumlah kasusnya, terutama pada pasien sakit kritis.
+Diperkirakan terdapat lebih dari 1,8 juta kasus mikosis invasif di seluruh dunia, dengan 250.000 kasus API.
+Tingkat morbiditas dan mortalitas API mencapai 30-80%.
+Kasus API sering berhubungan dengan organ paru, dikenal sebagai Aspergilosis Paru Invasif (API).
             </MKTypography>
             </Grid>
-            <Grid item xs={12} lg={4} md={4} mx="auto" >
+            <Grid item xs={12} lg={12} md={12} mx="auto" >
               <MKTypography
               variant="h3"
               textAlign="center"
@@ -87,11 +87,11 @@ Kasus Al sering berhubungan dengan organ paru, dikenal sebagai Aspergilosis Paru
                 },
               })}
             >
-              Penyebab Aspergilosis Invasif{" "}
+              Penyebab Aspergilosis Paru Invasif{" "}
             </MKTypography>
             <Divider orientation="horizontal" sx={{ display: { xs: "none", md: "block" }, ml: 0 }} />
             <MKTypography
-              variant="body2"
+              variant="body1"
               justifyContent="center"
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
@@ -109,7 +109,7 @@ Kasus Al sering berhubungan dengan organ paru, dikenal sebagai Aspergilosis Paru
                 },
               })}
             >Aspergilosis disebabkan oleh jamur Aspergillus spp. yang memiliki lebih dari 250 spesies.
-            Penyebab Al yang paling sering adalah 
+            Penyebab API yang paling sering adalah 
             <ol>
                 <li>Aspergillus fumigatus</li>
                 <li>A. flavus</li>

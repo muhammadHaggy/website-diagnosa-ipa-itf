@@ -23,8 +23,8 @@ function InformationScoring() {
     <Container>
       <Grid minHeight={'100vh'} pt={15} pb={8} display={'flex'} direction={'column'} justifyContent={'center'}>
         <Grid container item>
-        
-                {/* <Typography */}
+
+          {/* <Typography */}
           <MKBox
             width="100%"
             bgColor="white"
@@ -32,7 +32,7 @@ function InformationScoring() {
             shadow="xl"
             sx={{ overflow: "hidden" }}
           >
-             <Typography
+            <Typography
               variant="h4"
               align="center"
               marginTop={2}
@@ -47,10 +47,6 @@ function InformationScoring() {
               {titleText}
             </Typography>
             <Grid container spacing={2}>
-               {/* <Typography variant="h4" align="center" marginTop={4} marginLeft={4}>
-               <MKBadge badgeContent="Result" variant="contained" color="info" container /> */}
-               {/* <MKBadge */}
-                {/* </Typography> */}
               <Presentation props={myProp} />
             </Grid>
           </MKBox>
