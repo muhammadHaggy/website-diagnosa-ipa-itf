@@ -37,6 +37,13 @@ import MKTypography from "components/MKTypography";
 function Bcriteria(prop) {
     // console.log(prop.prop)
     const state = prop.prop;
+    const stateDescriptions = {
+        0: "Terdiagnosis Possible (Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
+        1: "Terdiagnosis Probable (Sangat Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
+        2: "Kondisi Pasien saat ini belum mengarah pada diagnosis API"
+      };
+
+    const stateDescription = stateDescriptions[state] || "Deskripsi tidak tersedia";
 
     return (
         <MKBox component="section" py={12}>
@@ -100,7 +107,7 @@ function Bcriteria(prop) {
                         <CenteredBlogCard
                             image="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
                             title="Criteria Result"
-                            description={`${state}`}
+                            description={stateDescription}
                             action={{
                                 type: "internal",
                                 route: "/scoring",
