@@ -12,11 +12,7 @@ import KlinisB from "./KlinisB";
 import Lab from "./Lab";
 
 import * as React from 'react';
-import Modal from '@mui/material/Modal';
-import Slide from "@mui/material/Slide";
-import Divider from "@mui/material/Divider";
-import MKButton from "components/MKButton";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function FormKriteria() {
