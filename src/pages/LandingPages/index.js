@@ -183,7 +183,9 @@ function LandingPage() {
               color="secondary"
               size="large"
               fullWidth
-              circular >Lanjut ke Form Diagnosis</MKButton>
+              circular >Lanjut ke Form Diagnosis
+            </MKButton>
+
           </Grid>
 
         </Container>
