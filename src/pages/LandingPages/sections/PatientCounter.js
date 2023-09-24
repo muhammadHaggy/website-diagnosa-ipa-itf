@@ -29,8 +29,8 @@ function PatientCounter() {
   return (
     <MKBox component="section" py={3} sx={{ marginTop: -20  }} >
       <Container>
-        <Grid container justifyContent="center" gap={{xs:0, md:2, lg:4}} item xs={12} lg={12} >
-          <Grid item xs={12} lg={3} md={6} sx={{transform: "scale(0.75)",transformOrigin: "center", backgroundColor: "#FFFFFF",justifyContent:"center", alignItems: 'center', borderRadius: "20px", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}>
+        <Grid container  textAlign="center" justifyContent="center" gap={{xs:0, md:2, lg:4}} item xs={12} lg={12} >
+          <Grid item xs={12} lg={3} md={6} sx={{transform: "scale(0.75)",transformOrigin: "center", textAlign:"center", backgroundColor: "#FFFFFF",justifyContent:"center", alignItems: 'center', borderRadius: "20px", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}>
             <DefaultCounterCard
               count={179}
               suffix=" dari 3067"
@@ -43,7 +43,7 @@ function PatientCounter() {
             />
           </Grid>
           <Grid item xs={12} lg={3} md={6} display="flex" 
-          sx={{transform: "scale(0.75)",transformOrigin: "center", backgroundColor: "#FFFFFF", justifyContent:"center", alignItems: 'center', borderRadius: "20px", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}> 
+          sx={{transform: "scale(0.75)",transformOrigin: "center", textAlign:"center", backgroundColor: "#FFFFFF", justifyContent:"center", alignItems: 'center', borderRadius: "20px", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}> 
      
             <DefaultCounterCard
               count={49500}
@@ -55,10 +55,10 @@ function PatientCounter() {
             />
           </Grid>
           <Grid item xs={12} lg={3} md={6} 
-          sx={{transform: "scale(0.75)",transformOrigin: "center",backgroundColor: "#FFFFFF", borderRadius: "20px", justifyContent:"center", alignItems: 'center', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}>
+          sx={{transform: "scale(0.75)",transformOrigin: "center", textAlign:"center", backgroundColor: "#FFFFFF", borderRadius: "20px", justifyContent:"center", alignItems: 'center', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)'}}>
             <DefaultCounterCard
-              count={7.7}
-              suffix="% dari 410"
+              count={7}
+              suffix=".7% dari 410"
               title={<Typography variant="h5">
               Kasus di Jakarta
             </Typography>}

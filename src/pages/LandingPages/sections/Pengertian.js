@@ -40,6 +40,7 @@ function Pengertian() {
               variant="h3"
               justifyContent="center"
               textAlign="center"
+              paddingBottom="5px"
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
                   fontSize: size["3xl"],
@@ -75,6 +76,7 @@ Kasus Al sering berhubungan dengan organ paru, dikenal sebagai Aspergilosis Paru
               <MKTypography
               variant="h3"
               textAlign="center"
+              paddingBottom="5px"
               mb={1}
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {

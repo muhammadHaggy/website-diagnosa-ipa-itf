@@ -40,6 +40,7 @@ function EpidDanPeran() {
               variant="h3"
               justifyContent="center"
               textAlign="center"
+              paddingBottom="5px"
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
                   fontSize: size["3xl"],
@@ -63,20 +64,22 @@ function EpidDanPeran() {
                 [breakpoints.down("xs")]: {
                   fontSize: size["xs"],
                 },
-                "& ul": { /* Apply styling to the <ul> element for unordered lists */
-                  paddingLeft: "30px", /* Adjust the left padding as needed */
-                  listStylePosition: "inside",
-                },
-                "& li": { /* Apply styling to the <li> elements */
-                textAlign:"left",
-                  marginBottom: "8px", /* Add spacing between list items */
-                  listStyleType: "disc", /* Use bullet points */
-                  paddingLeft: "16px"
-                },
+                "& ul": {
+                    alignItems: "center",
+                    justifyContent: "center",
+                    paddingX: {xs:"50px", lg:"150px", md: "100px"},
+                    listStylePosition: "inside",
+                    textAlign: "left", // Align the text to the left
+                  },
+                  "& li": {
+                    marginBottom: "8px",
+                    listStyleType: "disc",
+                    paddingLeft: "30px", // Adjust the left padding for list items as needed
+                  },
               })}
             >
             <ul>
-                <li>Al merupakan spektrum aspergilosis akut pada pasien dengan gangguan sistem imun.</li>
+                <li>AI merupakan spektrum aspergilosis akut pada pasien dengan gangguan sistem imun.</li>
                 <li>Jumlah kasus Al bervariasi di seluruh dunia, dengan pertambahan kasus di beberapa negara.</li>
                 <li>Data insiden Al di Indonesia masih terbatas, namun diperkirakan terdapat sekitar 49.500 kasus setiap tahun.</li>
             </ul>
@@ -86,6 +89,7 @@ function EpidDanPeran() {
               <MKTypography
               variant="h3"
               textAlign="center"
+              paddingBottom="5px"
               mb={1}
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
@@ -102,19 +106,13 @@ function EpidDanPeran() {
             <MKTypography
               variant="body2"
               justifyContent="center"
+              textAlign="center"
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
                   fontSize: size["lg"],
                 },
                 [breakpoints.down("xs")]: {
                   fontSize: size["xs"],
-                },
-                "& ol": { /* Apply styling to the <ol> element */
-                  paddingLeft: "30px", /* Adjust the left padding as needed */
-                  listStyle: "decimal inside", /* Use "decimal inside" for numbering inside the box */
-                },
-                "& li": { /* Apply styling to the <li> elements */
-                  marginBottom: "8px", /* Add spacing between list items */
                 },
               })}
             >Konsensus diharapkan menjadi panduan bersama untuk meningkatkan kualitas layanan kesehatan, khususnya terkait Al, bagi organisasi profesi, penentu kebijakan, institusi pendidikan, dan pihak terkait di Indonesia

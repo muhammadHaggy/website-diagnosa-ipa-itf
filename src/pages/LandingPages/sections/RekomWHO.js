@@ -38,6 +38,7 @@ function RekomWHO() {
             <Grid item xs={12} lg={12} md={12} mx="auto" >
               <MKTypography
               variant="h3"
+              paddingBottom="5px"
               justifyContent="center"
               textAlign="center"
               sx={({ breakpoints, typography: { size } }) => ({
@@ -64,16 +65,7 @@ function RekomWHO() {
                 [breakpoints.down("xs")]: {
                   fontSize: size["xs"],
                 },
-                "& ul": { /* Apply styling to the <ul> element for unordered lists */
-                  paddingLeft: "30px", /* Adjust the left padding as needed */
-                  listStylePosition: "inside",
-                },
-                "& li": { /* Apply styling to the <li> elements */
-                textAlign:"left",
-                  marginBottom: "8px", /* Add spacing between list items */
-                  listStyleType: "disc", /* Use bullet points */
-                  paddingLeft: "16px"
-                },
+                
                 color:"#FFFFFF"
               })}
             >Infeksi	jamur	 terjadi	 bila	terdapat	gangguan	daya	 tahan	 tubuh	 tertentu dan atau faktor risiko	atau faktor predisposisi.
@@ -84,6 +76,7 @@ function RekomWHO() {
               <MKTypography
               variant="h3"
               textAlign="center"
+              paddingBottom="5px"
               mb={1}
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
@@ -101,6 +94,7 @@ function RekomWHO() {
             <MKTypography
               variant="body2"
               justifyContent="center"
+              textAlign="center"
               sx={({ breakpoints, typography: { size } }) => ({
                 [breakpoints.down("md")]: {
                   fontSize: size["lg"],
@@ -108,16 +102,18 @@ function RekomWHO() {
                 [breakpoints.down("xs")]: {
                   fontSize: size["xs"],
                 },
-                "& ul": { /* Apply styling to the <ul> element for unordered lists */
-                  paddingLeft: "30px", /* Adjust the left padding as needed */
-                  listStylePosition: "inside",
-                },
-                "& li": { /* Apply styling to the <li> elements */
-                textAlign:"left",
-                  marginBottom: "8px", /* Add spacing between list items */
-                  listStyleType: "disc", /* Use bullet points */
-                  paddingLeft: "16px"
-                },
+                "& ul": {
+                    alignItems: "center",
+                    justifyContent: "center",
+                    paddingX: {xs:"50px", lg:"150px", md: "100px"},
+                    listStylePosition: "inside",
+                    textAlign: "left", // Align the text to the left
+                  },
+                  "& li": {
+                    marginBottom: "8px",
+                    listStyleType: "disc",
+                    paddingLeft: "30px", // Adjust the left padding for list items as needed
+                  },
                 color:"#FFFFFF"
               })}
             >WHO	merekomendasikan	tiga bidang	utama	sebagai langkah nyata: 
