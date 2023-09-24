@@ -6,7 +6,7 @@ import MKButton from "components/MKButton";
 import { useMemo } from "react";
 
 
-function Pasien({
+function Card({
   organSolid, setOrganSolid,
   kortikosteroid, setKortikosteroid,
   paruKronik, setParuKronik,
@@ -71,4 +71,4 @@ function Pasien({
   )
 }
 
-export default Pasien
+export default Card

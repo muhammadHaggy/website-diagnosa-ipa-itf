@@ -6,7 +6,7 @@ import MKTypography from "components/MKTypography";
 
 import bgImage from "assets/images/scoring/scoring.jpg";
 import { useState } from "react";
-import Pasien from "./Pasien";
+import Card from "./Card";
 
 import * as React from 'react';
 import { useNavigate } from "react-router-dom";
@@ -113,7 +113,7 @@ function FormSkoring() {
                 </MKBox>
               </Grid>
               <Grid item xs={12} lg={7}>
-                <Pasien {...pasien} lanjut={lihatHasil} />
+                <Card {...pasien} lanjut={lihatHasil} />
               </Grid>
             </Grid>
           </MKBox>
