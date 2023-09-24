@@ -140,6 +140,68 @@ function Bcriteria(prop) {
         galaktomanan
     };
 
+    const clinicalAnswer = {
+        neutropenia: neutropenia,
+        hematologi: hematologi,
+        organ_solid: organSolid,
+        kortikosteroid: kortikosteroid,
+        perawatan: perawatan,
+        paru_kronik: paruKronik,
+        sirosis: sirosis,
+        melitus: melitus
+    }
+
+
+    const symptomsAnswer = {
+        demam: demam,
+        nyeri: nyeri,
+        sesak: sesak,
+        batuk: batuk,
+        gagal_napas: gagalNapas,
+        infiltrat: infiltrat
+    }
+
+
+
+    const testsAnswer = {
+        mikroskopik: mikroskopik,
+        kultur: kultur,
+        galaktomanan: galaktomanan
+    }
+
+
+    const clinicalReview = Object.keys(clinicalAnswer)
+        .filter((question) => clinicalAnswer[question])  // Only include questions with answers that are true
+        .map((question) => {
+            const answer = clinicalAnswer[question];
+            const questionText = question.replace(/^\w/, (c) => c.toUpperCase());
+            // replace underscores with spaces
+            return `${questionText.replace(/_/g, " ")}`;
+        }
+
+        );
+
+    const symptomsReview = Object.keys(symptomsAnswer)
+        .filter((question) => symptomsAnswer[question])  // Only include questions with answers that are true
+        .map((question) => {
+            const answer = symptomsAnswer[question];
+            const questionText = question.replace(/^\w/, (c) => c.toUpperCase());
+            // replace underscores with spaces
+            return `${questionText.replace(/_/g, " ")}`;
+        }
+
+        );
+
+    const testsReview = Object.keys(testsAnswer)
+        .filter((question) => testsAnswer[question])  // Only include questions with answers that are true
+        .map((question) => {
+            const answer = testsAnswer[question];
+            const questionText = question.replace(/^\w/, (c) => c.toUpperCase());
+            // replace underscores with spaces
+            return `${questionText.replace(/_/g, " ")}`;
+        }
+
+        );
 
     return (
         <MKBox component="section" py={12}>
@@ -160,7 +222,7 @@ function Bcriteria(prop) {
                                         <Grid container spacing={3}>
                                             <Grid item xs={12} lg={4}>
                                                 <Typography variant="h6">Clinical</Typography>
-                                                {Object.keys(clinical).filter(q => clinical[q]).map((item, index) => (
+                                                {clinicalReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
                                                         {item.replace(/^\w/, (c) => c.toUpperCase())}
@@ -169,7 +231,7 @@ function Bcriteria(prop) {
                                             </Grid>
                                             <Grid item xs={12} lg={4}>
                                                 <Typography variant="h6">Patient</Typography>
-                                                {Object.keys(symptoms).filter(q => symptoms[q]).map((item, index) => (
+                                                {symptomsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
                                                         {item.replace(/^\w/, (c) => c.toUpperCase())}
@@ -178,7 +240,7 @@ function Bcriteria(prop) {
                                             </Grid>
                                             <Grid item xs={12} lg={4}>
                                                 <Typography variant="h6">Micology</Typography>
-                                                {Object.keys(tests).filter(q => tests[q]).map((item, index) => (
+                                                {testsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
                                                         {item.replace(/^\w/, (c) => c.toUpperCase())}
