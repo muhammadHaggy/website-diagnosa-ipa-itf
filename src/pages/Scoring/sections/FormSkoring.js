@@ -130,17 +130,6 @@ function FormSkoring() {
     return (terdiagnosa && (mikroskopik || kultur || galaktomanan))
   })
 
-  const kriteria = useMemo(() => {
-    if (terdiagnosa && !isProbable) {
-      return 0
-    }
-
-    if (isProbable) {
-      return 1
-    }
-
-    return 2
-  }, [terdiagnosa, isProbable])
 
   const [open, setOpen] = React.useState(false)
   const navigate = useNavigate()
