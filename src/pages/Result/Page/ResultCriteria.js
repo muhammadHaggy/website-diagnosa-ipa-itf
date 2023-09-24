@@ -13,7 +13,7 @@ function ResultCriteria() {
           action={{
             type: "internal",
             route: "/scoring",
-            label: "Menuju Form Diagnosa",
+            label: "Menuju Form Skoring",
             color: "info",
           }}
           transparent
