@@ -2,6 +2,7 @@ import MKBox from "components/MKBox";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import { displayedRoutes } from "routes";
 import InformationScoring from "../Components/InformationsScoring";
+import InformationCriteria from "../Components/InformationCriteria";
 
 function ResultCriteria() {
   return (
@@ -18,7 +19,7 @@ function ResultCriteria() {
           transparent
           dark
         />
-        <InformationScoring />
+        <InformationCriteria />
       </MKBox>
     </>
   );
