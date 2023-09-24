@@ -69,6 +69,7 @@ import Toggles from "layouts/sections/elements/toggles";
 import Typography from "layouts/sections/elements/typography";
 import Result from "layouts/pages/result";
 import ScoringPage from "layouts/pages/scoring";
+import CriteriaPage from "layouts/pages/criteria";
 
 export const displayedRoutes = [
   
@@ -89,6 +90,11 @@ const routes = [
     name: "result",
     route: "/result",
     component: <Result />,
+  },
+  {
+    name: "criteria",
+    route: "/criteria",
+    component: <CriteriaPage />,
   },
   {
     name: "pages",

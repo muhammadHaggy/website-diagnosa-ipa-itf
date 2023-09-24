@@ -19,7 +19,7 @@ import MKButton from "components/MKButton";
 import { Link, useNavigate } from "react-router-dom";
 
 
-function FormSkoring() {
+function FormKriteria() {
   const [step, setStep] = useState(0)
 
   const judul = useMemo(() => {
@@ -274,4 +274,4 @@ function FormSkoring() {
   );
 }
 
-export default FormSkoring;
+export default FormKriteria;
