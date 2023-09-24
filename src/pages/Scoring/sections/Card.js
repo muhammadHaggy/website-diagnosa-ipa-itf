@@ -6,55 +6,63 @@ import MKButton from "components/MKButton";
 import { useMemo } from "react";
 
 
-function Lab({
-  mikroskopik, setMikroskopik,
-  kultur, setKultur,
+function Card({
+  organSolid, setOrganSolid,
+  kortikosteroid, setKortikosteroid,
+  paruKronik, setParuKronik,
   galaktomanan, setGalaktomanan,
-  lihatHasil, kembali
+  lanjut
 }) {
   const valid = useMemo(() => {
     return (
-      mikroskopik != null &&
-      kultur != null &&
+      organSolid != null &&
+      kortikosteroid != null &&
+      paruKronik != null &&
       galaktomanan != null
     )
-  }, [mikroskopik, kultur, galaktomanan])
-  
+  }, [organSolid, kortikosteroid, paruKronik, galaktomanan])
+
   return (
     <>
       <MKBox component="form" p={2}>
         <MKTypography variant="h4">
-          Apakah terdapat salah satu hasil positif pada pemeriksaan laboratorium jamur dari spesimen darah atau aspirat ETT/BAL/Bilasan bronkus?
+          Apakah terdapat salah satu kondisi di bawah ini pada pasien?
         </MKTypography>
         <MKBox px={3} py={2}>
           <MKBox direction="column">
             <MKTypography variant="body1">
-              Pemeriksaan mikroskopik Aspergillus
+              TB paru
             </MKTypography>
-            <PertanyaanSkoring value={mikroskopik} setValue={setMikroskopik} />
+            <PertanyaanSkoring value={paruKronik} setValue={setParuKronik} />
           </MKBox>
         </MKBox>
         <MKBox px={3} py={2}>
           <MKBox direction="column">
             <MKTypography variant="body1">
-              Pemeriksaan kultur jamur Aspergillus
+              Keganasan organ solid
             </MKTypography>
-            <PertanyaanSkoring value={kultur} setValue={setKultur} />
+            <PertanyaanSkoring value={organSolid} setValue={setOrganSolid} />
           </MKBox>
         </MKBox>
         <MKBox px={3} py={2}>
           <MKBox direction="column">
             <MKTypography variant="body1">
-              Deteksi galaktomanan Aspergillus
+              Galaktomanan positif
             </MKTypography>
             <PertanyaanSkoring value={galaktomanan} setValue={setGalaktomanan} />
           </MKBox>
         </MKBox>
-        <Grid item display={'flex'} justifyContent={'space-between'}>
-          <MKButton variant="gradient" color="dark" onClick={kembali}>
-            Kembali
-          </MKButton>
-          <MKButton disabled={!valid} variant="gradient" color="info" onClick={lihatHasil}>
+        <MKBox px={3} py={2}>
+          <MKBox direction="column">
+            <MKTypography variant="body1">
+              Menerima obat kortikosteroid sistemik
+            </MKTypography>
+            <PertanyaanSkoring value={kortikosteroid} setValue={setKortikosteroid} />
+          </MKBox>
+        </MKBox>
+
+        <Grid item display={'flex'} justifyContent={'end'}>
+          <MKButton disabled={!valid} variant="gradient" color="info" onClick={lanjut}>
             Lihat Hasil
           </MKButton>
         </Grid>
@@ -63,4 +71,4 @@ function Lab({
   )
 }
 
-export default Lab
+export default Card
