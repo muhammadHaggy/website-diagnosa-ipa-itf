@@ -173,7 +173,6 @@ function FormKriteria() {
 
     return check
   })
-  console.log(checked)
   const data = {
     kriteria: kriteria,
     kriteriaPasien: kriteriaPasien,
