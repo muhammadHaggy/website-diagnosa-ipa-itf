@@ -85,9 +85,12 @@ function CenteredBlogCard({ image, title, description, action }) {
             {action.label}
           </MKButton>
         ) : (
-          <MKButton variant="gradient"
-            size="small" onClick={() => navigate('/scoring', { state: action.state })} >
-            Lanjut ke Form Skoring
+          <MKButton
+            variant="gradient"
+            size="small"
+            onClick={() => navigate(action.route, { state: action.state })} // Menggunakan action.route
+          >
+            {action.label} {/* Menggunakan action.label */}
           </MKButton>
 
         )}

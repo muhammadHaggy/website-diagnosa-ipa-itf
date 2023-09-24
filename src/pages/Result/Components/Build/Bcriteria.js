@@ -132,11 +132,11 @@ function Bcriteria(prop) {
                             description={stateDescription}
                             action={{
                                 type: "internal",
-                                route: "/scoring",
+                                route: state.kriteria === '2' ? "/" : "/scoring", // Ubah route sesuai dengan kriteria
                                 color: "info",
-                                label: "Lanjut ke Form Skoring",
-                                state: state
-                            }}
+                                label: state.kriteria === '2' ? "Kembali ke landing page" : "Lanjut ke Form Skoring", // Ubah label sesuai dengan kriteria
+                                state: state,
+                              }}
                         >  <Link
                             to={{
                                 pathname: "/scoring",
