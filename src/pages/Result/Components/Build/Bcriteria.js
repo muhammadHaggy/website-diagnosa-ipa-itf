@@ -40,6 +40,8 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 // import Link from "react-router-dom/Link";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+
 
 function Bcriteria(prop) {
     console.log(prop.prop)
@@ -61,18 +63,18 @@ function Bcriteria(prop) {
         paruKronik,
         sirosis,
         melitus,
-        
+
         demam,
         nyeri,
         sesak,
         batuk,
         gagalNapas,
         infiltrat,
-        
+
         mikroskopik,
         kultur,
         galaktomanan
-      } = state.checked
+    } = state.checked
 
     const answers = {
         neutropenia: neutropenia,
@@ -83,60 +85,125 @@ function Bcriteria(prop) {
         paruKronik: paruKronik,
         sirosis: sirosis,
         melitus: melitus,
-        
-        demam:demam,
-        nyeri:nyeri,
-        sesak:sesak,
-        batuk:batuk,
-        gagalNapas:gagalNapas,
-        infiltrat:infiltrat,
-        
-        mikroskopik:mikroskopik,
-        kultur:kultur,
-        galaktomanan:galaktomanan
+
+        demam: demam,
+        nyeri: nyeri,
+        sesak: sesak,
+        batuk: batuk,
+        gagalNapas: gagalNapas,
+        infiltrat: infiltrat,
+
+        mikroskopik: mikroskopik,
+        kultur: kultur,
+        galaktomanan: galaktomanan
     };
 
-    const review = Object.keys(answers).map((question) => {
-        const answer = answers[question];
-        const questionText = question.replace(/^\w/, (c) => c.toUpperCase());
+    // const review = Object.keys(answers).map((question) => {
+    //     const answer = answers[question];
+    //     const questionText = question.replace(/^\w/, (c) => c.toUpperCase());
 
-        return `${questionText}: ${answer ? "Ya" : "Tidak"}`;
-    });
+    //     return `${questionText}: ${answer ? "Ya" : "Tidak"}`;
+    // });
+
+    const review = Object.keys(answers)
+        .filter((question) => answers[question])  // Only include questions with answers that are true
+        .map((question) => {
+            const answer = answers[question];
+            const questionText = question.replace(/^\w/, (c) => c.toUpperCase());
+
+            return `${questionText}`;
+        });
+
+    const clinical = {
+        neutropenia,
+        hematologi,
+        organSolid,
+        kortikosteroid,
+        perawatan,
+        paruKronik,
+        sirosis,
+        melitus
+    };
+
+    const symptoms = {
+        demam,
+        nyeri,
+        sesak,
+        batuk,
+        gagalNapas,
+        infiltrat
+    };
+
+    const tests = {
+        mikroskopik,
+        kultur,
+        galaktomanan
+    };
+
 
     return (
         <MKBox component="section" py={12}>
             <Container>
-                <Grid container spacing={3} alignItems="center">
-                    <Grid item xs={12} lg={6}>
+                <Grid container spacing={3} alignItems="center" justifyContent="center">
+                    <Grid alignItems="center" justifyContent="center" item xs={12} lg={8}>
                         <Grid container spacing={3}>
                             <Grid container item xs={12} lg={6}>
+                                <Typography variant="h3" component="div">
+                                    Review Form Kriteria
+                                </Typography>
                             </Grid>
                             <Container>
                                 <Card variant="outlined" sx={{ mt: 4, p: 2 }}>
+
                                     <CardContent>
-                                        <Typography variant="h5" component="div">
-                                            Review
-                                        </Typography>
-                                        {review.map((item, index) => (
-                                            <Typography key={index}>{item}</Typography>
-                                        ))}
+
+                                        <Grid container spacing={3}>
+                                            <Grid item xs={12} lg={4}>
+                                                <Typography variant="h6">Clinical</Typography>
+                                                {Object.keys(clinical).filter(q => clinical[q]).map((item, index) => (
+                                                    <Typography key={index}>
+                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                        {item.replace(/^\w/, (c) => c.toUpperCase())}
+                                                    </Typography>
+                                                ))}
+                                            </Grid>
+                                            <Grid item xs={12} lg={4}>
+                                                <Typography variant="h6">Patient</Typography>
+                                                {Object.keys(symptoms).filter(q => symptoms[q]).map((item, index) => (
+                                                    <Typography key={index}>
+                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                        {item.replace(/^\w/, (c) => c.toUpperCase())}
+                                                    </Typography>
+                                                ))}
+                                            </Grid>
+                                            <Grid item xs={12} lg={4}>
+                                                <Typography variant="h6">Micology</Typography>
+                                                {Object.keys(tests).filter(q => tests[q]).map((item, index) => (
+                                                    <Typography key={index}>
+                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                        {item.replace(/^\w/, (c) => c.toUpperCase())}
+                                                    </Typography>
+                                                ))}
+                                            </Grid>
+                                        </Grid>
                                     </CardContent>
                                 </Card>
+
                             </Container>
                         </Grid>
                     </Grid>
-                    <Grid item xs={12} lg={4} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
+                    <Grid item alignItems="center" justifyContent="center" xs={12} lg={4} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
                         <CenteredBlogCard
                             image="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
                             title="Criteria Result"
                             description={stateDescription}
                             action={{
                                 type: "internal",
-                                route: state.kriteria === '2' ? "/" : "/scoring", // Ubah route sesuai dengan kriteria
+                                route: "/scoring",
                                 color: "info",
-                                label: state.kriteria === '2' ? "Kembali ke landing page" : "Lanjut ke Form Skoring", // Ubah label sesuai dengan kriteria
-                                state: state,
-                              }}
+                                label: "Lanjut ke Form Skoring",
+                                state: state
+                            }}
                         >  <Link
                             to={{
                                 pathname: "/scoring",
