@@ -137,7 +137,7 @@ function FormSkoring() {
       setOpen(!open)
     } else {
       try {
-        const res = await fetch('http://34.68.83.48/api/add/', {
+        const res = await fetch('https://api.mikostop.com/api/add/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
