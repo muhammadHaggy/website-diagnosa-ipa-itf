@@ -50,7 +50,7 @@ function EpidDanPeran() {
                 },
               })}
             >
-              Epidemiologi Aspergilosis Invasif{" "}
+              Epidemiologi Aspergilosis Paru Invasif{" "}
             </MKTypography>
             <Divider orientation="horizontal" sx={{ display: { xs: "none", md: "block" }, ml: 0 }} />
             <MKTypography
@@ -79,9 +79,9 @@ function EpidDanPeran() {
               })}
             >
             <ul>
-                <li>AI merupakan spektrum aspergilosis akut pada pasien dengan gangguan sistem imun.</li>
-                <li>Jumlah kasus Al bervariasi di seluruh dunia, dengan pertambahan kasus di beberapa negara.</li>
-                <li>Data insiden Al di Indonesia masih terbatas, namun diperkirakan terdapat sekitar 49.500 kasus setiap tahun.</li>
+                <li>API merupakan spektrum aspergilosis akut pada pasien dengan gangguan sistem imun.</li>
+                <li>Jumlah kasus API bervariasi di seluruh dunia, dengan pertambahan kasus di beberapa negara.</li>
+                <li>Data insiden API di Indonesia masih terbatas, namun diperkirakan terdapat sekitar 49.500 kasus setiap tahun.</li>
             </ul>
             </MKTypography>
             </Grid>
@@ -115,7 +115,7 @@ function EpidDanPeran() {
                   fontSize: size["xs"],
                 },
               })}
-            >Konsensus diharapkan menjadi panduan bersama untuk meningkatkan kualitas layanan kesehatan, khususnya terkait Al, bagi organisasi profesi, penentu kebijakan, institusi pendidikan, dan pihak terkait di Indonesia
+            >Konsensus diharapkan menjadi panduan bersama untuk meningkatkan kualitas layanan kesehatan, khususnya terkait API, bagi organisasi profesi, penentu kebijakan, institusi pendidikan, dan pihak terkait di Indonesia
             
             </MKTypography>
             </Grid>
