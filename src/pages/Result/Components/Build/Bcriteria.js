@@ -13,6 +13,7 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
+
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -21,26 +22,15 @@ import Grid from "@mui/material/Grid";
 import MKBox from "components/MKBox";
 
 // Material Kit 2 React examples
-import DefaultInfoCard from "examples/Cards/InfoCards/DefaultInfoCard";
-
 import { Link } from "react-router-dom";
 
 
-import post1 from "assets/images/examples/testimonial-6-2.jpg";
-import post2 from "assets/images/examples/testimonial-6-3.jpg";
-import post3 from "assets/images/examples/blog-9-4.jpg";
-import post4 from "assets/images/examples/blog2.jpg";
-import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
-import BackgroundBlogCard from "examples/Cards/BlogCards/BackgroundBlogCard";
-import MKTypography from "components/MKTypography";
 import CenteredBlogCard from "../Card/CenteredBlogCard";
-// import Container from "@mui/material/Container";
-// import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-// import Link from "react-router-dom/Link";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import businesswoman from "assets/images/result/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg"
 
 
 function Bcriteria(prop) {
@@ -256,7 +246,7 @@ function Bcriteria(prop) {
                     </Grid>
                     <Grid item alignItems="center" justifyContent="center" xs={12} lg={4} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
                         <CenteredBlogCard
-                            image="https://img.freepik.com/free-photo/option-writing-checkbox-concepts-survey_1232-4189.jpg?w=1380&t=st=1695559375~exp=1695559975~hmac=a1640ed7f3124c19a5102d5e5134723eccdf27a00d1ad093a7d8a294bcd4d1f9"
+                            image={businesswoman}
                             title="Criteria Result"
                             description={stateDescription}
                             action={{

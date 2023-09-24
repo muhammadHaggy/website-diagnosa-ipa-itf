@@ -26,17 +26,6 @@ import MKBox from "components/MKBox";
 import BuiltBy from "../Build/Bscoring";
 import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 
-const exampleData = {
-  id: 1,
-  ipa_prob: "36.8%",
-  total_score: 4,
-  is_probable: true,
-  form_data: {
-    // Anda dapat menambahkan lebih banyak properti di sini sesuai kebutuhan Anda
-    // Misalnya, jika Anda memiliki properti lain seperti 'name', 'age', dll.
-  },
-};
-
 function getRiskDescription(is_high_risk) {
   return is_high_risk ? "High-risk group" : "Low-risk group";
 }
@@ -46,15 +35,13 @@ function Presentation(prop) {
   const cardColor = is_high_risk ? "error" : "info";
   const recommendationchat = is_high_risk ? "Approriate systemic antifungal administration (voriconazole i.v)" : "Continue Monitoring \n";
 
-  // console.log(prop)
-
   return (
     <MKBox component="section" py={6} my={6} mt={1}>
       <Container>
         <Grid container item xs={11} spacing={3} alignItems="center" sx={{ mx: "auto" }}>
           <Container sx={{ mt: 0 }}>
             {/* <FilledInfoCard */}
-            <BuiltBy chat= {recommendationchat}/>
+            <BuiltBy chat={recommendationchat} />
           </Container>
           <Container>
             <Grid container spacing={3}>
@@ -64,17 +51,17 @@ function Presentation(prop) {
                   icon="assessment"
                   title="Patient's total score"
                   description={total_score}
-                  // sx={{
-                  //   backgroundColor: 'rgba(0, 0, 6, 0.7)', // Ubah warna latar belakang menjadi lebih gelap
-                  // }}
-                  // action={{
-                  //   type: "external",
-                  //   route: "https://www.creative-tim.com/learning-lab/react/overview/datepicker/",
-                  //   label: "Read more",
-                  // }}
+                // sx={{
+                //   backgroundColor: 'rgba(0, 0, 6, 0.7)', // Ubah warna latar belakang menjadi lebih gelap
+                // }}
+                // action={{
+                //   type: "external",
+                //   route: "https://www.creative-tim.com/learning-lab/react/overview/datepicker/",
+                //   label: "Read more",
+                // }}
                 />
               </Grid>
-              
+
               <Grid item xs={12} lg={4}>
                 <FilledInfoCard
                   // variant="gradient"
@@ -82,11 +69,11 @@ function Presentation(prop) {
                   icon="donut_large"
                   title="IPA Probability"
                   description={`${ipa_prob}%`}
-                  // action={{
-                  //   type: "external",
-                  //   route: "https://www.creative-tim.com/learning-lab/react/overview/material-kit/",
-                  //   label: "Let's start",
-                  // }}
+                // action={{
+                //   type: "external",
+                //   route: "https://www.creative-tim.com/learning-lab/react/overview/material-kit/",
+                //   label: "Let's start",
+                // }}
                 />
               </Grid>
               <Grid item xs={12} lg={4}>
@@ -96,11 +83,11 @@ function Presentation(prop) {
                   icon="view_list"
                   title="Risk Classification"
                   description={getRiskDescription(is_high_risk)}
-                  // action={{
-                  //   type: "external",
-                  //   route: "https://www.creative-tim.com/learning-lab/react/alerts/material-kit/",
-                  //   label: "Read more",
-                  // }}
+                // action={{
+                //   type: "external",
+                //   route: "https://www.creative-tim.com/learning-lab/react/alerts/material-kit/",
+                //   label: "Read more",
+                // }}
                 />
               </Grid>
             </Grid>
