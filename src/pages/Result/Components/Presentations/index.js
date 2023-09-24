@@ -93,7 +93,7 @@ function Presentation(prop) {
                   color="info"
                   icon="donut_large"
                   title="IPA Probability"
-                  description={ipa_prob}
+                  description={ipa_prob + '%'}
                   // action={{
                   //   type: "external",
                   //   route: "https://www.creative-tim.com/learning-lab/react/overview/material-kit/",
