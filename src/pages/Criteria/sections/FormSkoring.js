@@ -142,34 +142,9 @@ function FormKriteria() {
     return 2
   }, [terdiagnosa, isProbable])
 
-  const [open, setOpen] = React.useState(false)
   const navigate = useNavigate()
   async function lihatHasil() {
-    if (!terdiagnosa) {
-      setOpen(!open)
-    } else {
-      try {
-        const res = await fetch('https://api.mikostop.com/api/add/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            'is_pulmonary_TB': paruKronik,
-            'has_solid_organ_malignancy': organSolid,
-            'is_galactomannan_positive': galaktomanan,
-            'is_receiving_systemic_corticosteroids': kortikosteroid,
-            'is_probable': isProbable
-          })
-        })
-        if (res.ok) {
-          const data = await res.json()
-          navigate('/result', { state: data })
-        }
-      } catch (e) {
-        console.log(e)
-      }
-    }
+    navigate('/result/criteria', { state: kriteria })
   }
 
 
@@ -235,41 +210,6 @@ function FormKriteria() {
           </MKBox>
         </Grid>
       </Grid>
-
-      {/* MODAL */}
-      <MKBox component="section" py={6}>
-        <Container>
-          <Modal open={open} onClose={lihatHasil} sx={{ display: "grid", placeItems: "center" }}>
-            <Slide direction="down" in={open} timeout={500}>
-              <MKBox
-                position="relative"
-                display="flex"
-                maxWidth="500px"
-                flexDirection="column"
-                borderRadius="xl"
-                bgColor="white"
-                shadow="xl"
-              >
-                <MKBox display="flex" alignItems="center" justifyContent="space-between" p={2}>
-                  <MKTypography variant="h5" textAlign={'center'}>Pasien Tidak Memenuhi Kriteria Diagnosa</MKTypography>
-                </MKBox>
-                <Divider sx={{ my: 0 }} />
-                <MKBox p={2}>
-                  <MKTypography variant="body2" color="secondary" fontWeight="regular">
-                    Silakan lanjutkan monitoring pasien.
-                  </MKTypography>
-                </MKBox>
-                <Divider sx={{ my: 0 }} />
-                <MKBox display="flex" justifyContent="center" p={1.5}>
-                  <MKButton variant="gradient" color="info" component={Link} to="/">
-                    Kembali ke beranda
-                  </MKButton>
-                </MKBox>
-              </MKBox>
-            </Slide>
-          </Modal>
-        </Container>
-      </MKBox>
     </Container>
   );
 }
