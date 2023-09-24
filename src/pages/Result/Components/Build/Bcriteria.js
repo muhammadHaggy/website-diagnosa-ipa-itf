@@ -194,7 +194,7 @@ function Bcriteria(prop) {
                     </Grid>
                     <Grid item alignItems="center" justifyContent="center" xs={12} lg={4} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
                         <CenteredBlogCard
-                            image="https://images.unsplash.com/photo-1544717302-de2939b7ef71?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                            image="https://img.freepik.com/free-photo/option-writing-checkbox-concepts-survey_1232-4189.jpg?w=1380&t=st=1695559375~exp=1695559975~hmac=a1640ed7f3124c19a5102d5e5134723eccdf27a00d1ad093a7d8a294bcd4d1f9"
                             title="Criteria Result"
                             description={stateDescription}
                             action={{
