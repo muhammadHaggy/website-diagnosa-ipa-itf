@@ -16,13 +16,12 @@ Coded by www.creative-tim.com
 // @mui material components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import Icon from "@mui/material/Icon";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 
-function BuiltBy( chat ) {
+function BuiltBy(chat) {
   const bgImage =
     "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desktop.jpg";
 
@@ -49,38 +48,12 @@ function BuiltBy( chat ) {
             Recommendation/Treatment
           </MKTypography>
           <MKTypography variant="h2" color="white" mb={1} >
-          {/* {chat.chat}  */}
-          Approriate systemic antifungal administration (voriconazole i.v)
+            {/* {chat.chat}  */}
+            Approriate systemic antifungal administration (voriconazole i.v)
           </MKTypography>
           <MKTypography variant="body1" color="white" opacity={0.8} mb={2}>
-            
+
           </MKTypography>
-          {/* <MKTypography
-            component="a"
-            href="https://www.creative-tim.com/learning-lab/react/overview/material-kit/"
-            target="_blank"
-            rel="noreferrer"
-            variant="body2"
-            color="white"
-            fontWeight="regular"
-            // px={4}
-            sx={{
-              display: "flex",
-              alignItems: "center",
-
-              "& .material-icons-round": {
-                fontSize: "1.125rem",
-                transform: `translateX(3px)`,
-                transition: "transform 0.2s cubic-bezier(0.34, 1.61, 0.7, 1.3)",
-              },
-
-              "&:hover .material-icons-round, &:focus .material-icons-round": {
-                transform: `translateX(6px)`,
-              },
-            }}
-          >
-            Read docs <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
-          </MKTypography> */}
         </Grid>
       </Container>
     </MKBox>
