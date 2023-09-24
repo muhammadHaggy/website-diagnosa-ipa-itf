@@ -1,10 +1,9 @@
 import MKBox from "components/MKBox";
-import FormSkoring from "./sections/FormSkoring";
+import FormKriteria from "./sections/FormSkoring";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
-import routes from "routes";
 import { displayedRoutes } from "routes";
 
-function Scoring() {
+function Criteria() {
   return (
     <>
       <MKBox bgColor="white">
@@ -19,13 +18,10 @@ function Scoring() {
           transparent
           dark
         />
-        <p>
-          Form tahap 2
-        </p>
-        {/* <FormSkoring /> */}
+        <FormKriteria />
       </MKBox>
     </>
   );
 }
 
-export default Scoring;
+export default Criteria;

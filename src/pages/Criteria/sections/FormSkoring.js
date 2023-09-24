@@ -19,7 +19,7 @@ import MKButton from "components/MKButton";
 import { Link, useNavigate } from "react-router-dom";
 
 
-function FormSkoring() {
+function FormKriteria() {
   const [step, setStep] = useState(0)
 
   const judul = useMemo(() => {
@@ -75,30 +75,30 @@ function FormSkoring() {
   const [mikroskopik, setMikroskopik] = useState(null)
   const [kultur, setKultur] = useState(null)
   const [galaktomanan, setGalaktomanan] = useState(null)
-  const fillAllwithTrue = () => {
-    setStep(3)
-    setNeutropenia(false)
-    setHematologi(false)
-    setOrganSolid(false)
-    setKortikosteroid(true)
-    setPerawatan(false)
-    setParuKronik(false)
-    setSirosis(false)
-    setMelitus(false)
-    setDemam(false)
-    setNyeri(false)
-    setSesak(false)
-    setBatuk(false)
-    setGagalNapas(false)
-    setInfiltrat(false)
-    setMikroskopik(false)
-    setKultur(false)
-    setGalaktomanan(false)
-  }
+  // const fillAllwithTrue = () => {
+  //   setStep(3)
+  //   setNeutropenia(false)
+  //   setHematologi(false)
+  //   setOrganSolid(false)
+  //   setKortikosteroid(true)
+  //   setPerawatan(false)
+  //   setParuKronik(false)
+  //   setSirosis(false)
+  //   setMelitus(false)
+  //   setDemam(false)
+  //   setNyeri(false)
+  //   setSesak(false)
+  //   setBatuk(false)
+  //   setGagalNapas(false)
+  //   setInfiltrat(false)
+  //   setMikroskopik(false)
+  //   setKultur(false)
+  //   setGalaktomanan(false)
+  // }
 
-  React.useEffect(() => {
-    fillAllwithTrue()
-  }, [])
+  // React.useEffect(() => {
+  //   fillAllwithTrue()
+  // }, [])
   const lab = {
     mikroskopik, setMikroskopik,
     kultur, setKultur,
@@ -274,4 +274,4 @@ function FormSkoring() {
   );
 }
 
-export default FormSkoring;
+export default FormKriteria;
