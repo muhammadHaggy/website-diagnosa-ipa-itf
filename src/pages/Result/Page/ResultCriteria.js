@@ -2,6 +2,7 @@ import MKBox from "components/MKBox";
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import { displayedRoutes } from "routes";
 import InformationScoring from "../Components/InformationsScoring";
+import InformationCriteria from "../Components/InformationCriteria";
 
 function ResultCriteria() {
   return (
@@ -12,13 +13,13 @@ function ResultCriteria() {
           action={{
             type: "internal",
             route: "/scoring",
-            label: "Menuju Form Diagnosa",
+            label: "Menuju Form Skoring",
             color: "info",
           }}
           transparent
           dark
         />
-        <InformationScoring />
+        <InformationCriteria />
       </MKBox>
     </>
   );
