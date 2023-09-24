@@ -13,7 +13,7 @@ import Bcriteria from "../Build/Bcriteria";
 
 function InformationCriteria() {
   const location = useLocation();
-  const myProp = location.kriteria;
+  const myProp = location.state;
   console.log(myProp)
 
   return (
@@ -35,7 +35,7 @@ function InformationCriteria() {
                <MKBadge badgeContent="Result" variant="contained" color="info" container /> */}
                {/* <MKBadge */}
                 {/* </Typography> */}
-              <Bcriteria />
+              <Bcriteria prop={myProp}/>
             </Grid>
           </MKBox>
         </Grid>
