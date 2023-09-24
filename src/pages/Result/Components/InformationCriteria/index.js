@@ -14,7 +14,7 @@ import Bcriteria from "../Build/Bcriteria";
 function InformationCriteria() {
   const location = useLocation();
   const myProp = location.state;
-  console.log(myProp)
+  // console.log(myProp)
 
   return (
     

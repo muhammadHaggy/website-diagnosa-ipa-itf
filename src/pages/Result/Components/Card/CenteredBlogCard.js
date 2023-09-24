@@ -34,7 +34,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 function CenteredBlogCard({ image, title, description, action }) {
   const navigate = useNavigate()
 
-  console.log(action.state)
+  // console.log(action.state)
   return (
     <Card>
       <MKBox position="relative" borderRadius="lg" mx={2} mt={-3}>

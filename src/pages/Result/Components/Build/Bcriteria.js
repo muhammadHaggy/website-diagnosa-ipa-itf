@@ -34,6 +34,12 @@ import TransparentBlogCard from "examples/Cards/BlogCards/TransparentBlogCard";
 import BackgroundBlogCard from "examples/Cards/BlogCards/BackgroundBlogCard";
 import MKTypography from "components/MKTypography";
 import CenteredBlogCard from "../Card/CenteredBlogCard";
+// import Container from "@mui/material/Container";
+// import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+// import Link from "react-router-dom/Link";
 
 function Bcriteria(prop) {
     // console.log(prop.prop)
@@ -46,6 +52,19 @@ function Bcriteria(prop) {
 
     const stateDescription = stateDescriptions[state] || "Deskripsi tidak tersedia";
 
+    const answers = {
+        neutropenia: true,
+        hematologi: false,
+        // ... dan seterusnya
+    };
+
+    const review = Object.keys(answers).map((question) => {
+        const answer = answers[question];
+        const questionText = question.replace(/^\w/, (c) => c.toUpperCase());
+
+        return `${questionText}: ${answer ? "Ya" : "Tidak"}`;
+    });
+
     return (
         <MKBox component="section" py={12}>
             <Container>
@@ -55,7 +74,16 @@ function Bcriteria(prop) {
                             <Grid container item xs={12} lg={6}>
                             </Grid>
                             <Container>
-                                xxx
+                                <Card variant="outlined" sx={{ mt: 4, p: 2 }}>
+                                    <CardContent>
+                                        <Typography variant="h5" component="div">
+                                            Review
+                                        </Typography>
+                                        {review.map((item, index) => (
+                                            <Typography key={index}>{item}</Typography>
+                                        ))}
+                                    </CardContent>
+                                </Card>
                             </Container>
                         </Grid>
                     </Grid>

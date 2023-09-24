@@ -142,7 +142,7 @@ function FormKriteria() {
 
   const navigate = useNavigate()
   async function lihatHasil() {
-    console.log(kriteria)
+    // console.log(kriteria)
     navigate('/result/criteria', { state: kriteria })
   }
 
