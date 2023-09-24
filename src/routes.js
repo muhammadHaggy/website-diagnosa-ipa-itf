@@ -70,6 +70,7 @@ import Typography from "layouts/sections/elements/typography";
 import Result from "layouts/pages/result";
 import ScoringPage from "layouts/pages/scoring";
 import CriteriaPage from "layouts/pages/criteria";
+import ResultScoring from "pages/Result/Page/ResultSkoring";
 
 export const displayedRoutes = [
   
@@ -87,9 +88,14 @@ const routes = [
     component: <ScoringPage />,
   },
   {
-    name: "result",
-    route: "/result",
-    component: <Result />,
+    name: "resultScoring",
+    route: "/result/criteria",
+    component: <ResultScoring />,
+  },
+  {
+    name: "resultCriteria",
+    route: "/result/criteria",
+    component: <ResultCriteria />,
   },
   {
     name: "criteria",
