@@ -42,20 +42,58 @@ import Typography from "@mui/material/Typography";
 // import Link from "react-router-dom/Link";
 
 function Bcriteria(prop) {
-    // console.log(prop.prop)
+    console.log(prop.prop)
     const state = prop.prop;
     const stateDescriptions = {
-        0: "Terdiagnosis Possible (Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
-        1: "Terdiagnosis Probable (Sangat Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
-        2: "Kondisi Pasien saat ini belum mengarah pada diagnosis API"
+        '0': "Terdiagnosis Possible (Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
+        '1': "Terdiagnosis Probable (Sangat Mungkin) terhadap Penyakit Aspergillosis Paru Invasif",
+        '2': "Kondisi Pasien saat ini belum mengarah pada diagnosis API"
     };
 
-    const stateDescription = stateDescriptions[state] || "Deskripsi tidak tersedia";
+    const stateDescription = stateDescriptions[state.kriteria] || "Deskripsi tidak tersedia";
+
+    const {
+        neutropenia,
+        hematologi,
+        organSolid,
+        kortikosteroid,
+        perawatan,
+        paruKronik,
+        sirosis,
+        melitus,
+        
+        demam,
+        nyeri,
+        sesak,
+        batuk,
+        gagalNapas,
+        infiltrat,
+        
+        mikroskopik,
+        kultur,
+        galaktomanan
+      } = state.checked
 
     const answers = {
-        neutropenia: true,
-        hematologi: false,
-        // ... dan seterusnya
+        neutropenia: neutropenia,
+        hematologi: hematologi,
+        organSolid: organSolid,
+        kortikosteroid: kortikosteroid,
+        perawatan: perawatan,
+        paruKronik: paruKronik,
+        sirosis: sirosis,
+        melitus: melitus,
+        
+        demam:demam,
+        nyeri:nyeri,
+        sesak:sesak,
+        batuk:batuk,
+        gagalNapas:gagalNapas,
+        infiltrat:infiltrat,
+        
+        mikroskopik:mikroskopik,
+        kultur:kultur,
+        galaktomanan:galaktomanan
     };
 
     const review = Object.keys(answers).map((question) => {
