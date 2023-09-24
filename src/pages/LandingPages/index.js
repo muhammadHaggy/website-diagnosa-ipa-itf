@@ -18,6 +18,9 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button"
+import PatientCounter from "pages/LandingPages/sections/PatientCounter";
+import Pengertian from "./sections/Pengertian";
+import Gambar from "./sections/Gambar";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
@@ -39,6 +42,10 @@ import PatientIcon from "components/CustomIcon/PatientIcon";
 import PandemicIcon from "components/CustomIcon/PandemicIcon";
 import SickIcon from "components/CustomIcon/SickIcon";
 import { displayedRoutes } from "routes";
+import ContentDivider from "./sections/ContentDivider";
+import EpidDanPeran from "./sections/EpidDanPeran";
+import ButtonForm from "./sections/ButtonForm"
+import RekomWHO from "./sections/RekomWHO";
 
 function LandingPage() {
   return (
@@ -88,162 +95,19 @@ function LandingPage() {
               px={{ xs: 4, lg: 12 }}
               mt={1}
             >
-              Aspergilosis adalah infeksi oleh jamur Aspergillus yang banyak ditemukan di alam.
-              Kebanyakan orang menghirup spora Aspergillus setiap hari tanpa menjadi sakit
+              Aspergilosis invasif merupakan spektrum aspergilosis yang berlangsung akut pada pasien dengan gangguan sistem imun. Kasus Al biasanya berhubungan dengan organ paru, dalam bentuk Aspergilosis Paru Invasif (API).
             </MKTypography>
           </Grid>
         </Container>
       </MKBox>
-      <Card
-        justifyContent="center"
-        textAlign="center"
-        alignItems="center"
-        sx={{
-          pt: { xs: 5, md: 10 },
-          mt: { xs: -15 },
-          pb: { xs: 150, md: 50 },
-          backgroundColor: ({ palette: { white }, functions: { rgba } }) =>
-            rgba(white.main, 0.8),
-          backdropFilter: "saturate(200%) blur(30px)",
-          boxShadow: ({ boxShadows: { xxl } }) => xxl,
-        }}
-      >
-
-        <Container
-        >
-          <Grid
-            container
-            spacing={3}
-            justifyContent="center"
-            columnSpacing={5}
-            paddingBottom={3}
-          >
-            <Grid item xs={12} sm={10} md={10} lg={6} xl={6} >
-              <div style={{backgroundColor:"#F8F9FA", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
-                <FilledInfoCard
-                  color="info"
-                  icon={<SickIcon />}
-                  description="Orang dengan sistem kekebalan tubuh lemah atau mengalami penyakit tertentu berisiko lebih tinggi terkena aspergilosis."
-                />
-              </div>
-            </Grid>
-
-            <Grid item xs={12} sm={10} md={10} lg={6} xl={6}>
-              <div style={{backgroundColor:"#F8F9FA", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
-                <FilledInfoCard
-                  color="info"
-                  icon={<PandemicIcon />}
-                  description="Infeksi jamur ini semula kurang dianggap penting, sampai akhirnya pada akhir 2022 WHO menyatakan infeksi jamur sebagai masalah kesehatan global yang harus diwaspadai."
-                />
-              </div>
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            spacing={3}
-            justifyContent="center"
-            columnSpacing={5}
-            paddingBottom={3}
-
-          >
-            <Grid item xs={12} sm={10} md={10} lg={6} xl={6} >
-              <div style={{backgroundColor:"#F8F9FA", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
-                <FilledInfoCard
-                  color="info"
-                  icon={<PatientIcon />}
-                  description="Aspergillosis invasif terjadi ketika jamur Aspergillus menyebabkan infeksi serius, misalnya pada pasien sakit kritis atau dirawat di ICU, pasien yang menjalani transplantasi organ, dll." />
-              </div>
-            </Grid>
-
-            <Grid item xs={12} sm={10} md={10} lg={6} xl={6} >
-              <div style={{backgroundColor:"#F8F9FA", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
-                <FilledInfoCard
-
-                  color="info"
-                  icon={<LungIcon />}
-                  description=
-                  "Aspergillosis invasif paling sering menyerang paru, namun dapat juga menyebar ke organ lain, dengan angka kematian berkisar 30-40%." />
-              </div>
-            </Grid>
-          </Grid>
-          <Grid container
-            justifyContent="center"
-            paddingX={{ xs: 3, md: 6 }}
-            paddingTop={10}>
-            <MKButton
-              sx={{
-                backgroundColor: "#035560", color: "#FFFFFF", '&:hover': {
-                  backgroundColor: "#035560",
-                }, '&:active': {
-                  color: "#000000",
-                },
-
-              }} to="/scoring"
-              component={Link}
-              color="secondary"
-              size="large"
-              fullWidth
-              circular >Lanjut ke Form Diagnosis
-            </MKButton>
-
-          </Grid>
-
-        </Container>
-        <Container>
-          <Grid container item xs={12} lg={7} mx="auto"
-            justifyContent="center"
-            paddingX={{ xs: 3, md: 6 }}
-            paddingTop={20}
-            paddingBottom={5}>
-            <MKTypography
-              variant="h2"
-              textAlign="center"
-              mt={-6}
-              mb={1}
-              sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("md")]: {
-                  fontSize: size["3xl"],
-                },
-                [breakpoints.down("xs")]: {
-                  fontSize: size["xs"],
-                },
-              })}
-            >
-              Prosedur Diagnosis Aspergilosis Paru Invasif{" "}
-            </MKTypography>
-          </Grid>
-
-          <Grid container item lg={12} mx="auto" spacing={1} height={100}
-            justifyContent="center">
-            <Grid item lg={4} >
-              <div style={{backgroundColor:"#F8F9FA", boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
-                <FilledInfoCard
-                  title="KRITERIA PASIEN"
-                  description=
-                  "Salah satu kriteria berikut: neutropenia, keganasan hematologi, penggunaan kortikosteroid sistemik dan/obat imunosupresan, perawatan lama di ICU, penyakit paru kronik (termasuk TB paru, PPOK, kanker paru), sirosis hati, diabetes melitus" />
-              </div>
-            </Grid>
-            <Grid item lg={4} >
-              <div style={{backgroundColor:"#F8F9FA",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
-                <FilledInfoCard
-                  title="KRITERIA KLINIS"
-                  description=
-                  "Salah satu gejala berikut: demam berkepanjangan, nyeri dada pleuritik, sesak napas, batuk darah, gagal napas, SERTA hasil pemeriksaan foto toraks abnormal, termasuk infiltrat, perselubungan inhomogen, dll" />
-              </div>
-            </Grid>
-            <Grid item lg={4} >
-              <div style={{backgroundColor:"#F8F9FA",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', borderRadius: "20px", height: "100%" }}>
-                <FilledInfoCard
-                  color="error"
-                  title="KRITERIA MIKOLOGI"
-                  description=
-                  "Pemeriksaan mikroskopik dan kultur jamur dari sekret paru (BAL, aspirat ETT, bilasan ronkus), atau deteksi antigen galaktomanan positif atau PCR dari sekret paru dan atau serum" />
-              </div>
-            </Grid>
-          </Grid>
-
-        </Container>
-      </Card>
+      <PatientCounter/>
+      <ButtonForm/>
+      <ContentDivider/>
+      <Pengertian/>
+      <Gambar/>
+      <EpidDanPeran/>
+      <ContentDivider/>
+      <RekomWHO/>
     </>
   );
 }
