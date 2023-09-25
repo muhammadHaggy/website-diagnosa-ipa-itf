@@ -49,7 +49,7 @@ function BuiltBy(chat) {
           </MKTypography>
           <MKTypography variant="h2" color="white" mb={1} >
             {/* {chat.chat}  */}
-            Approriate systemic antifungal administration (voriconazole i.v)
+            Pemberian Antijamur Sistemik yang Tepat (voriconazole i.v)
           </MKTypography>
           <MKTypography variant="body1" color="white" opacity={0.8} mb={2}>
 
