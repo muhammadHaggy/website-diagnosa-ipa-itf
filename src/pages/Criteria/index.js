@@ -12,7 +12,7 @@ function Criteria() {
           action={{
             type: "internal",
             route: "/",
-            label: "Keluar Form Diagnosa",
+            label: "Keluar dari Diagnosa",
             color: "error",
           }}
           transparent
