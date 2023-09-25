@@ -479,19 +479,25 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
             display: { xs: "none", lg: "flex" },
             justifyContent: "space-between", // Align items horizontally
             alignItems: "center", // Center items vertically
-            padding: "2px 16px", // Adjust padding as needed
+            padding: "2px 0px", // Adjust padding as needed
           })}
           >
-            <img src={Logo} alt="Logo" style={{ height: "100px", width:"100%"}} />
+            <img src={Logo} alt="Logo" style={{ height: "100px"}} />
           </MKBox>
           <MKBox
             component={Link}
             to="/"
             lineHeight={1}
-            py={transparent ? 1.5 : 0.75}
-            pl={{ xs: 0, lg: 1 }}
+            pr={{xs:2, lg:8, md:6}}
+            sx={({ palette: { transparent: transparentColor, white }, functions: { rgba } }) => ({
+              width:"100%",
+              justifyContent: "center",
+              textAlign: "center"
+            })}
           >
-            <MKTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
+            <MKTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}
+            sx={{fontWeight:"28px"}}
+            >
               {brand}
             </MKTypography>
           </MKBox>
