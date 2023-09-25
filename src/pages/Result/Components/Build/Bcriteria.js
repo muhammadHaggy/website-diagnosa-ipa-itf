@@ -211,7 +211,7 @@ function Bcriteria(prop) {
 
                                         <Grid container spacing={3}>
                                             <Grid item xs={12} lg={4}>
-                                                <Typography variant="h6">Clinical</Typography>
+                                                <Typography variant="h6">Klinis</Typography>
                                                 {clinicalReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
@@ -220,7 +220,7 @@ function Bcriteria(prop) {
                                                 ))}
                                             </Grid>
                                             <Grid item xs={12} lg={4}>
-                                                <Typography variant="h6">Patient</Typography>
+                                                <Typography variant="h6">Pasien</Typography>
                                                 {symptomsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
@@ -229,7 +229,7 @@ function Bcriteria(prop) {
                                                 ))}
                                             </Grid>
                                             <Grid item xs={12} lg={4}>
-                                                <Typography variant="h6">Micology</Typography>
+                                                <Typography variant="h6">Mikologi</Typography>
                                                 {testsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
