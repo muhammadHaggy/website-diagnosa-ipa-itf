@@ -81,7 +81,7 @@ function FormKriteria() {
   //   setNeutropenia(false)
   //   setHematologi(false)
   //   setOrganSolid(false)
-  //   setKortikosteroid(true)
+  //   setKortikosteroid(false)
   //   setPerawatan(false)
   //   setParuKronik(false)
   //   setSirosis(false)
@@ -214,7 +214,7 @@ function FormKriteria() {
     navigate('/result/criteria', { state: data })
   }
 
-  const steps = ['Kriteria Pasien', 'Kriteria Klinis A', 'Kriteria Klinis B', 'Kriteria Lab'];
+  const steps = ['Kriteria Pasien', 'Kriteria Klinis A', 'Kriteria Klinis B', 'Kriteria Mikologi'];
 
 
   return (

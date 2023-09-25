@@ -62,7 +62,7 @@ function LandingPage() {
         action={{
           type: "internal",
           route: "/criteria",
-          label: "Menuju Form Diagnosa",
+          label: "Menuju Diagnosis",
           color: "secondary",
         }}
 

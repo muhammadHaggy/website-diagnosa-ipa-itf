@@ -12,7 +12,7 @@ function Scoring() {
           action={{
             type: "internal",
             route: "/",
-            label: "Keluar Form Diagnosa",
+            label: "Keluar dari Diagnosis",
             color: "error",
           }}
           transparent
