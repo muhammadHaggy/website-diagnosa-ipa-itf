@@ -216,6 +216,7 @@ function Bcriteria(prop) {
             color: "black", // Ganti dengan warna teks yang Anda inginkan
             fontFamily: "Mona Sans", // Ganti dengan font yang sesuai
             fontWeight: 'bold',
+            color: "darkblue",
         },
     };
 
@@ -235,7 +236,7 @@ function Bcriteria(prop) {
                                     <CardContent>
                                         <Grid container spacing={2}>
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button}>Pasien</Button>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Pasien</Button>
                                                 {symptomsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
@@ -245,7 +246,7 @@ function Bcriteria(prop) {
                                             </Grid>
 
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button}>Klinis A</Button>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Klinis A</Button>
                                                 {clinicalReviewA.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
@@ -254,7 +255,7 @@ function Bcriteria(prop) {
                                                 ))}
                                             </Grid>
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button}>Klinis B</Button>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Klinis B</Button>
                                                 {clinicalReviewB.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
@@ -263,7 +264,7 @@ function Bcriteria(prop) {
                                                 ))}
                                             </Grid>
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button}>Mikologi</Button>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Mikologi</Button>
                                                 {testsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
