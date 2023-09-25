@@ -78,7 +78,7 @@ function FormKriteria() {
 
   // const fillAllwithTrue = () => {
   //   setStep(3)
-  //   setNeutropenia(false)
+  //   setNeutropenia(true)
   //   setHematologi(false)
   //   setOrganSolid(false)
   //   setKortikosteroid(false)
@@ -88,7 +88,7 @@ function FormKriteria() {
   //   setMelitus(false)
   //   setDemam(false)
   //   setNyeri(false)
-  //   setSesak(false)
+  //   setSesak(true)
   //   setBatuk(false)
   //   setGagalNapas(false)
   //   setInfiltrat(true)
@@ -126,7 +126,7 @@ function FormKriteria() {
   }, [neutropenia, hematologi, organSolid, kortikosteroid, perawatan, paruKronik, sirosis, melitus])
 
   const kriteriaKlinis = useMemo(() => {
-    return (demam || nyeri || sesak || batuk || gagalNapas || infiltrat)
+    return ((demam || nyeri || sesak || batuk || gagalNapas) && infiltrat)
   }, [demam, nyeri, sesak, batuk, gagalNapas, infiltrat])
 
   const kriteriaLab = useMemo(() => {

@@ -31,6 +31,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import businesswoman from "assets/images/result/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg"
+import { Badge, Button } from "@mui/material";
 
 
 function Bcriteria(prop) {
@@ -130,7 +131,7 @@ function Bcriteria(prop) {
         galaktomanan
     };
 
-    const clinicalAnswer = {
+    const symptomsAnswer = {
         neutropenia: neutropenia,
         hematologi: hematologi,
         organ_solid: organSolid,
@@ -142,15 +143,17 @@ function Bcriteria(prop) {
     }
 
 
-    const symptomsAnswer = {
+    const clinicalAnswerA = {
         demam: demam,
         nyeri: nyeri,
         sesak: sesak,
         batuk: batuk,
         gagal_napas: gagalNapas,
-        infiltrat: infiltrat
     }
 
+    const clinicalAnswerB = {
+        infiltrat: infiltrat
+    }
 
 
     const testsAnswer = {
@@ -160,10 +163,21 @@ function Bcriteria(prop) {
     }
 
 
-    const clinicalReview = Object.keys(clinicalAnswer)
-        .filter((question) => clinicalAnswer[question])  // Only include questions with answers that are true
+    const clinicalReviewA = Object.keys(clinicalAnswerA)
+        .filter((question) => clinicalAnswerA[question])  // Only include questions with answers that are true
         .map((question) => {
-            const answer = clinicalAnswer[question];
+            const answer = clinicalAnswerA[question];
+            const questionText = question.replace(/^\w/, (c) => c.toUpperCase());
+            // replace underscores with spaces
+            return `${questionText.replace(/_/g, " ")}`;
+        }
+
+        );
+
+    const clinicalReviewB = Object.keys(clinicalAnswerB)
+        .filter((question) => clinicalAnswerB[question])  // Only include questions with answers that are true
+        .map((question) => {
+            const answer = clinicalAnswerB[question];
             const questionText = question.replace(/^\w/, (c) => c.toUpperCase());
             // replace underscores with spaces
             return `${questionText.replace(/_/g, " ")}`;
@@ -193,6 +207,19 @@ function Bcriteria(prop) {
 
         );
 
+    const styles = {
+        largeBadge: {
+            fontSize: "16px", // Ganti dengan ukuran yang Anda inginkan
+            padding: "10px 16px", // Sesuaikan dengan ukuran yang Anda inginkan
+        },
+        button: {
+            color: "black", // Ganti dengan warna teks yang Anda inginkan
+            fontFamily: "Mona Sans", // Ganti dengan font yang sesuai
+            fontWeight: 'bold',
+            color: "darkblue",
+        },
+    };
+
     return (
         <MKBox component="section" py={12}>
             <Container>
@@ -205,43 +232,51 @@ function Bcriteria(prop) {
                                 </Typography>
                             </Grid>
                             <Container>
-                                <Card variant="outlined" sx={{ mt: 4, p: 2 }}>
-
+                                <Card variant="outlined" sx={{ mt: 4, p: 1 }}>
                                     <CardContent>
-
-                                        <Grid container spacing={3}>
-                                            <Grid item xs={12} lg={4}>
-                                                <Typography variant="h6">Klinis</Typography>
-                                                {clinicalReview.map((item, index) => (
-                                                    <Typography key={index}>
-                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                        {item.replace(/^\w/, (c) => c.toUpperCase())}
-                                                    </Typography>
-                                                ))}
-                                            </Grid>
-                                            <Grid item xs={12} lg={4}>
-                                                <Typography variant="h6">Pasien</Typography>
+                                        <Grid container spacing={2}>
+                                            <Grid item xs={12} lg={3}>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Pasien</Button>
                                                 {symptomsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                        {item.replace(/^\w/, (c) => c.toUpperCase())}
+                                                        {item}
                                                     </Typography>
                                                 ))}
                                             </Grid>
-                                            <Grid item xs={12} lg={4}>
-                                                <Typography variant="h6">Mikologi</Typography>
+
+                                            <Grid item xs={12} lg={3}>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Klinis A</Button>
+                                                {clinicalReviewA.map((item, index) => (
+                                                    <Typography key={index}>
+                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                        {item}
+                                                    </Typography>
+                                                ))}
+                                            </Grid>
+                                            <Grid item xs={12} lg={3}>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Klinis B</Button>
+                                                {clinicalReviewB.map((item, index) => (
+                                                    <Typography key={index}>
+                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                        {item}
+                                                    </Typography>
+                                                ))}
+                                            </Grid>
+                                            <Grid item xs={12} lg={3}>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Mikologi</Button>
                                                 {testsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                        {item.replace(/^\w/, (c) => c.toUpperCase())}
+                                                        {item}
                                                     </Typography>
                                                 ))}
                                             </Grid>
                                         </Grid>
                                     </CardContent>
                                 </Card>
-
                             </Container>
+
                         </Grid>
                     </Grid>
                     <Grid item alignItems="center" justifyContent="center" xs={12} lg={4} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
