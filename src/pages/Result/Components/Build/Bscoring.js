@@ -45,7 +45,7 @@ function BuiltBy(chat) {
       <Container>
         <Grid container item xs={12} lg={5} sx={{ ml: { xs: 0, lg: 6 } }}>
           <MKTypography variant="h4" color="white" fontWeight="bold">
-            Recommendation/Treatment
+            Rekomendasi/Perlakuan
           </MKTypography>
           <MKTypography variant="h2" color="white" mb={1} >
             {/* {chat.chat}  */}
