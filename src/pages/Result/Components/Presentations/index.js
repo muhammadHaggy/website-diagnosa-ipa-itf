@@ -27,7 +27,7 @@ import BuiltBy from "../Build/Bscoring";
 import FilledInfoCard from "examples/Cards/InfoCards/FilledInfoCard";
 
 function getRiskDescription(is_high_risk) {
-  return is_high_risk ? "High-risk group" : "Low-risk group";
+  return is_high_risk ? "Kelompok risiko tinggi" : "Kelompok risiko rendah";
 }
 
 function Presentation(prop) {
@@ -49,7 +49,7 @@ function Presentation(prop) {
                 <FilledInfoCard
                   color="info"
                   icon="assessment"
-                  title="Patient's total score"
+                  title="Total skor pasien"
                   description={total_score}
                 // sx={{
                 //   backgroundColor: 'rgba(0, 0, 6, 0.7)', // Ubah warna latar belakang menjadi lebih gelap
@@ -67,7 +67,7 @@ function Presentation(prop) {
                   // variant="gradient"
                   color="info"
                   icon="donut_large"
-                  title="IPA Probability"
+                  title="Kemungkinan API"
                   description={`${ipa_prob}%`}
                 // action={{
                 //   type: "external",
@@ -81,7 +81,7 @@ function Presentation(prop) {
                   variant="gradient"
                   color={cardColor}
                   icon="view_list"
-                  title="Risk Classification"
+                  title="Klasifikasi Risiko"
                   description={getRiskDescription(is_high_risk)}
                 // action={{
                 //   type: "external",

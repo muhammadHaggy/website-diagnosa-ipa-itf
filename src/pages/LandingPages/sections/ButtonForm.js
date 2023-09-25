@@ -46,7 +46,7 @@ function Gambar() {
               color="info"
               size="large"
               fullWidth
-              circular >Lanjut ke Form Diagnosa
+              circular >Lanjut ke Diagnosis
             </MKButton>
             </Grid>
           </Grid>

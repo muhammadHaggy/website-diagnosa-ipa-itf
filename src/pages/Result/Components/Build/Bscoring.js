@@ -45,11 +45,11 @@ function BuiltBy(chat) {
       <Container>
         <Grid container item xs={12} lg={5} sx={{ ml: { xs: 0, lg: 6 } }}>
           <MKTypography variant="h4" color="white" fontWeight="bold">
-            Recommendation/Treatment
+            Rekomendasi/Perlakuan
           </MKTypography>
           <MKTypography variant="h2" color="white" mb={1} >
             {/* {chat.chat}  */}
-            Approriate systemic antifungal administration (voriconazole i.v)
+            Pemberian Antijamur Sistemik yang Tepat (voriconazole i.v)
           </MKTypography>
           <MKTypography variant="body1" color="white" opacity={0.8} mb={2}>
 
