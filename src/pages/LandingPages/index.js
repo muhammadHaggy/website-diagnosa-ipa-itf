@@ -62,7 +62,7 @@ function LandingPage() {
         action={{
           type: "internal",
           route: "/criteria",
-          label: "Menuju Form Diagnosa",
+          label: "Menuju Diagnosis",
           color: "secondary",
         }}
 
@@ -114,6 +114,14 @@ function LandingPage() {
               textAlign="center"
               mt={-6}
               mb={1}
+              // sx={({ breakpoints, typography: { size } }) => ({
+              //   [breakpoints.down("md")]: {
+              //     fontSize: size["3xl"],
+              //   },
+              //   [breakpoints.down("xs")]: {
+              //     fontSize: size["xs"],
+              //   },
+              // })}
             // sx={({ breakpoints, typography: { size } }) => ({
             //   [breakpoints.down("md")]: {
             //     fontSize: size["3xl"],
