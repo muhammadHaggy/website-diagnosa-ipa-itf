@@ -43,7 +43,7 @@ import DefaultNavbarMobile from "examples/Navbars/DefaultNavbar/DefaultNavbarMob
 // Material Kit 2 React base styles
 import breakpoints from "assets/theme/base/breakpoints";
 import { displayedRoutes } from "routes";
-
+import Logo from "assets/images/landingpage/logo-horizontal.png"
 function DefaultNavbar({ brand, routes, transparent, light, action, sticky, relative, center }) {
   const [dropdown, setDropdown] = useState("");
   const [dropdownEl, setDropdownEl] = useState("");
@@ -470,14 +470,34 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
         })}
       >
         <MKBox display="flex" justifyContent="space-between" alignItems="center">
+        <MKBox
+          py={1}
+          px={{ xs: 4, sm: transparent ? 2 : 3, lg: transparent ? 0 : 2 }}
+          sx={({ palette: { transparent: transparentColor, white }, functions: { rgba } }) => ({
+            backgroundColor: transparent,
+            backdropFilter: transparent,
+            display: { xs: "none", lg: "flex" },
+            justifyContent: "space-between", // Align items horizontally
+            alignItems: "center", // Center items vertically
+            padding: "2px 0px", // Adjust padding as needed
+          })}
+          >
+            <img src={Logo} alt="Logo" style={{ height: "100px"}} />
+          </MKBox>
           <MKBox
             component={Link}
             to="/"
             lineHeight={1}
-            py={transparent ? 1.5 : 0.75}
-            pl={relative || transparent ? 0 : { xs: 0, lg: 1 }}
+            pr={{xs:2, lg:8, md:6}}
+            sx={({ palette: { transparent: transparentColor, white }, functions: { rgba } }) => ({
+              width:"100%",
+              justifyContent: "center",
+              textAlign: "center"
+            })}
           >
-            <MKTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}>
+            <MKTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}
+            sx={{fontWeight:"28px"}}
+            >
               {brand}
             </MKTypography>
           </MKBox>
