@@ -50,7 +50,7 @@ function Gambar() {
               color="secondary"
               size="large"
               fullWidth
-              circular >Lanjut ke Diagnosa
+              circular >Lanjut ke Diagnosis
             </MKButton>
             </Grid>
           </Grid>
