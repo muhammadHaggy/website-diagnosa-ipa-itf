@@ -39,15 +39,11 @@ function Gambar() {
             <Grid item xs={12} lg={12} md={12} mx="auto" >
             <MKButton
               sx={{
-                backgroundColor: "#035560", color: "#FFFFFF", '&:hover': {
-                  backgroundColor: "#035560",
-                }, '&:active': {
-                  color: "#000000",
-                },
+                 color: "#FFFFFF"
 
               }} to="/criteria"
               component={Link}
-              color="secondary"
+              color="info"
               size="large"
               fullWidth
               circular >Lanjut ke Form Diagnosa
