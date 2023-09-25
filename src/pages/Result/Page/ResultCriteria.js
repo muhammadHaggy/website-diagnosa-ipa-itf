@@ -11,8 +11,8 @@ function ResultCriteria() {
           routes={displayedRoutes}
           action={{
             type: "internal",
-            route: "/scoring",
-            label: "Menuju Form Skoring",
+            route: "/",
+            label: "Kembali ke Beranda",
             color: "info",
           }}
           transparent

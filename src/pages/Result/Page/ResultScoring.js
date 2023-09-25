@@ -11,8 +11,8 @@ function ResultScoring() {
           routes={displayedRoutes}
           action={{
             type: "internal",
-            route: "/scoring",
-            label: "Menuju Form Diagnosa",
+            route: "/",
+            label: "Kembali ke Beranda",
             color: "info",
           }}
           transparent
