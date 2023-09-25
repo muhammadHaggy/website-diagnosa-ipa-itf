@@ -495,7 +495,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
               textAlign: "center"
             })}
           >
-            <MKTypography variant="button" fontWeight="bold" color={light ? "white" : "dark"}
+            <MKTypography variant="h3" fontWeight="bold" color={light ? "white" : "dark"}
             sx={{fontWeight:"28px"}}
             >
               {brand}
