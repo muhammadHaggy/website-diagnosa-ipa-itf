@@ -199,9 +199,9 @@ function Bcriteria(prop) {
                 <Grid container spacing={3} alignItems="center" justifyContent="center">
                     <Grid alignItems="center" justifyContent="center" item xs={12} lg={8}>
                         <Grid container spacing={3}>
-                            <Grid container item xs={12} lg={6}>
+                            <Grid container item xs={12} lg={8}>
                                 <Typography variant="h3" component="div">
-                                    Review Form Kriteria
+                                    Ringkasan Kriteria Inklusi
                                 </Typography>
                             </Grid>
                             <Container>
@@ -247,13 +247,13 @@ function Bcriteria(prop) {
                     <Grid item alignItems="center" justifyContent="center" xs={12} lg={4} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
                         <CenteredBlogCard
                             image={businesswoman}
-                            title="Criteria Result"
+                            title="Hasil Diagnosis Kriteria Inklusi"
                             description={stateDescription}
                             action={{
                                 type: "internal",
                                 route: state.kriteria === '2' ? "/" : "/scoring",
                                 color: "info",
-                                label: state.kriteria === '2' ? "Kembali ke Landing Page" : "Lanjut ke Form Skoring",
+                                label: state.kriteria === '2' ? "Kembali ke Beranda" : "Lanjut ke Skoring",
                                 state: state,
                             }}
                         >  <Link
@@ -262,7 +262,7 @@ function Bcriteria(prop) {
                                 state: { myData: state } // Mengirim data sebagai state
                             }}
                         >
-                                Lanjut ke Form Skoring
+                                Lanjut ke Skoring
                             </Link>
                             halo
                         </CenteredBlogCard>
