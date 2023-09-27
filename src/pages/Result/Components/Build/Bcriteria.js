@@ -236,7 +236,7 @@ function Bcriteria(prop) {
                                     <CardContent>
                                         <Grid container spacing={2}>
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Pasien</Button>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Kriteria Pasien</Button>
                                                 {symptomsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
@@ -246,7 +246,7 @@ function Bcriteria(prop) {
                                             </Grid>
 
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Klinis A</Button>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Kriteria Klinis Gejala</Button>
                                                 {clinicalReviewA.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
@@ -255,7 +255,7 @@ function Bcriteria(prop) {
                                                 ))}
                                             </Grid>
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Klinis B</Button>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Kriteria Klinis Radiologi</Button>
                                                 {clinicalReviewB.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
@@ -264,7 +264,7 @@ function Bcriteria(prop) {
                                                 ))}
                                             </Grid>
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Mikologi</Button>
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Kriteria Mikologi</Button>
                                                 {testsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
