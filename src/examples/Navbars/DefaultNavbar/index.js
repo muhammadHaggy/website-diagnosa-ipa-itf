@@ -496,7 +496,15 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
             })}
           >
             <MKTypography variant="h3" fontWeight="bold" color={light ? "white" : "dark"}
-            sx={{fontWeight:"28px"}}
+            sx={({ breakpoints, typography: { size } }) => ({
+              [breakpoints.down("md")]: {
+                fontSize: size["3xl"],
+              },
+              [breakpoints.down("xs")]: {
+                fontSize: size["xs"],
+              },
+              fontWeight:"28px"
+            })}
             >
               {brand}
             </MKTypography>
