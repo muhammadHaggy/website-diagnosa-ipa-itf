@@ -76,30 +76,30 @@ function FormKriteria() {
   const [kultur, setKultur] = useState(null)
   const [galaktomanan, setGalaktomanan] = useState(null)
 
-  // const fillAllwithTrue = () => {
-  //   setStep(3)
-  //   setNeutropenia(true)
-  //   setHematologi(false)
-  //   setOrganSolid(false)
-  //   setKortikosteroid(false)
-  //   setPerawatan(false)
-  //   setParuKronik(false)
-  //   setSirosis(false)
-  //   setMelitus(false)
-  //   setDemam(false)
-  //   setNyeri(false)
-  //   setSesak(true)
-  //   setBatuk(false)
-  //   setGagalNapas(false)
-  //   setInfiltrat(true)
-  //   setMikroskopik(false)
-  //   setKultur(false)
-  //   setGalaktomanan(true)
-  // }
+  const fillAllwithTrue = () => {
+    setStep(3)
+    setNeutropenia(true)
+    setHematologi(false)
+    setOrganSolid(false)
+    setKortikosteroid(false)
+    setPerawatan(false)
+    setParuKronik(false)
+    setSirosis(false)
+    setMelitus(false)
+    setDemam(false)
+    setNyeri(false)
+    setSesak(true)
+    setBatuk(false)
+    setGagalNapas(false)
+    setInfiltrat(true)
+    setMikroskopik(false)
+    setKultur(false)
+    setGalaktomanan(true)
+  }
 
-  // React.useEffect(() => {
-  //   fillAllwithTrue()
-  // }, [])
+  React.useEffect(() => {
+    fillAllwithTrue()
+  }, [])
 
   const lab = {
     mikroskopik, setMikroskopik,
