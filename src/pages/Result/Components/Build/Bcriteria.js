@@ -75,7 +75,7 @@ function Bcriteria(prop) {
         perawatan: perawatan,
         paruKronik: paruKronik,
         sirosis: sirosis,
-        melitus: melitus,
+        diabetes: melitus,
 
         demam: demam,
         nyeri: nyeri,
@@ -139,7 +139,7 @@ function Bcriteria(prop) {
         perawatan: perawatan,
         paru_kronik: paruKronik,
         sirosis: sirosis,
-        melitus: melitus
+        diabetes: melitus
     }
 
 
@@ -216,16 +216,16 @@ function Bcriteria(prop) {
             color: "black", // Ganti dengan warna teks yang Anda inginkan
             fontFamily: "Mona Sans", // Ganti dengan font yang sesuai
             fontWeight: 'bold',
-            color: "darkblue",
+            color: "white",
         },
     };
 
     return (
         <MKBox component="section" py={12}>
             <Container>
-                <Grid container spacing={3} alignItems="center" justifyContent="center">
+                <Grid container spacing={2} alignItems="center" justifyContent="center">
                     <Grid alignItems="center" justifyContent="center" item xs={12} lg={8}>
-                        <Grid container spacing={3}>
+                        <Grid container spacing={3} alignItems="center" justifyContent="center">
                             <Grid container item xs={12} lg={8}>
                                 <Typography variant="h3" component="div">
                                     Ringkasan Kriteria Inklusi
@@ -233,53 +233,73 @@ function Bcriteria(prop) {
                             </Grid>
                             <Container>
                                 <Card variant="outlined" sx={{ mt: 4, p: 1 }}>
-                                    <CardContent>
-                                        <Grid container spacing={2}>
-                                            <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Kriteria Pasien</Button>
-                                                {symptomsReview.map((item, index) => (
-                                                    <Typography key={index}>
-                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                        {item}
-                                                    </Typography>
-                                                ))}
-                                            </Grid>
+                                    <CardContent sx={{ px: 1, marginLeft: 4 }} >
+                                        <Grid container spacing={3}>
+                                            <Card xs={12} lg={3} sx={{ backgroundColor: "#add8e6", px: 1, my: 1, mr: 1}}>
+                                                <CardContent  sx={{ px: 1 }}>                                                    <Grid item >
+                                                    <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, height: '88px', background: "#cc3366" }}>Kriteria Pasien</Button>
+                                                    {symptomsReview.map((item, index) => (
+                                                        <Typography key={index}>
+                                                            <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                            {item}
+                                                        </Typography>
+                                                    ))}
+                                                </Grid>
+                                                </CardContent>
+                                            </Card>
+                                            <Card xs={12} lg={6} sx={{ backgroundColor: "#add8e6", px: 1, my: 1, mr: 1}}>
+                                                <CardContent sx={{ px: 1 }}>                                                    <Grid item >
+                                                    <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, width: '100%', height: '40px', background: "#cc3366" }}>
+                                                        Kriteria Klinis
+                                                    </Button>
 
-                                            <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Kriteria Klinis Gejala</Button>
-                                                {clinicalReviewA.map((item, index) => (
-                                                    <Typography key={index}>
-                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                        {item}
-                                                    </Typography>
-                                                ))}
-                                            </Grid>
-                                            <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Kriteria Klinis Radiologi</Button>
-                                                {clinicalReviewB.map((item, index) => (
-                                                    <Typography key={index}>
-                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                        {item}
-                                                    </Typography>
-                                                ))}
-                                            </Grid>
-                                            <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Kriteria Mikologi</Button>
-                                                {testsReview.map((item, index) => (
-                                                    <Typography key={index}>
-                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                        {item}
-                                                    </Typography>
-                                                ))}
-                                            </Grid>
+                                                    <Grid container spacing={2}>
+                                                        <Grid item lg={6}>
+                                                            <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, width: '100%', background: "#db7093" }}>
+                                                                Gejala
+                                                            </Button>
+                                                            {clinicalReviewA.map((item, index) => (
+                                                                <Typography key={index}>
+                                                                    <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                    {item}
+                                                                </Typography>
+                                                            ))}
+                                                        </Grid>
+                                                        <Grid item lg={6}>
+                                                            <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, width: '100%', background: "#db7093" }}>
+                                                                Radiologi
+                                                            </Button>
+                                                            {clinicalReviewB.map((item, index) => (
+                                                                <Typography key={index}>
+                                                                    <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                    {item}
+                                                                </Typography>
+                                                            ))}
+                                                        </Grid>
+                                                    </Grid>
+                                                </Grid>
+                                                </CardContent>
+                                            </Card>
+                                            <Card xs={12} lg={2} sx={{ backgroundColor: "#add8e6", px: 1, my: 1 }}>
+                                                <CardContent sx={{ px: 0 }}>
+                                                    <Grid item>
+                                                        <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, height: '88px', background: "#cc3366" }}>Kriteria Mikologi</Button>
+                                                        {testsReview.map((item, index) => (
+                                                            <Typography key={index}>
+                                                                <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                {item}
+                                                            </Typography>
+                                                        ))}
+                                                    </Grid>
+                                                </CardContent>
+                                            </Card>
                                         </Grid>
                                     </CardContent>
                                 </Card>
                             </Container>
-
                         </Grid>
                     </Grid>
-                    <Grid item alignItems="center" justifyContent="center" xs={12} lg={4} sx={{ ml: "auto", mt: { xs: 3, lg: 0 } }}>
+                    <Grid item alignItems="center" justifyContent="center" xs={12} lg={4} sx={{ ml: "auto", mt: { xs: 3, lg: 7 } }}>
                         <CenteredBlogCard
                             image={businesswoman}
                             title="Hasil Diagnosis Kriteria Inklusi"
