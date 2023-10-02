@@ -20,6 +20,8 @@ import Grid from "@mui/material/Grid";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
+import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 // Material Kit 2 React examples
 import { Link } from "react-router-dom";
@@ -235,19 +237,28 @@ function Bcriteria(prop) {
                                 <Card variant="outlined" sx={{ mt: 4, p: 1 }}>
                                     <CardContent sx={{ px: 1, marginLeft: 4 }} >
                                         <Grid container spacing={3}>
-                                            <Card xs={12} lg={3} sx={{ backgroundColor: "#add8e6", px: 1, my: 1, mr: 1}}>
-                                                <CardContent  sx={{ px: 1 }}>                                                    <Grid item >
+                                            <Card xs={12} lg={3} sx={{ backgroundColor: "#add8e6", px: 1, my: 1, mr: 1 }}>
+                                                <CardContent sx={{ px: 1 }}>                                                    <Grid item >
                                                     <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, height: '88px', background: "#cc3366" }}>Kriteria Pasien</Button>
-                                                    {symptomsReview.map((item, index) => (
-                                                        <Typography key={index}>
-                                                            <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                            {item}
-                                                        </Typography>
-                                                    ))}
+                                                    {symptomsReview.length > 0 ? (
+                                                                symptomsReview.map((item, index) => (
+                                                                    <Typography key={index}>
+                                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                        {item}
+                                                                    </Typography>
+                                                                ))
+                                                            ) : (
+                                                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                                                        <CheckBoxOutlineBlankIcon color="maroon" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                        <Typography style={{ color: "maroon", fontSize: 15 }}>
+                                                                            Kriteria tidak terpenuhi
+                                                                        </Typography>
+                                                                    </div>
+                                                            )}
                                                 </Grid>
                                                 </CardContent>
                                             </Card>
-                                            <Card xs={12} lg={6} sx={{ backgroundColor: "#add8e6", px: 1, my: 1, mr: 1}}>
+                                            <Card xs={12} lg={6} sx={{ backgroundColor: "#add8e6", px: 1, my: 1, mr: 1 }}>
                                                 <CardContent sx={{ px: 1 }}>                                                    <Grid item >
                                                     <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, width: '100%', height: '40px', background: "#cc3366" }}>
                                                         Kriteria Klinis
@@ -258,23 +269,42 @@ function Bcriteria(prop) {
                                                             <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, width: '100%', background: "#db7093" }}>
                                                                 Gejala
                                                             </Button>
-                                                            {clinicalReviewA.map((item, index) => (
-                                                                <Typography key={index}>
-                                                                    <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                                    {item}
-                                                                </Typography>
-                                                            ))}
+                                                            {clinicalReviewA.length > 0 ? (
+                                                                clinicalReviewA.map((item, index) => (
+                                                                    <Typography key={index}>
+                                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                        {item}
+                                                                    </Typography>
+                                                                ))
+                                                            ) : (
+                                                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                                                        <CheckBoxOutlineBlankIcon color="maroon" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                        <Typography style={{ color: "maroon",  fontSize: 15 }}>
+                                                                            Kriteria tidak terpenuhi
+                                                                        </Typography>
+                                                                    </div>
+                                                            )}
+
                                                         </Grid>
                                                         <Grid item lg={6}>
                                                             <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, width: '100%', background: "#db7093" }}>
                                                                 Radiologi
                                                             </Button>
-                                                            {clinicalReviewB.map((item, index) => (
-                                                                <Typography key={index}>
-                                                                    <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                                    {item}
-                                                                </Typography>
-                                                            ))}
+                                                            {clinicalReviewB.length > 0 ? (
+                                                                clinicalReviewB.map((item, index) => (
+                                                                    <Typography key={index}>
+                                                                        <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                        {item}
+                                                                    </Typography>
+                                                                ))
+                                                            ) : (
+                                                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                                                        <CheckBoxOutlineBlankIcon color="maroon" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                        <Typography style={{ color: "maroon", fontSize: 15 }}>
+                                                                            Kriteria tidak terpenuhi
+                                                                        </Typography>
+                                                                    </div>
+                                                            )}
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
@@ -284,12 +314,21 @@ function Bcriteria(prop) {
                                                 <CardContent sx={{ px: 0 }}>
                                                     <Grid item>
                                                         <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, height: '88px', background: "#cc3366" }}>Kriteria Mikologi</Button>
-                                                        {testsReview.map((item, index) => (
-                                                            <Typography key={index}>
-                                                                <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
-                                                                {item}
-                                                            </Typography>
-                                                        ))}
+                                                        {testsReview.length > 0 ? (
+                                                            testsReview.map((item, index) => (
+                                                                <Typography key={index}>
+                                                                    <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                    {item}
+                                                                </Typography>
+                                                            ))
+                                                        ) : (
+                                                                <div style={{ display: "flex", alignItems: "center" }}>
+                                                                    <CheckBoxOutlineBlankIcon color="maroon" style={{ marginRight: "8px", verticalAlign: "middle" }} />
+                                                                    <Typography style={{ color: "maroon", fontSize: 15 }}>
+                                                                        Kriteria tidak terpenuhi
+                                                                    </Typography>
+                                                                </div>
+                                                        )}
                                                     </Grid>
                                                 </CardContent>
                                             </Card>
