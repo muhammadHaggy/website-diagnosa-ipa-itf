@@ -223,7 +223,7 @@ function Bcriteria(prop) {
     };
 
     return (
-        <MKBox component="section" py={12}>
+        <MKBox component="section" py={12} >
             <Container>
                 <Grid container spacing={2} alignItems="center" justifyContent="center">
                     <Grid alignItems="center" justifyContent="center" item xs={12} lg={8}>
@@ -237,7 +237,7 @@ function Bcriteria(prop) {
                                 <Card variant="outlined" sx={{ mt: 4, p: 1 }}>
                                     <CardContent sx={{ px: 1, marginLeft: 4 }} >
                                         <Grid container spacing={3}>
-                                            <Card xs={12} lg={3} sx={{ backgroundColor: "#add8e6", px: 1, my: 1, mr: 1 }}>
+                                            <Card xs={12} lg={3} sx={{ backgroundColor: "#87cefa", px: 1, my: 1, mr: 1 }}>
                                                 <CardContent sx={{ px: 1 }}>                                                    <Grid item >
                                                     <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, height: '88px', background: "#cc3366" }}>Kriteria Pasien</Button>
                                                     {symptomsReview.length > 0 ? (
@@ -258,7 +258,7 @@ function Bcriteria(prop) {
                                                 </Grid>
                                                 </CardContent>
                                             </Card>
-                                            <Card xs={12} lg={6} sx={{ backgroundColor: "#add8e6", px: 1, my: 1, mr: 1 }}>
+                                            <Card xs={12} lg={6} sx={{ backgroundColor: "#87cefa", px: 1, my: 1, mr: 1 }}>
                                                 <CardContent sx={{ px: 1 }}>                                                    <Grid item >
                                                     <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, width: '100%', height: '40px', background: "#cc3366" }}>
                                                         Kriteria Klinis
@@ -310,7 +310,7 @@ function Bcriteria(prop) {
                                                 </Grid>
                                                 </CardContent>
                                             </Card>
-                                            <Card xs={12} lg={2} sx={{ backgroundColor: "#add8e6", px: 1, my: 1 }}>
+                                            <Card xs={12} lg={2} sx={{ backgroundColor: "#87cefa", px: 1, my: 1 }}>
                                                 <CardContent sx={{ px: 0 }}>
                                                     <Grid item>
                                                         <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1, height: '88px', background: "#cc3366" }}>Kriteria Mikologi</Button>
