@@ -27,18 +27,18 @@ import MKButton from 'components/MKButton';
 import DefaultCounterCard from "examples/Cards/CounterCards/DefaultCounterCard";
 import { Typography } from "@mui/material";
 
-function ContentDivider() {
+function ContentDivider({pb = "150px"}) {
   return (
     <div style={{
-        paddingBottom: "150px", // Default value
+        paddingBottom: pb, // Default value
         "@media (min-width: 600px)": {
           paddingBottom: "50px", // Value for screens with a width of 600px and above (e.g., xs)
         },
         "@media (min-width: 960px)": {
-          paddingBottom: "150px", // Value for screens with a width of 960px and above (e.g., md)
+          paddingBottom: pb, // Value for screens with a width of 960px and above (e.g., md)
         },
         "@media (min-width: 1280px)": {
-          paddingBottom: "150px", // Value for screens with a width of 1280px and above (e.g., lg)
+          paddingBottom: pb, // Value for screens with a width of 1280px and above (e.g., lg)
         },
       }}>
 </div>
