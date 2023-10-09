@@ -236,41 +236,51 @@ function Bcriteria(prop) {
                                     <CardContent>
                                         <Grid container spacing={2}>
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Pasien</Button>
-                                                {symptomsReview.map((item, index) => (
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1 }}>Pasien</Button>
+                                                {symptomsReview.length > 0 ? symptomsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
                                                         {item}
                                                     </Typography>
-                                                ))}
+                                                )) : <Typography
+                                                    color={"error"}
+                                                >Kriteria Tidak Terpenuhi</Typography>}
                                             </Grid>
 
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Klinis A</Button>
-                                                {clinicalReviewA.map((item, index) => (
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1 }}>Klinis A</Button>
+                                                {clinicalReviewA.length > 0 ? clinicalReviewA.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
                                                         {item}
                                                     </Typography>
-                                                ))}
+                                                )) : <Typography
+                                                    color={"error"}
+                                                >Kriteria Tidak Terpenuhi</Typography>}
                                             </Grid>
+
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Klinis B</Button>
-                                                {clinicalReviewB.map((item, index) => (
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1 }}>Klinis B</Button>
+                                                {clinicalReviewB.length > 0 ? clinicalReviewB.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
                                                         {item}
                                                     </Typography>
-                                                ))}
+                                                )) : <Typography
+                                                    color={"error"}
+                                                >Kriteria Tidak Terpenuhi</Typography>}
                                             </Grid>
+
                                             <Grid item xs={12} lg={3}>
-                                                <Button variant="outlined" color="primary" style={styles.button} sx={{  mb: 1 }}>Mikologi</Button>
-                                                {testsReview.map((item, index) => (
+                                                <Button variant="outlined" color="primary" style={styles.button} sx={{ mb: 1 }}>Mikologi</Button>
+                                                {testsReview.length > 0 ? testsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
                                                         {item}
                                                     </Typography>
-                                                ))}
+                                                )) : <Typography
+                                                    color={"error"}
+                                                >Kriteria Tidak Terpenuhi</Typography>}
                                             </Grid>
                                         </Grid>
                                     </CardContent>
