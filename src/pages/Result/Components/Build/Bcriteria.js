@@ -241,7 +241,6 @@ function Bcriteria(prop) {
                                 </Typography>
                             </Grid>
                             <Container>
-                                {/* <Card variant="outlined" sx={{ mt: 4, p: 1 }}> */}
                                 <CardContent>
                                     <Grid container spacing={2}>
                                         <Grid item xs={12} lg={3}>
@@ -269,6 +268,7 @@ function Bcriteria(prop) {
                                                     Kriteria Pasien
                                                 </Typography>
 
+
                                                 {symptomsReview.length > 0 ? symptomsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
@@ -281,7 +281,7 @@ function Bcriteria(prop) {
                                         </Grid>
 
 
-                                        <Grid item xs={12} lg={6}> {/* Adjusted the layout grid size */}
+                                        <Grid item xs={12} lg={6}> 
                                             <Card variant="outlined" sx={{ p: 3 }}>
                                             <Typography
                                                             variant="button"
@@ -382,6 +382,7 @@ function Bcriteria(prop) {
                                                 >
                                                     Kriteria Mikologi
                                                 </Typography>
+
                                                 {testsReview.length > 0 ? testsReview.map((item, index) => (
                                                     <Typography key={index}>
                                                         <CheckCircleIcon color="primary" style={{ marginRight: "8px", verticalAlign: "middle" }} />
@@ -394,7 +395,6 @@ function Bcriteria(prop) {
                                         </Grid>
                                     </Grid>
                                 </CardContent>
-                                {/* </Card> */}
                             </Container>
                         </Grid>
                     </Grid>
