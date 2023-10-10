@@ -64,7 +64,7 @@ function FormSkoring() {
 
   return (
     <Container>
-      <Grid minHeight={'100vh'} pt={15} pb={8} display={'flex'} direction={'column'} justifyContent={'center'}>
+      <Grid minHeight={'100vh'} pt={20} pb={8} display={'flex'} direction={'column'} justifyContent={'center'}>
         <Grid container item>
           <MKBox
             width="100%"

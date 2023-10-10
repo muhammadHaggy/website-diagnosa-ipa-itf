@@ -64,11 +64,11 @@ function CenteredBlogCard({ image, title, description, action }) {
         />
       </MKBox>
       <MKBox p={3} mt={-1} textAlign="center">
-        <MKTypography display="inline" variant="h5" textTransform="capitalize" fontWeight="regular">
+        <MKTypography display="inline" variant="h4" textTransform="capitalize" fontWeight="regular">
           {title}
         </MKTypography>
         <MKBox mt={1} mb={3}>
-          <MKTypography variant="body2" component="p" color="text">
+          <MKTypography variant="body1" component="p" color="text">
             {description}
           </MKTypography>
         </MKBox>
