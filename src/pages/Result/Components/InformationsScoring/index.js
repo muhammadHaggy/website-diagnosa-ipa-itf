@@ -39,9 +39,9 @@ function InformationScoring() {
               sx={{
                 paddingTop: 2,
                 color: "primary.main", // Warna teks
-                fontSize: "20px", // Ukuran teks
-                fontWeight: "bold", // Jenis font teks
-                fontStyle: "italic", // Gaya font teks
+                // fontSize: "20px", // Ukuran teks
+                // fontWeight: "bold", // Jenis font teks
+                // fontStyle: "italic", // Gaya font teks
               }}
             >
               {titleText}

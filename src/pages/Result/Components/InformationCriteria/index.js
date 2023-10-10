@@ -27,7 +27,7 @@ function InformationCriteria() {
             shadow="xl"
             sx={{ overflow: "hidden" }}
           >
-            <Grid container spacing={2} px={3}>
+            <Grid container spacing={2} >
               {/* <Typography variant="h4" align="center" marginTop={4} marginLeft={4}>
                <MKBadge badgeContent="Result" variant="contained" color="info" container /> */}
               {/* <MKBadge */}
