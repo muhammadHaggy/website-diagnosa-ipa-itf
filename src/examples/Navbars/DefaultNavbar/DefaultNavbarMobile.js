@@ -28,6 +28,7 @@ import MuiLink from "@mui/material/Link";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
+import { getUser } from "utils/authUtils";
 
 // Material Kit 2 React example components
 import DefaultNavbarDropdown from "examples/Navbars/DefaultNavbar/DefaultNavbarDropdown";
@@ -152,6 +153,33 @@ function DefaultNavbarMobile({ routes, open }) {
     <Collapse in={Boolean(open)} timeout="auto" unmountOnExit>
       <MKBox width="calc(100% + 1.625rem)" my={2} ml={-2}>
         {renderNavbarItems}
+        {!getUser() ? (
+                <MKTypography
+                component={Link}
+                align="center"
+                to="auth/login"
+                display="block"
+                variant="button"
+                fontWeight="bold"
+                textTransform="capitalize"
+                color="info"
+              >
+                Login
+              </MKTypography>
+            ) : (
+              <MKTypography
+                component={Link}
+                align="center"  
+                to="auth/logout"
+                display="block"
+                variant="button"
+                fontWeight="bold"
+                textTransform="capitalize"
+                color="error"
+              >
+                Logout
+              </MKTypography>
+            )}
       </MKBox>
     </Collapse>
   );

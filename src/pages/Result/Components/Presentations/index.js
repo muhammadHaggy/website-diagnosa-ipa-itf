@@ -19,7 +19,8 @@ import Grid from "@mui/material/Grid";
 
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
-
+import MKButton from "components/MKButton";
+import Icon from "@mui/material/Icon";
 // Material Kit 2 React examples
 
 // Images
@@ -90,8 +91,20 @@ function Presentation(prop) {
                 // }}
                 />
               </Grid>
+
             </Grid>
+            
           </Container>
+          <MKButton color="primary" variant="gradient" size="large" sx={{
+              width:"100%",
+              mb:"50px",
+              mt:"40px"
+          }}>
+              <Icon sx={{
+                  marginRight:"2px"
+              }}>mail</Icon>
+              Kirim ke Email
+          </MKButton>
         </Grid>
       </Container>
     </MKBox>

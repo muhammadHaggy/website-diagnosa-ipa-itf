@@ -5,7 +5,6 @@ import InformationCriteria from "../Components/InformationCriteria";
 import background from "assets/images/result/result-background.jpg"
 import ContentDivider from "pages/LandingPages/sections/ContentDivider";
 
-
 function ResultCriteria() {
   return (
     <>

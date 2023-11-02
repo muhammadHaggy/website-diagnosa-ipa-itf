@@ -43,6 +43,8 @@ import DefaultNavbarMobile from "examples/Navbars/DefaultNavbar/DefaultNavbarMob
 // Material Kit 2 React base styles
 import breakpoints from "assets/theme/base/breakpoints";
 import { displayedRoutes } from "routes";
+import { getUser } from "utils/authUtils";
+import Login from "pages/auth/Page/login";
 import Logo from "assets/images/landingpage/logo-horizontal.png"
 function DefaultNavbar({ brand, routes, transparent, light, action, sticky, relative, center }) {
   const [dropdown, setDropdown] = useState("");
@@ -489,22 +491,16 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
             to="/"
             lineHeight={1}
             pr={{xs:2, lg:8, md:6}}
-            sx={({ palette: { transparent: transparentColor, white }, functions: { rgba } }) => ({
+            sx={({ palette: {transparent: transparentColor, white }, functions: { rgba } }) => ({
               width:"100%",
               justifyContent: "center",
-              textAlign: "center"
+              textAlign: "center",
             })}
           >
             <MKTypography variant="h3" fontWeight="bold" color={light ? "white" : "dark"}
-            sx={({ breakpoints, typography: { size } }) => ({
-              [breakpoints.down("md")]: {
-                fontSize: size["3xl"],
-              },
-              [breakpoints.down("xs")]: {
-                fontSize: size["xs"],
-              },
-              fontWeight:"28px"
-            })}
+            sx={{
+              fontSize: {xs:"20px",sm:"32px", md:"32px"}
+            }}
             >
               {brand}
             </MKTypography>
@@ -516,6 +512,29 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
             mr={center ? "auto" : 0}
           >
             {renderNavbarItems}
+            {/* <MKBox my="12px" mx="12px"></MKBox> */}
+            {!getUser() ? (
+                <MKButton
+                component={Link}
+                to="auth/login"
+                color="info"
+                variant="gradient"
+                size="small"
+              >
+                Login
+              </MKButton>
+            ) : (
+              <MKButton
+                component={Link}
+                to="auth/logout"
+                color="dark"
+                variant="gradient"
+                size="small"
+              >
+                Logout
+              </MKButton>
+            )}
+            <MKBox mx="12px"></MKBox>
           </MKBox>
           <MKBox ml={{ xs: "auto", lg: 0 }}>
             {action &&

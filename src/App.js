@@ -17,7 +17,8 @@ import { useEffect } from "react";
 
 // react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-
+import PrivateRoutes from "utils/PrivateRoutes";
+import { getToken } from "utils/authUtils";
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -29,10 +30,19 @@ import LandingPage from "layouts/pages/landing-pages";
 
 // Material Kit 2 React routes
 import routes from "routes";
+import Register from "pages/auth/Page/register";
+import Login from "pages/auth/Page/login";
+import Logout from "pages/auth/Page/logout";
+// import { AuthProvider } from "context/AuthContext";
 
 export default function App() {
   const { pathname } = useLocation();
-
+  // useEffect(() => {
+  //   const token = getToken();
+  //   if (!token) {
+  //     return <Login></Login>;
+  //   }
+  // })
   // Setting page scroll to 0 when changing the route
   useEffect(() => {
     document.documentElement.scrollTop = 0;
@@ -55,11 +65,16 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Routes>
-        {getRoutes(routes)}
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/presentation" element={<LandingPage />} />
+        <Routes>
+          <Route path="auth/login" element={<Login />} />
+          <Route path="auth/logout" element={<Logout />} />
+          <Route path="auth/register" element={<Register />} />
+          <Route path="" element={<LandingPage />} />
+        <Route element={<PrivateRoutes />}>
+            {getRoutes(routes)}
+        </Route>
       </Routes>
+      
     </ThemeProvider>
   );
 }

@@ -25,7 +25,8 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 // Material Kit 2 React examples
 import { Link } from "react-router-dom";
-
+import MKButton from "components/MKButton";
+import Icon from "@mui/material/Icon";
 
 import CenteredBlogCard from "../Card/CenteredBlogCard";
 import Card from "@mui/material/Card";
@@ -398,7 +399,21 @@ function Bcriteria(prop) {
                             </Container>
                         </Grid>
                     </Grid>
-                    <Grid item alignItems="center" justifyContent="center" xs={12} lg={3} sx={{ ml: "auto", mt: { xs: 3, lg: 7 } }}>
+                    {/* <MKButton color="primary" sx={{
+                    width:"50%"
+                    }}>
+                        Kirim ke Email
+                    </MKButton> */}
+                    <Grid item alignItems="center" justifyContent="center" xs={12} lg={3} sx={{ ml: "auto"}}>
+                        <MKButton color="primary" variant="gradient" size="large" sx={{
+                            width:"100%",
+                            mb:"50px"
+                        }}>
+                            <Icon sx={{
+                                marginRight:"2px"
+                            }}>mail</Icon>
+                            Kirim ke Email
+                        </MKButton>
                         <CenteredBlogCard
                             image={businesswoman}
                             title="Hasil Diagnosis Kriteria Inklusi"
@@ -423,6 +438,7 @@ function Bcriteria(prop) {
 
                     </Grid>
                 </Grid>
+            
             </Container>
         </MKBox>
     );
