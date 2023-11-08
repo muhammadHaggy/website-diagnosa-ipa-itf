@@ -55,7 +55,7 @@ function Login() {
             setShowEmptyFieldsAlert(false);
             setLoading(true);
             try {
-            const res = await fetch('https://api.mikostop.com/api/login/', {
+              const res = await fetch('https://api.mikostop.com/api/login/', {
                 method: 'POST',
                 headers: {
                 'Content-Type': 'application/json'
