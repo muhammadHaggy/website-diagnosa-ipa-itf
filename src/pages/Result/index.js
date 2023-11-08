@@ -31,9 +31,6 @@ function Scoring() {
           dark
         />
         <InformationScoring />
-        <MKButton>
-          Kirim ke Email
-        </MKButton>
       </MKBox>
     </>
   );
