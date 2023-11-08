@@ -72,17 +72,29 @@ import ScoringPage from "layouts/pages/scoring";
 import CriteriaPage from "layouts/pages/criteria";
 import ResultScoring from "pages/Result/Page/ResultScoring";
 import ResultCriteria from "pages/Result/Page/ResultCriteria"
-
+import Register from "pages/auth/Page/register";
+import Login from "pages/auth/Page/login";
+import SignInBasic from "pages/LandingPages/SignIn";
 export const displayedRoutes = [
   
 ];
 
 const routes = [
-  {
-    name: "Landing Page",
-    route: "/",
-    component: <LandingPage />,
-  },
+  // {
+  //   name: "Register",
+  //   route: "/auth/register",
+  //   component: <SignInBasic />,
+  // },
+  // {
+  //   name: "Login",
+  //   route: "/auth/login",
+  //   component: <Login />,
+  // },
+  // {
+  //   name: "Landing Page",
+  //   route: "/",
+  //   component: <LandingPage />,
+  // },
   {
     name: "scoring",
     route: "/scoring",

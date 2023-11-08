@@ -6,6 +6,7 @@ import background from "assets/images/result/result-background.jpg"
 import ContentDivider from "pages/LandingPages/sections/ContentDivider";
 
 function Scoring() {
+  
   return (
     <>
       <MKBox

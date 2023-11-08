@@ -20,7 +20,6 @@ import Grid from "@mui/material/Grid";
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
-
 function BuiltBy(chat) {
   const bgImage =
     "https://raw.githubusercontent.com/creativetimofficial/public-assets/master/soft-ui-design-system/assets/img/desktop.jpg";
@@ -55,7 +54,9 @@ function BuiltBy(chat) {
 
           </MKTypography>
         </Grid>
+        
       </Container>
+      
     </MKBox>
   );
 }

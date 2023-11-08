@@ -7,7 +7,6 @@ import Bcriteria from "../Build/Bcriteria";
 
 
 
-
 function InformationCriteria() {
   const location = useLocation();
   const myProp = location.state;
@@ -34,9 +33,11 @@ function InformationCriteria() {
               {/* </Typography> */}
               <Bcriteria prop={myProp} />
             </Grid>
+            
           </MKBox>
         </Grid>
       </Grid>
+      
     </Container>
   );
 }
