@@ -56,7 +56,7 @@ function FormSkoring() {
       })
       if (res.ok) {
         const data = await res.json()
-        navigate('/result/scoring', { state: data })
+        navigate('/result/scoring', { state: data, replace: true })
       }
     } catch (e) {
       console.log(e)
