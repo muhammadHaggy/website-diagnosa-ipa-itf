@@ -519,7 +519,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
                 to="auth/login"
                 color="info"
                 variant="gradient"
-                size="small"
+                size="big"
               >
                 Login
               </MKButton>
@@ -529,7 +529,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
                 to="auth/logout"
                 color="dark"
                 variant="gradient"
-                size="small"
+                size="big"
               >
                 Logout
               </MKButton>

@@ -1,6 +1,12 @@
 import { removeUserSession } from "utils/authUtils";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 export default function Logout() {
-    removeUserSession()
-    return <Navigate to="/" />
+  const navigate = useNavigate();
+    useEffect(() => {
+      removeUserSession();
+      navigate('/auth/login', { replace: true })
+    }, []
+    )
+    return <></>
   }

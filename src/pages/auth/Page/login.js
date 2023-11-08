@@ -204,12 +204,7 @@ function Login() {
                 backgroundRepeat: "no-repeat"
               }}
             >
-                <MKTypography variant="h3" fontWeight="medium" color="white" textAlign="center"
-                fontSize= "28px"
-              >
                 
-                Selamat datang di Mikostop
-              </MKTypography>
             </MKBox>
           </Grid>
         </Grid>
