@@ -87,7 +87,7 @@ function CenteredBlogCard({ image, title, description, action }) {
         ) : (
           <MKButton
             variant="gradient"
-            size="small"
+            size="big"
             sx={{
               backgroundColor: "#035560", color: "#FFFFFF", '&:hover': {
                 backgroundColor: "#035560",
