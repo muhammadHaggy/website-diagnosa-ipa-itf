@@ -405,7 +405,7 @@ function Bcriteria(prop) {
                         Kirim ke Email
                     </MKButton> */}
                     <Grid item alignItems="center" justifyContent="center" xs={12} lg={3} sx={{ ml: "auto"}}>
-                        <MKButton color="primary" variant="gradient" size="large" sx={{
+                        {/* <MKButton color="primary" variant="gradient" size="large" sx={{
                             width:"100%",
                             mb:"50px"
                         }}>
@@ -413,7 +413,7 @@ function Bcriteria(prop) {
                                 marginRight:"2px"
                             }}>mail</Icon>
                             Kirim ke Email
-                        </MKButton>
+                        </MKButton> */}
                         <CenteredBlogCard
                             image={businesswoman}
                             title="Hasil Diagnosis Kriteria Inklusi"
