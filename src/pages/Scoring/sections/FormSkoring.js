@@ -10,6 +10,7 @@ import Card from "./Card";
 
 import * as React from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
+import { getToken } from "../../../utils/authUtils";
 
 
 function FormSkoring() {
@@ -42,7 +43,8 @@ function FormSkoring() {
       const res = await fetch('https://api.mikostop.com/api/add/', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${getToken()}`
         },
         body: JSON.stringify({
           'is_pulmonary_TB': paruKronik,
@@ -54,7 +56,7 @@ function FormSkoring() {
       })
       if (res.ok) {
         const data = await res.json()
-        navigate('/result/scoring', { state: data })
+        navigate('/result/scoring', { state: data, replace: true })
       }
     } catch (e) {
       console.log(e)

@@ -30,6 +30,7 @@ function ResultScoring() {
         <ContentDivider pb="30px"
         />
         <InformationScoring />
+        
       </MKBox>
     </>
   );

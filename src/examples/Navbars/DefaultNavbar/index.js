@@ -17,7 +17,7 @@ Coded by www.creative-tim.com
 import { Fragment, useState, useEffect } from "react";
 
 // react-router components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // prop-types is a library for typechecking of props.
 import PropTypes from "prop-types";
@@ -43,8 +43,17 @@ import DefaultNavbarMobile from "examples/Navbars/DefaultNavbar/DefaultNavbarMob
 // Material Kit 2 React base styles
 import breakpoints from "assets/theme/base/breakpoints";
 import { displayedRoutes } from "routes";
+import { getUser } from "utils/authUtils";
 import Logo from "assets/images/landingpage/logo-horizontal.png"
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+
 function DefaultNavbar({ brand, routes, transparent, light, action, sticky, relative, center }) {
+  const navigate = useNavigate();
   const [dropdown, setDropdown] = useState("");
   const [dropdownEl, setDropdownEl] = useState("");
   const [dropdownName, setDropdownName] = useState("");
@@ -54,6 +63,24 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
   const [arrowRef, setArrowRef] = useState(null);
   const [mobileNavbar, setMobileNavbar] = useState(false);
   const [mobileView, setMobileView] = useState(false);
+  const [openLogoutDialog, setOpenLogoutDialog] = useState(false);
+
+  const handleLogoutClick = () => {
+    setOpenLogoutDialog(true);
+  };
+
+  const handleCloseLogoutDialog = () => {
+    setOpenLogoutDialog(false);
+  };
+
+  const handleConfirmLogout = () => {
+    // Implement your logout logic here, such as clearing user tokens or state
+    // Redirect to logout page or perform the logout action
+    setOpenLogoutDialog(false);
+    navigate("/auth/logout");
+  };
+
+
 
   const openMobileNavbar = () => setMobileNavbar(!mobileNavbar);
 
@@ -333,84 +360,84 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
   const renderNestedRoutes = routes.map(({ collapse, columns }) =>
     collapse && !columns
       ? collapse.map(({ name: parentName, collapse: nestedCollapse }) => {
-          let template;
+        let template;
 
-          if (parentName === nestedDropdownName) {
-            template =
-              nestedCollapse &&
-              nestedCollapse.map((item) => {
-                const linkComponent = {
-                  component: MuiLink,
-                  href: item.href,
-                  target: "_blank",
-                  rel: "noreferrer",
-                };
+        if (parentName === nestedDropdownName) {
+          template =
+            nestedCollapse &&
+            nestedCollapse.map((item) => {
+              const linkComponent = {
+                component: MuiLink,
+                href: item.href,
+                target: "_blank",
+                rel: "noreferrer",
+              };
 
-                const routeComponent = {
-                  component: Link,
-                  to: item.route,
-                };
+              const routeComponent = {
+                component: Link,
+                to: item.route,
+              };
 
-                return (
-                  <MKTypography
-                    key={item.name}
-                    {...(item.route ? routeComponent : linkComponent)}
-                    display="flex"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    variant="button"
-                    textTransform="capitalize"
-                    minWidth={item.description ? "14rem" : "12rem"}
-                    color={item.description ? "dark" : "text"}
-                    fontWeight={item.description ? "bold" : "regular"}
-                    py={item.description ? 1 : 0.625}
-                    px={2}
-                    sx={({ palette: { grey, dark }, borders: { borderRadius } }) => ({
-                      borderRadius: borderRadius.md,
-                      cursor: "pointer",
-                      transition: "all 300ms linear",
+              return (
+                <MKTypography
+                  key={item.name}
+                  {...(item.route ? routeComponent : linkComponent)}
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  variant="button"
+                  textTransform="capitalize"
+                  minWidth={item.description ? "14rem" : "12rem"}
+                  color={item.description ? "dark" : "text"}
+                  fontWeight={item.description ? "bold" : "regular"}
+                  py={item.description ? 1 : 0.625}
+                  px={2}
+                  sx={({ palette: { grey, dark }, borders: { borderRadius } }) => ({
+                    borderRadius: borderRadius.md,
+                    cursor: "pointer",
+                    transition: "all 300ms linear",
 
-                      "&:hover": {
-                        backgroundColor: grey[200],
+                    "&:hover": {
+                      backgroundColor: grey[200],
+                      color: dark.main,
+
+                      "& *": {
                         color: dark.main,
-
-                        "& *": {
-                          color: dark.main,
-                        },
                       },
-                    })}
-                  >
-                    {item.description ? (
-                      <MKBox>
-                        {item.name}
-                        <MKTypography
-                          display="block"
-                          variant="button"
-                          color="text"
-                          fontWeight="regular"
-                          sx={{ transition: "all 300ms linear" }}
-                        >
-                          {item.description}
-                        </MKTypography>
-                      </MKBox>
-                    ) : (
-                      item.name
-                    )}
-                    {item.collapse && (
-                      <Icon
-                        fontSize="small"
-                        sx={{ fontWeight: "normal", verticalAlign: "middle", mr: -0.5 }}
+                    },
+                  })}
+                >
+                  {item.description ? (
+                    <MKBox>
+                      {item.name}
+                      <MKTypography
+                        display="block"
+                        variant="button"
+                        color="text"
+                        fontWeight="regular"
+                        sx={{ transition: "all 300ms linear" }}
                       >
-                        keyboard_arrow_right
-                      </Icon>
-                    )}
-                  </MKTypography>
-                );
-              });
-          }
+                        {item.description}
+                      </MKTypography>
+                    </MKBox>
+                  ) : (
+                    item.name
+                  )}
+                  {item.collapse && (
+                    <Icon
+                      fontSize="small"
+                      sx={{ fontWeight: "normal", verticalAlign: "middle", mr: -0.5 }}
+                    >
+                      keyboard_arrow_right
+                    </Icon>
+                  )}
+                </MKTypography>
+              );
+            });
+        }
 
-          return template;
-        })
+        return template;
+      })
       : null
   );
 
@@ -470,45 +497,59 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
         })}
       >
         <MKBox display="flex" justifyContent="space-between" alignItems="center">
-        <MKBox
-          py={1}
-          px={{ xs: 4, sm: transparent ? 2 : 3, lg: transparent ? 0 : 2 }}
-          sx={({ palette: { transparent: transparentColor, white }, functions: { rgba } }) => ({
-            backgroundColor: transparent,
-            backdropFilter: transparent,
-            display: { xs: "none", lg: "flex" },
-            justifyContent: "space-between", // Align items horizontally
-            alignItems: "center", // Center items vertically
-            padding: "2px 0px", // Adjust padding as needed
-          })}
+          <MKBox
+            py={1}
+            px={{ xs: 4, sm: transparent ? 2 : 3, lg: transparent ? 0 : 2 }}
+            sx={({ palette: { transparent: transparentColor, white }, functions: { rgba } }) => ({
+              backgroundColor: transparent,
+              backdropFilter: transparent,
+              display: { xs: "none", lg: "flex" },
+              justifyContent: "space-between", // Align items horizontally
+              alignItems: "center", // Center items vertically
+              padding: "2px 0px", // Adjust padding as needed
+            })}
           >
-            <img src={Logo} alt="Logo" style={{ height: "100px"}} />
+            <img src={Logo} alt="Logo" style={{ height: "100px" }} />
           </MKBox>
           <MKBox
             component={Link}
             to="/"
             lineHeight={1}
-            pr={{xs:2, lg:8, md:6}}
+            pr={{ xs: 2, lg: 8, md: 6 }}
             sx={({ palette: { transparent: transparentColor, white }, functions: { rgba } }) => ({
-              width:"100%",
+              width: "100%",
               justifyContent: "center",
-              textAlign: "center"
+              textAlign: "center",
             })}
           >
             <MKTypography variant="h3" fontWeight="bold" color={light ? "white" : "dark"}
-            sx={({ breakpoints, typography: { size } }) => ({
-              [breakpoints.down("md")]: {
-                fontSize: size["3xl"],
-              },
-              [breakpoints.down("xs")]: {
-                fontSize: size["xs"],
-              },
-              fontWeight:"28px"
-            })}
+              sx={{
+                fontSize: { xs: "20px", sm: "32px", md: "32px" }
+              }}
             >
               {brand}
             </MKTypography>
           </MKBox>
+          <Dialog
+            open={openLogoutDialog}
+            onClose={handleCloseLogoutDialog}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">{"Confirm Logout"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                Are you sure you want to log out?
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <MKButton onClick={handleCloseLogoutDialog}>Cancel</MKButton>
+              <MKButton onClick={handleConfirmLogout} autoFocus>
+                Logout
+              </MKButton>
+            </DialogActions>
+          </Dialog>
+
           <MKBox
             color="inherit"
             display={{ xs: "none", lg: "flex" }}
@@ -516,6 +557,30 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
             mr={center ? "auto" : 0}
           >
             {renderNavbarItems}
+            {/* <MKBox my="12px" mx="12px"></MKBox> */}
+            {!getUser() ? (
+              <MKButton
+                component={Link}
+                to="auth/login"
+                color="info"
+                variant="gradient"
+                size="big"
+              >
+                Login
+              </MKButton>
+            ) : (
+              <MKButton
+                // component={Link}
+                // to="auth/logout"
+                color="dark"
+                variant="gradient"
+                size="big"
+                onClick={handleLogoutClick}
+              >
+                Logout
+              </MKButton>
+            )}
+            <MKBox mx="12px"></MKBox>
           </MKBox>
           <MKBox ml={{ xs: "auto", lg: 0 }}>
             {action &&

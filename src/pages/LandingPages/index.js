@@ -21,6 +21,7 @@ import Button from "@mui/material/Button"
 import PatientCounter from "pages/LandingPages/sections/PatientCounter";
 import Pengertian from "./sections/Pengertian";
 import Gambar from "./sections/Gambar";
+
 // Material Kit 2 React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
@@ -53,8 +54,10 @@ import aspergilusImage from "assets/images/landingpage/aspergilus_landing_page.j
 import { Accordion, AccordionSummary, AccordionDetails } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Typography from '@mui/material/Typography';
+import { setUserSession, getUser } from "utils/authUtils";
 
 function LandingPage() {
+  console.log(getUser())
   return (
     <>
       <DefaultNavbar
@@ -80,7 +83,6 @@ function LandingPage() {
           infiniteLoop
           showThumbs={false}
           showIndicators={false}
-        // style={{ paddingBottom: '20px' }}  // Set the height limit here
         >
           <div>
             <img style={{ maxHeight: '500px', objectFit: "cover" }} src={bgImage} alt="Aspergilosis Background" />
@@ -110,7 +112,6 @@ function LandingPage() {
           <Grid container justifyContent="center" mx="auto" py={8}>
             <MKTypography
               variant="h1"
-              // color="white"
               textAlign="center"
               mt={-6}
               mb={1}
@@ -122,11 +123,6 @@ function LandingPage() {
                   fontSize: size["xs"],
                 },
               })}
-            // sx={({ breakpoints, typography: { size } }) => ({
-            //   [breakpoints.down("md")]: {
-            //     fontSize: size["3xl"],
-            //   },
-            // })}
             >
               ASPERGILOSIS PARU INVASIF{" "}
             </MKTypography>
@@ -145,20 +141,10 @@ function LandingPage() {
         <ContentDivider />
         <Pengertian />
         <Gambar />
-        {/* <EpidDanPeran /> */}
-        {/* <ContentDivider /> */}
-        {/* <RekomWHO /> */}
         <MKTypography
               variant="h2"
-              // color="white"
               textAlign="center"
-              // mt={-6}
               mb={4}
-            // sx={({ breakpoints, typography: { size } }) => ({
-            //   [breakpoints.down("md")]: {
-            //     fontSize: size["3xl"],
-            //   },
-            // })}
             >
               Penjelasan Lebih Lanjut{" "}
             </MKTypography>
