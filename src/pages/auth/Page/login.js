@@ -39,61 +39,62 @@ import MKButton from "components/MKButton";
 import authbg from "assets/images/auth/auth-illustration.svg"
 
 function Login() {
-    const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
-    const [rememberMe, setRememberMe] = useState(false);
-    const handleSetRememberMe = () => setRememberMe(!rememberMe);
-    const [username, setUsername] = useState(""); // State for username
-    const [password, setPassword] = useState(""); // State for password
-    const [showEmptyFieldsAlert, setShowEmptyFieldsAlert] = useState("");
-    const [showLoginAlert, setShowLoginAlert] = useState(false);
-  async function handleLogin() {
-        if(username.trim()  == "" || password.trim() == "")  {
-            setShowEmptyFieldsAlert(true);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
+  const handleSetRememberMe = () => setRememberMe(!rememberMe);
+  const [username, setUsername] = useState(""); // State for username
+  const [password, setPassword] = useState(""); // State for password
+  const [showEmptyFieldsAlert, setShowEmptyFieldsAlert] = useState("");
+  const [showLoginAlert, setShowLoginAlert] = useState(false);
+  async function handleLogin(event) {
+    event.preventDefault();
+    if (username.trim() == "" || password.trim() == "") {
+      setShowEmptyFieldsAlert(true);
+    }
+    else {
+      setShowEmptyFieldsAlert(false);
+      setLoading(true);
+      try {
+        const res = await fetch('https://api.mikostop.com/api/login/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            "username": username,
+            "password": password
+          })
+        })
+        if (res.ok) {
+          const data = await res.json()
+          console.log(data)
+          if (data) {
+            console.log(data)
+            setUserSession(
+              data.token,
+              {
+                username: username,
+                role: data.roles[0]
+              });
+            if (getUser() != null)
+              navigate('/criteria')
+          }
+
         }
-        else{
-            setShowEmptyFieldsAlert(false);
-            setLoading(true);
-            try {
-              const res = await fetch('https://api.mikostop.com/api/login/', {
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    "username": username,
-                    "password": password
-                })
-            })
-            if (res.ok) {
-                const data = await res.json()
-                console.log(data)
-                if (data)   {
-                    console.log(data)
-                    setUserSession(
-                        data.token, 
-                        {
-                            username: username,
-                            role: data.roles[0]
-                        });
-                    if (getUser() != null)
-                        navigate(-1)
-                }
-                
-            }
-            else {
-                setShowLoginAlert(true)
-            }
-            } catch (e) {
-            console.log(e)
-            } 
-            finally{
-                setLoading(false);
-            }
-                
-            }
-       
-      
+        else {
+          setShowLoginAlert(true)
+        }
+      } catch (e) {
+        console.log(e)
+      }
+      finally {
+        setLoading(false);
+      }
+
+    }
+
+
   }
 
   return (
@@ -102,9 +103,9 @@ function Login() {
         <Grid container justifyContent="center" alignItems="center"
         >
           <Grid item px={10} xs={12} sm={12} md={6} lg={6} xl={6} py={10}
-          sx={{
-            px: {xs:0, sm:10, md:5, lg:5, xl:10, py:10}
-          }}
+            sx={{
+              px: { xs: 0, sm: 10, md: 5, lg: 5, xl: 10, py: 10 }
+            }}
           >
             <MKBox
               mx={2}
@@ -117,28 +118,44 @@ function Login() {
               </MKTypography>
             </MKBox>
             <MKBox pt={4} pb={3} px={3}>
-              <MKBox component="form" role="form">
-              {showEmptyFieldsAlert && (
-                    <div style={{paddingBottom: "4px", fontSize: '14px', color: 'red' }} className="alert alert-danger ">Harap isi semua field.</div>
+              <MKBox component="form" role="form" onSubmit={handleLogin} noValidate>
+                {showEmptyFieldsAlert && (
+                  <div style={{ paddingBottom: "4px", fontSize: '14px', color: 'red' }} className="alert alert-danger ">Harap isi semua field.</div>
                 )}
                 {showLoginAlert && !showEmptyFieldsAlert && (
-                    <MKAlert color="error" dismissible 
-                        sx={{ // Set the desired width
-                            height: "auto",  
-                            padding: "8px",  
-                            fontSize: "12px",  
-                     
+                  <MKAlert color="error" dismissible
+                    sx={{ // Set the desired width
+                      height: "auto",
+                      padding: "8px",
+                      fontSize: "12px",
+
                     }}>
-                        Login Invalid. Silakan coba lagi.
-                    </MKAlert>
-                )} 
+                    Login Invalid. Silakan coba lagi.
+                  </MKAlert>
+                )}
                 <MKBox mb={2}>
-                  <MKInput type="username" label="Username" fullWidth value={username}
-          onChange={(e) => setUsername(e.target.value)} />
+                  <MKInput
+                    type="text"
+                    label="Username"
+                    fullWidth
+                    name="username" // Add name attribute for autofill
+                    id="username" // Add id for managing autofill
+                    autoComplete="username" // Enable autocomplete
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
                 </MKBox>
                 <MKBox mb={2} mt={4}>
-                  <MKInput type="password" label="Password" fullWidth value={password}
-          onChange={(e) => setPassword(e.target.value)}/>
+                  <MKInput
+                    type="password"
+                    label="Password"
+                    fullWidth
+                    name="current-password" // Set name attribute for autofill
+                    id="password" // Add id for managing autofill
+                    autoComplete="current-password" // Enable autocomplete
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
                 </MKBox>
                 <MKBox display="flex" alignItems="center" ml={-1}>
                   <Switch checked={rememberMe} onChange={handleSetRememberMe} />
@@ -153,26 +170,26 @@ function Login() {
                   </MKTypography>
                 </MKBox>
                 <MKBox mt={4} mb={1}>
-                  <MKButton 
-                  variant="gradient" 
-                  color="info" 
-                  fullWidth
-                  onClick={handleLogin}
+                  <MKButton
+                    variant="gradient"
+                    color="info"
+                    fullWidth
+                    type="submit"
                   >
                     {loading ? (
-                    <CircularProgress size={24} color="inherit" />
+                      <CircularProgress size={24} color="inherit" />
                     ) : (
-                    "Login"
+                      "Login"
                     )}
                   </MKButton>
                 </MKBox>
                 <MKBox mt={3} mb={1} textAlign="center">
-                  <MKTypography variant="button" color="text" 
+                  <MKTypography variant="button" color="text"
                     style={{
-                        '&hover': {
-                            textDecoration: 'underline',
-                        }
-                      }}
+                      '&hover': {
+                        textDecoration: 'underline',
+                      }
+                    }}
                   >
                     Belum mempunyai akun?{" "}
                     <MKTypography
@@ -192,19 +209,19 @@ function Login() {
           </Grid>
           <Grid item xs={0} sm={0} md={6} lg={6} xl={6}>
             <MKBox
-            bgColor= "#072A66"
-            mx = {0}
-            px = {0}
+              bgColor="#072A66"
+              mx={0}
+              px={0}
               sx={{
                 backgroundImage: `url(${authbg})`,
                 backgroundPosition: "center bottom",
                 height: "100vh",
                 backgroundSize: "cover",
-                display: {xs:"none", sm:"none", md:"grid", lg:"grid", xl:"grid"}, 
+                display: { xs: "none", sm: "none", md: "grid", lg: "grid", xl: "grid" },
                 backgroundRepeat: "no-repeat"
               }}
             >
-                
+
             </MKBox>
           </Grid>
         </Grid>
